@@ -1,0 +1,163 @@
+\section{Tensori di deformazione in caso di rotazioni e spostamenti finiti}
+
+\subsubsection*{Traslazione rigida}
+
+Consideriamo un punto $P$ e trasliamolo in direzione $x$ di una quantità $a$, di modo che:
+\begin{align*}
+    &x = X + a \quad\quad &u_x = a\\
+    &y = Y &u_y = 0\\
+    &z = Z &u_z = 0
+\end{align*}
+
+I tensori gradiente di deformazione, Green-Lagrange e piccole deformazioni diventano, rispettivamente: 
+\begin{equation*}
+\boldsymbol{F} = 
+\begin{bmatrix}
+\frac{\partial x}{\partial X} & \frac{\partial x}{\partial Y} & \frac{\partial x}{\partial Z} \\
+\frac{\partial y}{\partial X} & \frac{\partial y}{\partial Y} & \frac{\partial y}{\partial Z} \\
+\frac{\partial z}{\partial X} & \frac{\partial z}{\partial Y} & \frac{\partial z}{\partial Z}
+\end{bmatrix} = 
+\begin{bmatrix}
+   1 & 0 & 0 \\
+   0 & 1 & 0 \\
+   0 & 0 & 1 \\
+\end{bmatrix}
+\end{equation*}
+Il tensore gradiente di deformazione risente della traslazione rigida.
+
+ \begin{equation*}
+\boldsymbol{E} = \frac{1}{2} \left(\boldsymbol{F}^T \boldsymbol{F} - \boldsymbol{I}\right)
+= \left(\begin{bmatrix}
+   1 & 0 & 0 \\
+   0 & 1 & 0 \\
+   0 & 0 & 1 \\
+\end{bmatrix} 
+\begin{bmatrix}
+   1 & 0 & 0 \\
+   0 & 1 & 0 \\
+   0 & 0 & 1 \\
+\end{bmatrix} -
+\begin{bmatrix}
+   1 & 0 & 0 \\
+   0 & 1 & 0 \\
+   0 & 0 & 1 \\
+\end{bmatrix}\right) =
+\begin{bmatrix}
+   0 & 0 & 0 \\
+   0 & 0 & 0 \\
+   0 & 0 & 0 \\
+\end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+\epsilon_{ij} = \frac{1}{2} \left( u_{ji} + u_{ij} \right)
+= 
+\begin{bmatrix}
+\epsilon_{xx} & \epsilon_{xy} & \epsilon_{xz} \\
+\epsilon_{yx} & \epsilon_{yy} & \epsilon_{yz} \\
+\epsilon_{zx} & \epsilon_{zy} & \epsilon_{zz}
+\end{bmatrix}
+= 
+\frac{1}{2}
+\begin{bmatrix}
+2 u_{x/x} & u_{x/y} + u_{y/x} & u_{x/z} + u_{z/x} \\
+u_{y/x} + u_{x/y} & 2 u_{y/y} & u_{y/z} + u_{z/y} \\
+u_{z/x} + u_{x/z} & u_{z/y} + u_{y/z} & 2 u_{z/z}
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{bmatrix}
+\end{equation*}
+
+
+
+I tensori di Green-Lagrange e piccole deformazioni non risentono della rotazione rigida.
+
+\subsubsection*{Rotazione rigida}
+
+
+Consideriamo un punto $P$ e ruotiamolo in direzione $y$ di una quantità $\pi/ 2$, di modo che:
+\begin{align*}
+    &x = Z \quad\quad &u_x = Z-X\\
+    &y = Y    &   u_y = 0\\
+    &z = -X &u_z = -X-Z
+\end{align*}
+
+I tensori gradiente di deformazione, Green-Lagrange e piccole deformazioni diventano, rispettivamente: 
+\begin{equation*}
+\boldsymbol{F} = 
+\begin{bmatrix}
+\frac{\partial x}{\partial X} & \frac{\partial x}{\partial Y} & \frac{\partial x}{\partial Z} \\
+\frac{\partial y}{\partial X} & \frac{\partial y}{\partial Y} & \frac{\partial y}{\partial Z} \\
+\frac{\partial z}{\partial X} & \frac{\partial z}{\partial Y} & \frac{\partial z}{\partial Z}
+\end{bmatrix} = 
+\begin{bmatrix}
+   0 & 0 & -1 \\
+   0 & -1 & 0 \\
+   -1 & 0 & 0 \\
+\end{bmatrix}
+\end{equation*}
+Il tensore gradiente di deformazione risente della traslazione rigida.
+
+
+
+
+ \begin{equation*}
+\boldsymbol{E} = \frac{1}{2} \left(\boldsymbol{F}^T \boldsymbol{F} - \boldsymbol{I}\right)
+= \left(\begin{bmatrix}
+   0 & 0 & -1 \\
+   0 & -1 & 0 \\
+   -1 & 0 & 0 \\
+\end{bmatrix} 
+\begin{bmatrix}
+   0 & 0 & -1 \\
+   0 & -1 & 0 \\
+   -1 & 0 & 0 \\
+\end{bmatrix} -
+\begin{bmatrix}
+   1 & 0 & 0 \\
+   0 & 1 & 0 \\
+   0 & 0 & 1 \\
+\end{bmatrix}\right) =
+\begin{bmatrix}
+   0 & 0 & 0 \\
+   0 & 0 & 0 \\
+   0 & 0 & 0 \\
+\end{bmatrix}
+\end{equation*}
+
+Il tensore di Green-Lagrange non risente delle rotazioni rigide.
+
+\begin{equation*}
+\epsilon_{ij} = \frac{1}{2} \left( u_{ji} + u_{ij} \right)
+= 
+\begin{bmatrix}
+\epsilon_{xx} & \epsilon_{xy} & \epsilon_{xz} \\
+\epsilon_{yx} & \epsilon_{yy} & \epsilon_{yz} \\
+\epsilon_{zx} & \epsilon_{zy} & \epsilon_{zz}
+\end{bmatrix}
+= 
+\frac{1}{2}
+\begin{bmatrix}
+2 u_{x/x} & u_{x/y} + u_{y/x} & u_{x/z} + u_{z/x} \\
+u_{y/x} + u_{x/y} & 2 u_{y/y} & u_{y/z} + u_{z/y} \\
+u_{z/x} + u_{x/z} & u_{z/y} + u_{y/z} & 2 u_{z/z}
+\end{bmatrix}
+=
+\begin{bmatrix}
+-1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & -1
+\end{bmatrix}
+\end{equation*}
+
+Il tensore delle piccole deformazioni risente delle rotazioni rigide.
+
+
+
+
+
+Concludiamo che il tensore di Green-Lagrange si rivela l'unico trasparente alle rototraslazioni rigide.

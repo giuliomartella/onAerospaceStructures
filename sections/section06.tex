@@ -1,0 +1,108 @@
+\section{Tensore gradiente di deformazione e tensore di Green-Lagrange}
+\subsubsection*{Primo Tensore}
+Considerando un corpo che si muove e si deforma nello spazio, indichiamo la mappatura di un punto con $\Psi$ tale che:
+
+\begin{equation*}
+\mathbf{x} =  \Psi(\mathbf{X}) 
+\quad \quad 
+\mathbf{x} = 
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}
+= 
+\begin{bmatrix}
+\psi_1(\mathbf{X}) \\
+\psi_2(\mathbf{X}) \\
+\psi_3(\mathbf{X})
+\end{bmatrix}
+\end{equation*}
+
+Essendo che $\mathbf{u} + d\mathbf{x} = \Psi(\mathbf{X} + d\mathbf{X})$ e $\mathbf{u} = \Psi(\mathbf{X})$, risulta che per spostamenti infinitesimi:
+
+\begin{equation*}
+d\mathbf{x} = \Psi(\mathbf{X} + d\mathbf{X}) - \Psi(\mathbf{X})
+\end{equation*}
+
+\begin{definizioneBox}
+Tensore gradiente di deformazione 
+\begin{equation*}
+\boldsymbol{F} = \frac{d\mathbf{x}}{d\mathbf{X}} = \frac{\Psi(\mathbf{X} + d\mathbf{X}) - \Psi(\mathbf{X})}{d\mathbf{X}}
+\end{equation*}
+\end{definizioneBox}
+
+Risulta quindi :
+\begin{equation*}
+d\mathbf{x} = \boldsymbol{F}\ d\mathbf{X} 
+\quad \quad  
+\boldsymbol{F} = 
+\begin{bmatrix}
+\frac{\partial x}{\partial X} & \frac{\partial x}{\partial Y} & \frac{\partial x}{\partial Z} \\
+\frac{\partial y}{\partial X} & \frac{\partial y}{\partial Y} & \frac{\partial y}{\partial Z} \\
+\frac{\partial z}{\partial X} & \frac{\partial z}{\partial Y} & \frac{\partial z}{\partial Z}
+\end{bmatrix}
+\end{equation*}
+
+Essendo $\mathbf{u}$ lo spostamento del punto $P$ risulta:
+
+\begin{equation*}
+\mathbf{u} = \mathbf{x} - \mathbf{X} = \Psi(\mathbf{X}) -\mathbf{X}, \quad \quad \Psi(\mathbf{X}) = \mathbf{X}+ \mathbf{u}
+\end{equation*}
+
+Infine: 
+\begin{equation*}
+\boldsymbol{F} = \frac{\partial\Psi(\mathbf{X})}{\partial \mathbf{x} } = \frac{ \partial \mathbf{u} }{\partial \mathbf{X} } + \frac{ \partial\mathbf{X} }{ \partial\mathbf{X} } = \frac{ \partial \mathbf{u} }{\partial \mathbf{X} } + \boldsymbol{I} 
+\end{equation*}
+
+\subsubsection*{Secondo Tensore}
+
+Definiamo:
+\begin{itemize}
+    \item $dS^2 = d\mathbf{X}^T  d\mathbf{X} $, in condizione indeformata
+    \item $ds^2 = d\mathbf{x}^T  d\mathbf{x} $, in condizione deformata
+\end{itemize}
+Sottraendoli fra loro:
+\begin{align*}
+    ds^2 - dS^2 &= d\mathbf{x}^T  d\mathbf{x}  - d\mathbf{X}^T  d\mathbf{X}\\
+    &=  d\mathbf{X}^T \boldsymbol{F}^T \boldsymbol{F} d\mathbf{X} - d\mathbf{X}^T  d\mathbf{X}\\
+    &= d\mathbf{X}^T (\boldsymbol{F}^T \boldsymbol{F} - \boldsymbol{I}) d\mathbf{X}
+\end{align*}
+
+\begin{definizioneBox}
+    Tensore di Green-Lagrange
+    \begin{equation*}
+\boldsymbol{E} = \frac{1}{2} \left(\boldsymbol{F}^T \boldsymbol{F} - \boldsymbol{I}\right)
+\end{equation*}
+\end{definizioneBox}
+
+\subsubsection*{Terzo Tensore}
+
+Rielaboro il tensore di Green-Lagrange
+\begin{align*}
+\boldsymbol{E} &= \frac{1}{2} \left[ \left( \frac{\partial \mathbf{u}}{\partial \mathbf{X}} + \boldsymbol{I} \right)^{\!\top} \left( \frac{\partial \mathbf{u}}{\partial \mathbf{X}} + \boldsymbol{I} \right) - \boldsymbol{I} \right] \\
+&= \frac{1}{2} \left[ \left( \frac{\partial \mathbf{u}}{\partial \mathbf{X}} \right)^{\!\top} \frac{\partial \mathbf{u}}{\partial \mathbf{X}} + \left( \frac{\partial \mathbf{u}}{\partial \mathbf{X}} \right)^{\!\top} + \frac{\partial \mathbf{u}}{\partial \mathbf{X}} \right]
+\end{align*}
+
+In componenti:
+\begin{align*}
+E_{ij} &= \frac{1}{2} \left( \frac{\partial u_k}{\partial X_i} \frac{\partial u_k}{\partial X_j} + \frac{\partial u_j}{\partial X_i} + \frac{\partial u_i}{\partial X_j} \right) \\
+&= \frac{1}{2} \left( u_{k/i} \, u_{k/j} + u_{j/i} + u_{i/j} \right) 
+\end{align*}
+
+Consideriamo spostamenti e rotazioni infinitesimi $ u_{k/i} \, u_{k/j}  = 0$.
+\begin{definizioneBox}
+Tensore delle Piccole Deformazioni
+    \begin{equation*}
+\epsilon_{ij} = \frac{1}{2} \left( u_{j/i} + u_{i/j} \right) 
+\end{equation*}
+\end{definizioneBox}
+
+$\boldsymbol{\epsilon}$ è il tensore coniugato al tensore degli sforzi di Cauchy, come questo è simmetrico.
+
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{pgffor}
+\usepackage{paralist}
+
+
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\geometry{margin=2.5cm}
+\title{\Huge Raccolta di Domande\linebreak
+\Large Strutture Aerospaziali}
+\author{Giulio Martella}
+\date{\today}
+
+
+\newtcolorbox{definizioneBox}{
+  enhanced,
+  colback=white,             % nessun riempimento
+  colframe=black,            % bordo nero
+  boxrule=0.3pt,             % bordo sottile
+  arc=0mm,                   % angoli retti
+  fonttitle=\bfseries,       % titolo in grassetto
+ title={Definizione\phantom{X}},
+  coltitle=black,
+  attach title to upper,
+  boxed title style={
+    empty,
+    size=small,
+    interior empty,
+    top=0pt, bottom=0pt, left=4pt, right=4pt
+  },
+  top=2pt, bottom=2pt, left=6pt, right=6pt
+}
+
+
+
+\newtcolorbox{esempioBox}{
+  enhanced,
+  colback=white,          % nessun riempimento
+  colframe=black,         % bordo nero
+  boxrule=0.3pt,          % bordo sottile
+  arc=0mm,                % angoli retti
+  fonttitle=\bfseries,    % titolo in grassetto
+   title={Esempio\phantom{X}},
+  coltitle=black,         % nessun colore di sfondo al titolo
+  attach title to upper,  % titolo sulla linea in alto
+  boxed title style={
+    empty,
+    size=small,
+    interior empty,       % nessun riempimento nel riquadro titolo
+    top=0pt, bottom=0pt, left=4pt, right=4pt
+  },
+  top=2pt, bottom=2pt, left=6pt, right=6pt
+}
+
+
+
+\begin{document}
+\maketitle
+\vfill
+\begin{center}
+    \small\textit{PRIVATE DRAFT}\\
+    \small\textit{Some sources are not yet fully credited. Until the work is finalized, any form of reproduction or public redistribution is prohibited.}\\
+    %\small\textit{Source available at:} \url{https://github.com/giuliomartella}\\
+    %\small\textit{This work is free to use, distribute, and modify, provided that proper credit is given to the authors.}    
+\end{center}
+
+
+\thispagestyle{empty}
+\newpage
+\tableofcontents
+\newpage
+
+
+\foreach \i in {1,...,75} {
+  \input{sections/section\ifnum\i<10 0\fi\i.tex}
+}
+
+
+\end{document}

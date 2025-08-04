@@ -1,0 +1,48 @@
+\section{Tetraedro di Cauchy}
+
+Il \textbf{tetraedro di Cauchy} è una costruzione geometrica fondamentale in meccanica dei solidi, usata per ricavare la relazione tra il vettore degli sforzi $.\mathbf{t}^{(\mathbf{n})}$ su un piano generico di normale $\mathbf{n}$ e il tensore degli sforzi $\mathbf{\sigma}$ nel punto. Questo strumento permette di collegare il concetto di sforzo su piani qualunque agli sforzi sulle direzioni coordinate principali.
+% Descrizione geometrica
+Si considera un \textbf{tetraedro infinitesimo} entro il corpo, con tre facce parallele ai piani coordinati (ortogonali agli assi $.x$ $,y$ e $,z$) e una quarta faccia obliqua di area $,\Delta A$ con normale unitaria $,\mathbf{n} = (n_x, n_y, n_z)$ Le aree delle facce coordinate sono $.\Delta A_x$ $,\Delta A_y$ $,\Delta A_z$
+% Relazione tra le aree
+Per la geometria del tetraedro, si ha:
+\begin{equation*}
+\Delta A_x = \Delta A \cdot n_x\qquad
+\Delta A_y = \Delta A \cdot n_y, \qquad
+\Delta A_z = \Delta A \cdot n_z
+\end{equation*}
+cioè ciascuna area coordinata è pari all’area della faccia obliqua moltiplicata per il rispettivo coseno direttore della normale $,\mathbf{n}$
+%—BILANCIO DELLE FORZE SUL TETRAEDRO—
+Imponendo l’equilibrio delle forze sulle cinque facce del tetraedro (forze interne e forze di volume per unità di volume $.\mathbf{b}$):
+\begin{equation*}
+\mathbf{t}^{(\mathbf{n})} \ \Delta A
+- \mathbf{t}^{(\mathbf{e}_x)} \, \Delta A_x
+- \mathbf{t}^{(\mathbf{e}_y)} \, \Delta A_y
+- \mathbf{t}^{(\mathbf{e}_z)} \, \Delta A_z
++ \mathbf{b} \Delta V = 0
+\end{equation*}
+dove:
+- $\mathbf{t}^{(\mathbf{n})}$: vettore sforzo sulla faccia obliqua ($\Delta A$)
+- $\mathbf{t}^{(\mathbf{e}_i)}$: vettore sforzo sulle facce ortogonali agli assi ($\Delta A_i$)
+- $\Delta V$: volume infinitesimo del tetraedro
+- $\mathbf{b}$: forza di volume per unità di volume (ad esempio peso specifico)
+%—PASSAGGIO AL LIMITE E RELAZIONE DI CAUCHY—
+Dividendo per $\Delta A$ e facendo tendere $\Delta A \to 0$ (e dunque anche $\Delta V \to 0$) il termine $,\mathbf{b}\Delta V$ si annulla più rapidamente (essendo $\Delta V$ di ordine superiore rispetto a $\Delta A$) e otteniamo:
+\begin{equation*}
+\mathbf{t}^{(\mathbf{n})} =
+\mathbf{t}^{(\mathbf{e}_x)} n_x +
+\mathbf{t}^{(\mathbf{e}_y)} n_y +
+\mathbf{t}^{(\mathbf{e}_z)} n_z
+\end{equation*}
+Questa equazione è la \textbf{relazione di Cauchy} che esprime il vettore sforzo su un piano qualunque come combinazione lineare dei vettori sforzi sulle facce coordinate.
+% Forma tensoriale
+In forma tensoriale, la relazione si scrive:
+\begin{equation*}
+\mathbf{t}^{(\mathbf{n})} = \mathbf{\sigma}^T \mathbf{n}
+\end{equation*}
+\begin{equation*}
+\text{oppure in forma esplicita sulle componenti:}\qquad t_j = \sigma_{ij} n_i
+\end{equation*}
+dove $\sigma_{ij}$ sono le componenti del tensore degli sforzi di Cauchy e la notazione $^T$ indica la trasposizione (spesso trascurata quando il tensore è simmetrico)
+
+Questa relazione è usata per ruotare tensori di ordine 2 (per esempio le matrici di rigidezza di materiali ortotropi). Inoltre è usata nella dimostrazione del PLV per ottenere gli sforzi tangenti al contorno.
+

@@ -1,0 +1,53 @@
+\section{Definizione di sforzo di Cauchy}
+
+Consideriamo un corpo in equilibrio nella configurazione deformata, sotto l'azione di carichi esterni. Dividendo il corpo in due parti, con $\Delta F$ la forza risultante dei carichi trasmessi e $\Delta A $ la superficie attraverso la quale viene trasmessa. 
+
+Sviluppando il limite delle forze trasmesse risulta:
+
+\begin{equation*}
+ \lim_{\Delta A \to 0} \frac{\Delta \mathbf{F}}{\Delta A}   =\mathbf{t}             \quad\quad \left[ \frac{N}{mm^2} \right]
+\end{equation*}
+
+\begin{equation*}
+\mathbf{t} = 
+\begin{bmatrix}
+t_x \\
+t_y \\
+t_z
+\end{bmatrix}
+=
+\lim_{\Delta A \to 0} 
+\begin{bmatrix}
+\Delta F_x / \Delta A \\
+\Delta F_y / \Delta A \\
+\Delta F_z / \Delta A
+\end{bmatrix}
+\end{equation*}
+
+Questo però non rappresenta lo stato di sforzo trasmesso, tagliando la superficie di contatto in modi diversi risultano infatti vettori di sforzo fra di loro linearmente indipendenti.\\
+Lo sforzo quindi non è caratteristico di un singolo vettore $\mathbf{t}$ (un tensore di ordine 1),  ma da tre vettori $\mathbf{t}_i$ calcolati su tra piani ortogonali fra loro. Lo stato di sforzo è quindi un tensore doppio con 9 componenti (4 in caso bidimensionale).
+
+\begin{equation*}
+\boldsymbol{\sigma} 
+= \left[ \sigma_{ij} \right] 
+= \begin{bmatrix}
+t_{xx} & t_{xy} & t_{xz} \\
+t_{yx} & t_{yy} & t_{yz} \\
+t_{zx} & t_{zy} & t_{zz}
+\end{bmatrix}
+= \left[ 
+\mathbf{t}_x \ \mathbf{t}_y \ \mathbf{t}_z
+\right]^T
+=\begin{bmatrix}
+\mathbf{t}_x^T \\
+\mathbf{t}_y^T \\
+\mathbf{t}_z^T
+\end{bmatrix}
+\end{equation*}
+
+dove $t_{ij}$ è la componente j del vettore sforzo normale al piano i.
+$\sigma_{ij}$ è la componente di $\boldsymbol{\sigma}$ in direzione j sul piano che ha la normale diretta come i.
+
+
+
+
