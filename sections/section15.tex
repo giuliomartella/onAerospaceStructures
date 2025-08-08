@@ -1,3 +1,67 @@
 \section{Modello di trave. Definizione e approccio con il metodo delle forze}
 
+Si definisce trave il volume generato dalla traslazione di una figura piana(sezione) lungo un asse perpendicolare ad essa. Per convenzione $z$ è l'asse della trave e $(x,y)$ rappresenta il piano della sezione.\\
+Definiamo le azioni interne come il sistema di tre forze e tre momenti che, sezione per sezione, mantengono il equilibrio la trave rispetto ai carichi esterni. Prendiamo i versi positivi delle azioni interne sulla faccia positiva (ovvero con la normale concorde con $z$).\\
+Per calcolare le azioni interne, assegnato un carico, bisogna eseguire l'equilibrio di due parti di trave. Trovando le risultanti delle forze distribuite sulla sezione $r_x(z)$ e $r_y(z)$ , dove per esempio $r_y = \int_{-a}^{+b}P_y(x)\,dx$ . A seguire le azioni interne si calcolano con le seguenti relazioni differenziali:
+\begin{align*}
+    dT_y \, &=\, -r_ydz \quad \quad \quad\quad &dT_x \, &=\, -r_xdz \quad \quad \quad\quad &dT_z \, &=\, -r_zdz \\
+    dM_y \, &=\, -T_xdz      &dM_x \, &=\, -T_ydz       &dM_z \, &=\, -m_zdz 
+\end{align*}
+Si osserva come per la determinazione delle forze interne non sia richiesta alcuna conoscenza della forma della sezione, è sufficiente infatti definire la posizione del sistema di riferimento.\\
+
+Risolvere il problema con il metodo delle forze comporta esprimere tutte le grandezze in funzione di forze e sforzi.\\
+Si prosegue nel seguente modo:
+\begin{itemize}
+    \item Calcolo delle azioni interne, equilibrate ai carichi, con le relazioni differenziali.\\
+    \item Si possono scrivere le equazioni di equivalenza tra sforzi ed azioni interne
+    \begin{align*}
+    T_y \, &=\, \int_{\bar{A}} \tau_y \, dA 
+    &\quad\quad T_x \, &=\, \int_{\bar{A}} \tau_x \, dA 
+    &\quad\quad T_z \, &=\, \int_{\bar{A}} \sigma \, dA \\
+    M_y \, &=\, - \int_{\bar{A}} \sigma x \, dA 
+    &\quad\quad M_x \, &=\,  \int_{\bar{A}} \sigma y \, dA 
+    &\quad\quad M_z \, &=\, \int_{\bar{A}} ( \tau_y x - \tau_x y ) \, dA
+\end{align*}
+
+    Da cui 
+    \begin{equation*}
+        \sigma = \frac{T_z}{\bar{A}} +  \frac{M_x}{J_x}y -\frac{M_y}{J_y}x
+    \end{equation*}\\
+    \item Le deformazioni possono essere espresse tramite gli sforzi attraverso il seguente legame costitutivo.
+    \begin{equation*}
+    \left\{\varepsilon\right\} = [C]  \left\{\sigma\right\}\quad \rightarrow \quad
+\left\{
+\begin{array}{c}
+\epsilon_x \\
+\gamma_x \\
+\gamma_y
+\end{array}
+\right\}
+=
+\left[
+\begin{array}{ccc}
+\frac{1}{E} & 0 & 0 \\
+0 & \frac{1}{G} & 0 \\
+0 & 0 & \frac{1}{G}
+\end{array}
+\right]
+\left\{
+\begin{array}{c}
+\sigma_x \\
+\tau_x \\
+\tau_y
+\end{array}
+\right\}
+\end{equation*}\\
+\item Conoscendo sia gli sforzi che le deformazioni è possibile, attraverso il PLVC: $\delta L_e = \delta L_d$, calcolare gli spostamenti:
+\begin{align*}
+    \delta L_d \, &= \, \int_{\Omega} \left\{\varepsilon \right\}^T \left\{\delta\sigma \right\} \, dV\\
+    \delta L_e \, &= \, (forze \,\, virtuali)\times (spostamenti\,\,reali)
+\end{align*}
+\end{itemize}
+
+
+
+
+
 

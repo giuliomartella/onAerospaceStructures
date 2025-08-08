@@ -1,3 +1,42 @@
 \section{Equazioni di compatibilità}
 
+\begin{definizioneBox}
+Equazioni di compatibilità. Equazioni che legano fra loro le componenti del tensore delle piccole deformazioni
+\end{definizioneBox}
+
+\begin{align*}
+     \varepsilon_{xx} &= u_{x/x}& \quad \quad\quad\quad\quad \varepsilon_{yy} &= u_{y/y}& \quad \quad\quad\quad\quad \varepsilon_{zz} &= u_{z/z} \\
+      2\varepsilon_{xy} &= u_{x/y} + u_{y/x} &
+      2\varepsilon_{xz} &= u_{x/z} + u_{z/x} &
+      2\varepsilon_{yz} &= u_{y/z} + u_{z/y} 
+\end{align*}
+
+\begin{equation*}
+    \begin{cases}
+        2\varepsilon_{xy/xy} = u_{x/yyx} + u_{y/xxy} 
+        = \varepsilon_{xx/yy} + \varepsilon_{yy/xx} \\[8pt]
+        
+        2\varepsilon_{xz/xz} = u_{x/zzx} + u_{z/xxz} 
+        = \varepsilon_{xx/zz} + \varepsilon_{zz/xx} \\[8pt]
+        
+        2\varepsilon_{yz/yz} = u_{y/zzy} + u_{z/yyz} 
+        = \varepsilon_{yy/zz} + \varepsilon_{zz/yy}
+    \end{cases}
+\end{equation*}
+Quindi per soddisfare la congruenza vanno rispettate le seguenti equazioni di compatibilità:
+\begin{equation*}
+    \begin{cases}
+        \gamma_{xy/xy} = u_{x/yyx} + u_{y/xxy} 
+        = \varepsilon_{xx/yy} + \varepsilon_{yy/xx} \\[8pt]
+        
+        \gamma_{xz/xz} = u_{x/zzx} + u_{z/xxz} 
+        = \varepsilon_{xx/zz} + \varepsilon_{zz/xx} \\[8pt]
+        
+        \gamma_{yz/yz} = u_{y/zzy} + u_{z/yyz} 
+        = \varepsilon_{yy/zz} + \varepsilon_{zz/yy}
+    \end{cases}
+\end{equation*}
+
+Ipotizzando un generico campo di spostamenti, se le deformazioni non rispettano queste equazioni allora il campo non è congruente.
+Più precisamente sono equazioni di congruenza interna, verificano dunque che nel dominio deformabile non avvengano lacerazioni o compenetrazioni.
 

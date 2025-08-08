@@ -1,3 +1,24 @@
-\section{18. Modello di trave. Ipotesi sugli sforzi. E limiti del modello.}
+\section{Modello di trave. Ipotesi sugli sforzi. E limiti del modello.}
 
+Riguardo le ipotesi sugli sforzi. Le sole componenti di $\left\{\sigma\right\}$ non nulle sono $\sigma_{zz} = \sigma$, $\sigma_{zx} = \tau_x$ e $\sigma_{zy} = \tau_y$, sono nulle $\sigma_{xx} = \sigma_{yy}=\sigma_{xy}=0$. Osserviamo quindi che sono non nulle anche delle componenti che non giacciono nel piano della sezione, attraverso la relazione di Cauchy si ricava quindi che le $ \tau$ al bordo della sezione sono tangenti a questo e che quindi le $\tau$ normali al bordo sono nulle.\\
+Ipotizziamo inoltre che il valore degli sforzi $\left\{\sigma\right\}$  calcolati in un punto $P$ della trave dipenda solamente dal valore delle azioni interne calcolate sulla sezione alla quale $P$ appartiene. Dunque $\left\{\sigma\right\}$  viene calcolato solamente attraverso $\left\{ T_x, T_y,T_z, M_x, M_y,M_z\right\}$ . Questa ipotesi è forte in quanto si guarda solo alla risultante dei carichi ignorando la loro distribuzione.\\
+
+\begin{esempioBox}
+    Consideriamo una trave di lunghezza $L$ per la quale vogliamo calcolare gli sforzi in un punto $P$, centro della sezione a un estremo. La trave è caricata sull'estremo opposto in tre modi diversi. Con un carico concentrato $A$ tale che $T_y = -F$  e $M_x = -FL$. Con un carico distribuito uniforme $B$ tale che $T_y = -F$  e $M_x = -FL$. Infine con un carico a distribuzione triangolare $C$ tale che $T_y = -F$  e $M_x = -FL$.
+    I tre casi generano le stesse azioni interne, di modo che $\left\{\sigma\right\}_A =\left\{\sigma\right\}_B= \left\{\sigma\right\}_C $ .\\
+    Qualitativamente potremmo stabilire che la differente distribuzione dei carichi comporti una diversa distribuzione degli sforzi nei pressi della zona di applicazione. Tuttavia nel modello di trave i tre casi producono le risultanti, dunque la medesima distribuzione degli sforzi.
+\end{esempioBox}
+ Possiamo affermare che nel modello di trave le $\left\{\sigma\right\}$:
+ \begin{compactitem}
+     \item dipendono solo dalle azioni interne(risultanti dai carichi),\\
+     \item non risentono della distribuzione dei carichi,\\
+     \item sono equivalenti alle azioni interne,\\
+     \item sono equilibranti rispetto ai carichi esterni.
+ \end{compactitem}
+ 
+ Risulta evidente come il modello di trave sia inaccurato nel descrivere gli sforzi vicino ai carichi applicati. Possiamo valutare numericamente l'errore generato nell'ipotesi per cui i carichi siano applicati soltanto alle estremità.
+ \begin{esempioBox}
+     Consideriamo una trave caricata da una pressione $p$ in direzione $y$. Applicando la relazione di Cauchy  $\boldsymbol{\sigma}^T\mathbf{n}=\mathbf{t_n}$ otteniamo che $\sigma_{yy} = p$. Confrontiamo questo valore con $\sigma_{zz}$, calcolato come $\sigma_{zz} = \frac{M_x}{J_x}y$ (dove le azioni interne sono risultanti di $p$).\\
+     Dal confronto si vede come $\sigma_{yy}<<\sigma$, ma il loro rapporto non rimane costante. Per una trave con bassa snellezza ($\lambda = L/d$), $\sigma$ decresce, $\sigma /\sigma_{yy}  $ diminuisce. Ad esempio, per una trave HEA 200 di snellezza $\lambda = 1$, si ottiene $\sigma /\sigma_{yy}  \approx1$, risultando in un errore dell'ordine del $10\%.$
+ \end{esempioBox}
 

@@ -1,3 +1,84 @@
-\section{27. Modello di trave. Calcolo matrice di rigidezza per trave libera con metodo agli spostamenti}
+\section{Modello di trave. Calcolo matrice di rigidezza per trave libera con metodo agli spostamenti}
+
+Partiamo dall'espressione generica della matrice di rigidezza in notazione di Voigt, consideriamo il solito problema di una trave incastrata.
+
+
+\begin{equation*}
+\left\{
+\begin{array}{c}
+F_{11}\\
+F_{12} \\
+F_{13} \\
+F_{21} \\
+F_{22} \\
+F_{23}
+\end{array}
+\right\}
+=
+\begin{bmatrix}
+\mathbf{A} & \mathbf{B} \\
+\mathbf{C} & \mathbf{D}
+\end{bmatrix}
+\left\{
+\begin{array}{c}
+s_{11} \\
+s_{12} \\
+s_{13} \\
+s_{21} \\
+s_{22} \\
+s_{23}
+\end{array}
+\right\}
+\end{equation*}
+
+Usiamo la scomposizione della matrice di rigidezza che abbiamo definito per dividere e semplificare il problema. Partiamo dalla matrice $D$ che, quando gli spostamenti sul primo estremo sono nulli (è presente un incastro), lega le forze sul secondo estremo agli spostamenti sul secondo estremo.\\
+\begin{esempioBox}
+Per calcolare $D_{11}$ risolviamo la struttura con il metodo degli spostamenti e il PLV. Sappiamo che $F_{21}=D_{11}s_{21}$. Ammesso che l'asse $z$ parta dall'incastro assumiamo per lo spostamento assiale una forma lineare $w_z = az+b$. Dopodiché per congruenza rispetto ai vincoli scriviamo:
+\begin{equation*}
+    \begin{cases}
+        w_z(0 )=0\\
+         w_z(l )=s_{21}\\
+    \end{cases}
+    \quad\quad\quad \rightarrow\quad\quad\quad
+        \begin{cases}
+            b=0\\
+            a = \frac{s_{21}}{l}
+        \end{cases}
+      \quad\quad\quad \rightarrow\quad\quad\quad
+    w_z(z) = \frac{s_{21}}{l}z
+\end{equation*}
+
+Adesso scriviamo l'espressione del PLV considerando che $T_z = w'_z \,EA = aEA $.
+\begin{align*}
+    \delta L_e\,&=\,F_{21}\, \delta s_{21}\\
+    \delta L_d\,&=\,\int_l \delta w'_z \,EAw'_z\,dz\, = \,\int_l \delta s_{21} \frac{1}{l}\,EAs_{21} \frac{1}{l}\,dz\, 
+    = \,\delta s_{21} \frac{EA}{l}s_{21} \\
+    F_{21} \delta s_{21} \,&= \,\delta s_{21} \frac{EA}{l}s_{21} 
+    \quad\quad\quad \rightarrow\quad\quad\quad
+     F_{21}  \,= \, \frac{EA}{l}s_{21} \\
+     D_{11} \,&= \, \frac{EA}{l}
+\end{align*}
+\end{esempioBox}
+
+La matrice $\boldsymbol{B}$ si ricava considerando che le forze generalizzate sul primo estremo sono equilibranti rispetto alle forze sul secondo estremo. Scrivo l'equilibrio:
+
+\begin{equation*}
+    \begin{cases}
+        F_{11} + F_{21} =0\\
+        F_{12} + F_{22} =0\\
+        F_{13} + F_{23} +F_{23}l =0\\
+    \end{cases}
+    \quad\quad\quad\rightarrow\quad\quad\quad
+    \begin{cases}
+        F_{11}   =-F_{21}=   -\frac{EA}{l}s_{21}\\
+        F_{12}   =-F_{22}= -   \frac{12EJ}{l^3} s_{22}  +   \frac{6EJ}{l^2} s_{23}\\
+        F_{13}  =- F_{23} -F_{23}l= -   \frac{6EJ}{l^2} s_{22}  +   \frac{2EJ}{l} s_{23} \\
+    \end{cases}
+\end{equation*}
+
+La matrice $\boldsymbol{C}$ si trova per simmetria, $\boldsymbol{B} =\boldsymbol{C} $. La matrice $\boldsymbol{A}$ infine si ricava scrivendo le condizioni di equilibrio rispetto alla matrice $\boldsymbol{C}$.
+
+
+
 
 

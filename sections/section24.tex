@@ -1,3 +1,60 @@
-\section{24. Modello di trave. Legame spostamenti, deformazioni e azioni interne.}
+\section{Modello di trave. Legame spostamenti, deformazioni e azioni interne.}
+
+Per un generico punto della sezione vale:
+ \begin{equation*}
+        s_z \,=\,  w_z \,-\,w'_x  x\, -\,w'_y  y
+ \end{equation*}
+
+ Considero come componenti significative di $\left\{\sigma\right\}$ e $\left\{\varepsilon\right\}$ :
+ \begin{equation*}
+     \left\{\sigma\right\} = \left\{
+    \begin{array}{c}
+    \sigma_{zz} \\ \sigma_{zx} \\ \sigma_{zy}
+    \end{array}
+    \right\} = \left\{
+    \begin{array}{c}
+    \sigma\\ \tau_x \\ \tau_y
+    \end{array}
+    \right\}\quad\quad\quad\quad
+    \left\{\varepsilon\right\} = \left\{
+    \begin{array}{c}
+    \varepsilon_{zz} \\ \gamma_{zx} \\ \gamma_{zy}
+    \end{array}
+    \right\} = \left\{
+    \begin{array}{c}
+    \varepsilon\\ \gamma_x \\ \gamma_y
+    \end{array}
+    \right\}
+ \end{equation*}
+
+ Dalle precedenti vale:
+ \begin{align*}
+     \varepsilon_{zz} &= \frac{1}{2} (s_{z/z} +s_{z/z})= s_{z/z} =  w'_z \,-\,w''_x  x\, -\,w''_y  y\\
+     \sigma_{zz} &= \sigma = E \,\varepsilon = E\,w'_z \,-\,E\,w''_x  x\, -\,E\,w''_y  y
+ \end{align*}
+
+ Scrivo quindi le equazioni di equivalenza per le azioni interne:
+ \begin{align*}
+    T_z \, &=\, \int_{\bar{A}} \sigma \, dA = \, \int_{\bar{A}} (E\,w'_z \,-\,E\,w''_x  x\, -\,E\,w''_y  y) \, dA \\
+    M_y \, &=\, - \int_{\bar{A}} (E\,w'_zx \,-\,E\,w''_x  x^2\, -\,E\,w''_y  xy)  \, dA \\
+    M_x \, &=\,  \int_{\bar{A}} (E\,w'_z y\,-\,E\,w''_x  xy\, -\,E\,w''_y  y^2) \, dA \\
+\end{align*}
+
+Se la trave è omogenea $E$ esce dagli integrali mentre se il sistema è principale d'inerzia i momenti statici e il momento centrifugo si annullano. Risultando
+\begin{equation*}
+    \begin{cases}
+        T_z = E\bar{A} w'_z\\
+        M_x = -EJ_xw''_y\\
+        M_y = EJ_yw''_x
+    \end{cases}
+\end{equation*}
+Estendendo al lavoro virtuale di deformazione (PLV), considerando solo $\sigma_{zz}$:
+\begin{align*}
+     L_d &= \int_\Omega  \left\{\varepsilon\right\}^T \left\{\sigma\right\}\, dV\\
+     &= \int_l\int_{\bar{A}} ( \delta w'_z \,-\,\delta w''_x  x\, -\,\delta w''_y  y)   (E\,w'_z \,-\,E\,w''_x  x\, -\,E\,w''_y  y)\,dAdz\\
+     &= \int_l(\delta w'_z w'_z E\bar{A}\,-\,\delta w''_xw''_x EJ_y  \, -\,\delta w''_yw''_yEJ_x  )\,dz
+\end{align*}
+Ritrovandoci nel metodo degli spostamenti questa è un'equazione del PLV, la uso per scrivere condizioni di equilibrio.
+
 
 

@@ -1,3 +1,43 @@
 \section{Tensori coniugati. Dimostrazione mediante PLV}
 
+\begin{definizioneBox}
+Tensori coniugati. Due tensori, uno di sforzo e uno di deformazione, sono detti energeticamente coniugati
+se il loro prodotto scalare doppio (ciò e la contrazione su due indici) rappresenta il lavoro di
+deformazione (o lavoro virtuale interno) a cui partecipa il materiale, integrato sul volume
+dell'elemento considerato.
+\end{definizioneBox}
+Esprimo  il lavoro di deformazione:
+\begin{align*}
+    \delta L_d \, &=\,  \int_{\Omega} \delta u_{j/i}  \sigma_{ij}  \, dV  \\
+    &= \,  \int_{\Omega}  \left( \frac{1}{2} \delta u_{i/j}  \sigma_{ij} \, + \,        \frac{1}{2} \delta u_{j/i}  \sigma_{ij} \right) \, dV  
+    \quad\quad\quad \left( \boldsymbol{\sigma} = \boldsymbol{\sigma}^T \right)\\
+    &=  \,  \int_{\Omega}  \frac{1}{2} \left( \delta u_{i/j}  \, + \,       \delta u_{j/i}  \right)\,\sigma_{ij}  \, dV  \\
+     \delta L_d \, &= \,  \int_{\Omega}  \delta \varepsilon_{ij}  \,\sigma_{ij}  \, dV 
+\end{align*}
+
+Il tensore coniugato al tensore degli sforzi $\boldsymbol{\sigma}$ è il tensore delle piccole deformazioni $\boldsymbol{\varepsilon}$.\\
+
+Quando si analizzano deformazioni finite si lavora di solito nella configurazione di riferimento (Lagrangiana). In questa configurazione cerchiamo il tensore coniugato al tensore di Green-Lagrange, ovvero alla misura Lagrangiana della deformazione finita. 
+
+\begin{definizioneBox}
+    Il II Tensore di Piola-Kirchhoff, ovvero il tensore coniugato al tensore di Green-Lagrange per deformazioni finite.
+    \begin{equation*}
+        \boldsymbol{\Sigma}_{\mathrm{II}} \,= \, \det (\boldsymbol{F} )\, \boldsymbol{F}^{-1} \boldsymbol{\sigma} \boldsymbol{F}
+    \end{equation*}
+\end{definizioneBox}
+
+Possiamo quindi riscrivere l'espressione del PLV come segue.
+\begin{align*}
+     & \int_{S_{\sigma}}  \delta u_j T_j \, dA  \, +\,\int_{\Omega} \delta u_{j}  b_j  \, dV \, = \, \int_{\Omega} \delta \varepsilon_{ij}  \sigma_{ij}  \, dV   \\
+    &  \int_{S_{\sigma}} \delta \mathbf{u} \cdot \mathbf{T} \, dA 
+    \,+\, \int_{\Omega} \delta \mathbf{u} \cdot \mathbf{b} \, dV 
+    \,=\, \int_{\Omega} \delta \boldsymbol{\varepsilon} : \boldsymbol{\sigma} \, dV
+\end{align*}
+
+
+
+
+
+
+
 

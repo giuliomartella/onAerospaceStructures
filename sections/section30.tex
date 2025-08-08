@@ -1,3 +1,23 @@
-\section{30. Modello di trave. Travature reticolari.}
+\section{Modello di trave. Travature reticolari.}
+
+\begin{definizioneBox}
+    Travatura reticolare. Struttura isostatica o iperstatica costituita da elementi monodimensionali (aste) collegati tra loro nei nodi mediante giunzioni idealizzate come cerniere perfette (bielle), progettata per sostenere i carichi esterni  attraverso sforzi assiali (trazione o compressione) nelle aste.
+\end{definizioneBox}
+
+Il modello di travatura reticolare lavora esclusivamente a trazione e compressione, è ottimale perché la rigidezza assiale di una trave è molto maggiore rispetto a quella flessionale.
+
+\begin{esempioBox}
+    Consideriamo una trave incastrata nel primo estremo, composta di acciaio con sezione quadrata di dimensioni $20mm\times 20mm\times 2000mm$. Inizialmente al secondo estremo applichiamo una forza assiale $F = 50kN$, l'estremo si sposta quindi di $s_y = F \frac{l}{E\bar{A}}= 1.2mm$. Applicando la stessa forza come un taglio ortogonale all'asse della trave, in un modello lineare lo stesso punto si sposterebbe di $s_y = F \frac{l^3}{8EJ} = 47000mm$ uscendo ovviamente dal campo elastico.
+\end{esempioBox} 
+
+\begin{esempioBox}
+    Le cerniere perfette non esistono nel mondo reale, per questo possiamo partire da un modello saldato Immaginiamo una struttura quadrata con un'antidiagonale, formata da 4 aste e 4 nodi, vincolata a terra a sinistra. Applichiamo una forza verso il basso sul nodo in alto a sinistra. Sostituendo tutti gli incastri con cerniere la struttura rimane in equilibrio, per questo possiamo considerarla come travatura reticolare, in questa condizione il carico si sviluppa sotto forma di azione assiale prima di un momento flettente.\\
+    Togliendo la trave centrale, in posizione di antidiagonale, sostituendo gli incastri con cerniere la struttura diventerebbe labile, per questo non possiamo considerarla come travatura reticolare e la struttura lavora a flessione.
+\end{esempioBox}
+
+
+
+
+
 
 

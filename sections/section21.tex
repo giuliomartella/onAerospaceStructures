@@ -1,3 +1,141 @@
-\section{21. Modello di trave. Espressione del lavoro di deformazione e dell'energia di deformazione}
+\section{Modello di trave. Espressione del lavoro di deformazione e dell'energia di deformazione}
+
+Scriviamo le espressioni del lavoro di deformazione attraverso il PLV, il PLCV e l'espressione dell'energia di deformazione, poi aggiungiamo l'ipotesi di modello di trave.
+
+\begin{align*}
+    \delta L_d \,&=\, \int_\Omega \delta\varepsilon_{ij}\sigma_{ij} \, dV \,&=\, \int_\Omega (\delta\varepsilon\sigma+ \delta\gamma_x\tau_x+ \delta\gamma_y\tau_y) \, dV\\
+    \delta L_d \,&=\, \int_\Omega \varepsilon_{ij}\delta\sigma_{ij} \, dV \,&=\, \int_\Omega (\varepsilon\delta\sigma+ \gamma_x\delta\tau_x+ \gamma_y\delta\tau_y) \, dV\\
+    \delta V_d \,&=\, \frac{1}{2}\int_\Omega \varepsilon_{ij}\sigma_{ij} \, dV \,&=\, \int_\Omega (\varepsilon\sigma+ \gamma_x\tau_x+ \gamma_y\tau_y) \, dV
+\end{align*}
+
+Attraverso le ipotesi del modello di trave è possibile scrivere in modo disaccoppiato $V_d(\sigma)$ e $V_d(\tau_x,\tau_y)$, considerando $V_d(\sigma)$ (e lavorando sul sistema principale d'inerzia):
+
+\begin{align*}
+    V_d 
+    &= \frac{1}{2} \int_l \int_{\bar{A}} 
+    \left(
+        \frac{T_z}{E \bar{A}} 
+        + \frac{M_x}{E J_x} y 
+        - \frac{M_y}{E J_y} x
+    \right)
+    \left(
+        \frac{T_z}{\bar{A}} 
+        + \frac{M_x}{J_x} y 
+        - \frac{M_y}{J_y} x
+    \right)
+    dA \, dz \\
+    &= \frac{1}{2} \int_l \int_{\bar{A}} 
+    \left[
+        \frac{T_z^2}{E \bar{A}^2}
+        + 2 \frac{T_z M_x}{E \bar{A} J_x} y
+        - 2 \frac{T_z M_y}{E \bar{A} J_y} x
+        + \frac{M_x^2}{E J_x^2} y^2
+    \right. \\
+    & \quad \left.
+        - 2 \frac{M_x M_y}{E J_x J_y} x y
+        + \frac{M_y^2}{E J_y^2} x^2
+    \right]
+    dA \, dz \\
+    &= \frac{1}{2} \int_l 
+    \left[
+        \frac{T_z^2}{E \bar{A}^2} \bar{A}
+        + 0
+        - 0
+        + \frac{M_x^2}{E J_x^2} J_x
+        - 0
+        + \frac{M_y^2}{E J_y^2} J_y
+    \right]
+    dz \\
+    &= \frac{1}{2} \int_l 
+    \left[
+        \frac{T_z^2}{E \bar{A}} 
+        + \frac{M_x^2}{E J_x} 
+        + \frac{M_y^2}{E J_y}
+    \right] dz
+\end{align*}
+
+Rispetto al centro di taglio:
+\begin{equation*}
+    V_{d\tau}= \frac{1}{2} \int_l 
+    \left[
+        \frac{T_x^2}{G A^*_x} 
+        + \frac{T_y^2}{G A^*_y} 
+        + \frac{M_z^2}{G J_t}
+    \right] dz
+\end{equation*}
+
+
+Valutiamo il lavoro di deformazione nel modello di trave. Usiamo gli assi principali d'inerzia. Impiegando il Principio dei Lavori Virtuali:
+
+\begin{align*}
+     \delta L_d \,&=\, \int_\Omega \delta\varepsilon_{ij}\sigma_{ij} \, dV \\
+     &=  \int_l \int_{\bar{A}} 
+    \left(
+        \frac{\delta T_z}{E \bar{A}} 
+        + \frac{\delta M_x}{E J_x} y 
+        - \frac{\delta M_y}{E J_y} x
+    \right)
+    \left(
+        \frac{T_z}{\bar{A}} 
+        + \frac{M_x}{J_x} y 
+        - \frac{M_y}{J_y} x
+    \right)
+    dA \, dz \\
+    &=  \int_l 
+    \left(
+        \frac{\delta  T_z}{E \bar{A}} \frac{T_z}{\bar{A}} \int_{\bar{A}} dA
+        + \frac{\delta M_x}{E J_x} \frac{M_x}{J_x} \int_{\bar{A}} y^2 dA
+        - \frac{\delta M_y}{E J_y} \frac{M_y}{J_y} \int_{\bar{A}} x^2 dA
+    \right) \, dz \\
+    &=  \int_l 
+    \left(
+        \frac{\delta  T_z \, T_z}{E \bar{A}} 
+        + \frac{\delta M_x \, M_x}{E J_x} 
+        - \frac{\delta M_y \, M_y}{E J_y} 
+    \right) \, dz \\
+\end{align*}
+
+Invece impiegando il Principio dei Lavori Virtuali Complementari:
+
+\begin{align*}
+    \delta L_d \,&=\, \int_\Omega \varepsilon_{ij} \delta \sigma_{ij} \, dV \\
+    &= \int_l \int_{\bar{A}} 
+    \left(
+        \frac{T_z}{E \bar{A}} \delta T_z 
+        + \frac{M_x}{E J_x} y \, \delta M_x
+        - \frac{M_y}{E J_y} x \, \delta M_y
+    \right) dA \, dz \\
+    &= \int_l 
+    \left(
+        \frac{T_z}{E \bar{A}} \delta T_z \bar{A} 
+        + \frac{M_x}{E J_x} \delta M_x \int_{\bar{A}} y^2 dA
+        - \frac{M_y}{E J_y} \delta M_y \int_{\bar{A}} x^2 dA
+    \right) dz \\
+    &= \int_l 
+    \left(
+        \frac{T_z}{E \bar{A}} \delta T_z \bar{A} 
+        + \frac{M_x}{E J_x} \delta M_x J_x
+        - \frac{M_y}{E J_y} \delta M_y J_y
+    \right) dz \\
+    &= \int_l 
+    \left(
+        \frac{\delta  T_z \, T_z}{E \bar{A}} 
+        + \frac{\delta M_x \, M_x}{E J_x} 
+        - \frac{\delta M_y \, M_y}{E J_y} 
+    \right) \, dz \\
+\end{align*}
+
+Sebbene le due espressioni siano identiche, la differenza risiede nella modalità di studio delle strutture.
+Se uso il PLV $\delta T_z$, $\delta M_x$, $\delta M_y$ derivano da spostamenti virtuali (infinitesimi, arbitrari e congruenti) e scrivo l'equilibrio.
+Se uso il PLVC $\delta T_z$, $\delta M_x$, $\delta M_y$ derivano da forze virtuali (infinitesime, arbitrarie e congruenti) e scrivo la congruenza.\\
+
+Con il PLV la struttura non può essere modificata, i vincoli non possono essere tolti e gli spostamenti virtuali devono essere congruenti con i vincoli. Con il PLVC invece posso eliminare i vincoli e avere un campo di deformazione diverso da quello reale.
+
+
+
+
+
+
+
 
 

@@ -39,7 +39,24 @@
   top=2pt, bottom=2pt, left=6pt, right=6pt
 }
 
-
+\newtcolorbox{enunciatoBox}{
+  enhanced,
+  colback=white,             % nessun riempimento
+  colframe=black,            % bordo nero
+  boxrule=0.3pt,             % bordo sottile
+  arc=0mm,                   % angoli retti
+  fonttitle=\bfseries,       % titolo in grassetto
+ title={Enunciato\phantom{X}},
+  coltitle=black,
+  attach title to upper,
+  boxed title style={
+    empty,
+    size=small,
+    interior empty,
+    top=0pt, bottom=0pt, left=4pt, right=4pt
+  },
+  top=2pt, bottom=2pt, left=6pt, right=6pt
+}
 
 \newtcolorbox{esempioBox}{
   enhanced,

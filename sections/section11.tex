@@ -1,3 +1,125 @@
 \section{Vettori degli sforzi e delle deformazioni}
 
+Partiamo dall'espressione del Principio dei Lavori Virtuali.
+\begin{align*}
+     & \int_{S_{\sigma}}  \delta u_j T_j \, dA  \, +\,\int_{\Omega} \delta u_{j}  b_j  \, dV \, = \, \int_{\Omega} \delta \varepsilon_{ij}  \sigma_{ij}  \, dV   \\
+    &  \int_{S_{\sigma}} \delta \mathbf{u} \cdot \mathbf{T} \, dA 
+    \,+\, \int_{\Omega} \delta \mathbf{u} \cdot \mathbf{b} \, dV 
+    \,=\, \int_{\Omega} \delta \boldsymbol{\varepsilon} : \boldsymbol{\sigma} \, dV
+\end{align*}
+
+
+Esplicitiamo l'ultimo termine sfruttando la simmetria di $\boldsymbol{\sigma}$ e $\boldsymbol{\varepsilon}$.
+
+\begin{align*}
+     & \int_{\Omega} \delta \varepsilon_{ij} \, \sigma_{ij} \, dV \\
+  =\; & \int_{\Omega} \big( \delta \varepsilon_{xx} \, \sigma_{xx}
+     + \delta \varepsilon_{yy} \, \sigma_{yy}
+     + \delta \varepsilon_{zz} \, \sigma_{zz}
+     + \delta \varepsilon_{xy} \, \sigma_{xy}
+     + \delta \varepsilon_{yx} \, \sigma_{yx}
+     + \delta \varepsilon_{xz} \, \sigma_{xz}
+     + \delta \varepsilon_{zx} \, \sigma_{zx}
+     + \delta \varepsilon_{yz} \, \sigma_{yz}
+     + \delta \varepsilon_{zy} \, \sigma_{zy} \big) \, dV \\
+  =\; & \int_{\Omega} \big( \delta \varepsilon_{xx} \, \sigma_{xx}
+     + \delta \varepsilon_{yy} \, \sigma_{yy}
+     + \delta \varepsilon_{zz} \, \sigma_{zz}
+     + 2 \delta \varepsilon_{xy} \, \sigma_{xy}
+     + 2 \delta \varepsilon_{xz} \, \sigma_{xz}
+     + 2 \delta \varepsilon_{yz} \, \sigma_{yz} \big) \, dV
+\end{align*}
+
+
+Riorganizziamo  $\boldsymbol{\sigma}$ e $\boldsymbol{\varepsilon}$ in vettori con sole componenti indipendenti, usando la notazione di Voigt. Questa forma perde il significato tensoriale, è importante ricordare che entrambi rimangono tensori di secondo ordine.
+
+\begin{equation*}
+\left\{\sigma\right\} =
+\left\{
+\begin{array}{c}
+\sigma_{xx} \\[6pt]
+\sigma_{yy} \\[6pt]
+\sigma_{zz} \\[6pt]
+\sigma_{yz} \\[6pt]
+\sigma_{xz} \\[6pt]
+\sigma_{xy}
+\end{array}
+\right\}
+\quad , \quad
+\left\{\varepsilon\right\} =
+\left\{
+\begin{array}{c}
+\varepsilon_{xx} \\[6pt]
+\varepsilon_{yy} \\[6pt]
+\varepsilon_{zz} \\[6pt]
+2 \varepsilon_{yz} \\[6pt]
+2 \varepsilon_{xz} \\[6pt]
+2 \varepsilon_{xy}
+\end{array}
+\right\}
+=
+\left\{
+\begin{array}{c}
+\varepsilon_{xx} \\[6pt]
+\varepsilon_{yy} \\[6pt]
+\varepsilon_{zz} \\[6pt]
+\gamma_{yz} \\[6pt]
+\gamma_{xz} \\[6pt]
+\gamma_{xy}
+\end{array}
+\right\}
+\quad , \quad
+\gamma_{ij} = 2 \varepsilon_{ij}
+\end{equation*}
+
+I tensori di secondo ordine scritti nella notazione di Voigt non possono essere direttamente ruotati, per trovare la relazione di rotazione rigida bisogna tornare alla formulazione matriciale.
+
+
+Usando questa notazione riscrivo l'espressione per il lavoro di deformazione:
+
+\begin{itemize}
+    \item PLV 
+    \begin{equation*}
+      \delta L_d \, = \,  \int_{\Omega}  \left\{\delta\varepsilon\right\}^T  \left\{\sigma\right\}  \, dV
+    \end{equation*}\\
+    \item PLVC
+    \begin{equation*}
+       \delta L_d \, = \,  \int_{\Omega}  \left\{\varepsilon\right\}^T  \left\{\delta\sigma\right\}  \, dV
+    \end{equation*}
+\end{itemize}
+
+Esistono alcuni casi notevoli in cui si possono ridurre gli elementi indipendenti considerati nella notazione:
+\begin{itemize}
+    \item Modello di trave: 
+    $\left\{\sigma\right\} = \left\{
+    \begin{array}{c}
+    \sigma_{zz} \\ \sigma_{zx} \\ \sigma_{zy}
+    \end{array}
+    \right\}$
+
+    \item Modello di piastra: 
+    $\left\{\sigma\right\} = \left\{
+    \begin{array}{c}
+    \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{zz}
+    \end{array}
+    \right\}$
+
+    \item Stato di sforzo piano: 
+    $\left\{\sigma\right\} = \left\{
+    \begin{array}{c}
+    \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{xy}
+    \end{array}
+    \right\}$
+
+    \item Stato di deformazione piana: 
+    $\left\{\varepsilon\right\} = \left\{
+    \begin{array}{c}
+    \varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{xy}
+    \end{array}
+    \right\}$
+\end{itemize}
+
+
+
+
 

@@ -1,3 +1,29 @@
-\section{23. Modello di trave. Definizione e approccio con il metodo degli spostamenti.}
+\section{Modello di trave. Definizione e approccio con il metodo degli spostamenti.}
+
+Si definisce trave il volume generato dalla traslazione di una figura piana(sezione) lungo un asse perpendicolare ad essa. Per convenzione $z$ è l'asse della trave e $(x,y)$ rappresenta il piano della sezione. Rimane l'ipotesi di snellezza.\\
+
+Per studiare l'approccio del metodo degli spostamenti della risoluzione delle travi, vanno aggiunte ulteriori ipotesi esplicative.
+\begin{enumerate}
+    \item Gli spostamenti di un qualunque punto $P$ della sezione devono essere esprimibili in funzione degli spostamenti dell'intersezione $Q$ dell'asse della trave con la sezione a cui $P$ appartiene. Dunque gli spostamenti di $P$ dipendono solo dagli spostamenti di $Q$.
+    \begin{align*}
+    \{s_P\} &= \begin{Bmatrix} s_{Px} \\ s_{Py} \\ s_{Pz} \end{Bmatrix}, \quad
+    \{w_Q\} = \begin{Bmatrix} w_{Qx} \\ w_{Qy} \\ w_{Qz}  \end{Bmatrix}
+    \quad \rightarrow \quad
+    \{s_P\} = f\big( \{w_Q\} \big)
+\end{align*}
+    \item Se il punto $Q$ si sposta di $w_{z}$, tutti i punti della sezione si spostano di $w_{z}$.
+    \item La sezione della trave rimane sempre perpendicolare all'asse. Se la trave flette, soggetta a un carico diretto come $y$, la sua sezione ruoterà intorno all'asse $x$. Affinché la sezione rimanga perpendicolare all'asse ogni suo punto sarà soggetto a uno spostamento $s_z$, tale che:
+    \begin{align*}
+        s_z &= -y\, sin\theta \approx -y \,\theta    \quad \quad \quad \quad \theta = \frac{\partial w}{\partial z}y = w' y\\
+        &= -w'_y  y
+    \end{align*}
+    Quindi per un generico punto $P$ della sezione vale
+    \begin{equation*}
+        s_z \,=\,  w_z \,-\,w'_x  x\, -\,w'_y  y
+    \end{equation*}
+
+
+\end{enumerate}
+
 
 

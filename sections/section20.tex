@@ -1,3 +1,38 @@
-\section{20. Modello di trave. Asse principale d'inerzia.}
+\section{Modello di trave. Asse principale d'inerzia.}
+
+Gli assi principali d'inerzia sono un sistema di tre assi ortogonali passanti per il baricentro della sezione, tali da rendere nulli i momenti statici ed il momento centrifugo della sezione.
+
+
+\begin{align*}
+    S_x \, &=\, \int_{\bar{A}} x \, dA \,=\,0 \quad & S_y \, &=\, \int_{\bar{A}} y \, dA\,=\,0 &&\text{(momenti statici)}\\
+    J_{xy} \, &=\, \int_{\bar{A}} xy \, dA\,=\,0 &&\text{(momento centrifugo)}
+\end{align*}
+
+Studiando gli assi principali d'inerzia, e assumendo la sezione come omogenea, è possibile scrivere:
+\begin{equation*}
+        \sigma = \frac{T_z}{\bar{A}} +  \frac{M_x}{J_x}y -\frac{M_y}{J_y}x 
+ \end{equation*}
+
+ Per identificarli in una sezione generica, partendo da assi arbitrari:
+ \begin{enumerate}
+     \item Troviamo il baricentro della sezione, in cui porre l'origine del nuovo sistema.
+     \begin{equation*}
+     x_{cg} = \frac{\sum_i A_i x_i}{\sum_i A_i} \quad\quad\quad
+     y_{cg} = \frac{\sum_i A_i y_i}{\sum_i A_i}
+    \end{equation*}
+    con $x_i$ e $y_i$ dal sistema generico. Il sistema di riferimento diventa $\tilde{x}, \tilde{y} \,//\,x,y$ passante per il baricentro $(x_{cg},y_{cg})$.\\
+    \item Calcoliamo i momenti d'inerzia rispetto a $\tilde{x}$ e $\tilde{y}$
+    \begin{equation*}
+     J_{\tilde{x}} = \sum_i A_i \tilde{y}_i^2 \quad\quad\quad
+     J_{\tilde{y}} = \sum_i A_i \tilde{x}_i^2 \quad\quad\quad
+     J_{\tilde{x}\tilde{y}} = \sum_i A_i \tilde{x}_i \tilde{y}_i
+    \end{equation*}\\
+    \item Se $ J_{\tilde{x}\tilde{y}} = 0$ $(\tilde{x},\tilde{y})$ sono già assi principali d'inerzia. Altrimenti devono essere ruotati di una quantità $\alpha$:
+    \begin{equation*}
+        \alpha = \frac{1}{2} \arctan\left(\frac{2 J_{\tilde{x}\tilde{y}} }{J_{\tilde{x}} J_{\tilde{y}} }\right)
+    \end{equation*}
+ \end{enumerate}
+
+ Tornerà utile osservare che qualvolta la sezione presenti degli assi di simmetria, questi coincideranno gli assi principali d'inerzia. Nel caso di metodi a guscio e semiguscio si considererà solo il contributo dei correnti, essendo i pannelli privi di area.
 
 

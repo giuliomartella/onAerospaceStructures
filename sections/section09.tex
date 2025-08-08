@@ -1,3 +1,64 @@
 \section{Dimostrazione dell'espressione del PLV}
 
+Partiamo dalle equazioni indefinite di equilibrio $\mathrm{div}\,\boldsymbol{\sigma} + \mathbf{b} = \mathbf{0}$ e dalla relazione di Cauchy $\mathbf{t}_n = \boldsymbol{\sigma}^T \mathbf{n}$. Applichiamo le precedenti ad un corpo generico, con una parte del contorno vincolata (ovvero con spostamenti imposti) e con un'altra parte libera (con forze applicate note).
+
+\begin{itemize}
+    \item $S_u$: superficie vincolata 
+    \begin{compactitem}
+        \item $\mathbf{u}$ noti
+        \item $\mathbf{t}_n$ incogniti
+    \end{compactitem}
+    
+    \item $S_{\sigma}$: superficie libera 
+    \begin{compactitem}
+        \item $\mathbf{u}$ incogniti
+        \item $\mathbf{t}_n$ noti (carichi applicati)
+    \end{compactitem}
+\end{itemize}
+
+Scrivo i possibili lavori virtuali combinando il sistema di forze reali con gli spostamenti virtuali.
+\begin{equation*}
+    \delta \mathbf{u}^T (\mathrm{div}\,\boldsymbol{\sigma} + \mathbf{b}) = \mathbf{0}
+\end{equation*}
+Integro su tutto il volume e passo alla notazione di Einstein.
+\begin{equation*}
+    \int_{\Omega} \delta \mathbf{u}^T \left( \mathrm{div}\,\boldsymbol{\sigma} + \mathbf{b} \right) \, dV = \mathbf{0}
+    \quad\quad
+    \int_{\Omega} \delta u_j \left( \sigma_{ij/i} + b_j \right) \, dV = 0
+\end{equation*}
+
+Sommo e sottraggo $\int_{\Omega} \delta u_{j/i}  \sigma_{ij}  \, dV$.
+\begin{equation*}
+    \int_{\Omega}  \left(\delta u_j \sigma_{ij}  \right)_i \, dV  \, -\,\int_{\Omega} \delta u_{j/i}  \sigma_{ij}  \, dV \, + \, 
+    \int_{\Omega} \delta u_{j}  b_j  \, dV= 0
+\end{equation*}
+
+Applico il teorema della divergenza al primo termine, assumendo che il dominio sia semplicemente connesso e che sforzi e spostamenti virtuali siano sufficientemente regolari.
+\begin{equation*}
+    \int_{S}  \delta u_j \sigma_{ij} N_i \, dA  \, -\,\int_{\Omega} \delta u_{j/i}  \sigma_{ij}  \, dV \, + \, 
+    \int_{\Omega} \delta u_{j}  b_j  \, dV= 0
+\end{equation*}
+
+L'integrale di contorno si valuta sull'intera superficie, composta dalla parte vincolata e dalla parte libera. La prima però impone un vincolo che deve essere congruente con gli spostamenti virtuali.
+\begin{align*}
+    \int_{S}  \delta u_j \sigma_{ij} N_i \, dA  &= \int_{S_u}  \delta u_j \sigma_{ij} N_i \, dA + \int_{S_{\sigma}}  \delta u_j \sigma_{ij} N_i \, dA 
+    \quad\quad\quad  \delta u_j = 0 \quad su \quad S_u\\
+    & = \int_{S_{\sigma}}  \delta u_j \sigma_{ij} N_i \, dA 
+\end{align*}
+
+Sul contorno libero applico le forze esterne note $\mathbf{T}$.
+\begin{equation*}
+    \int_{S_{\sigma}}  \delta u_j \sigma_{ij} N_i \, dA  \, =\,   \int_{S_{\sigma}}  \delta u_j T_j \, dA 
+\end{equation*}
+
+Finalmente:
+\begin{align*}
+    & \int_{S_{\sigma}}  \delta u_j T_j \, dA  \, +\,\int_{\Omega} \delta u_{j}  b_j  \, dV \, = \, \int_{\Omega} \delta u_{j/i}  \sigma_{ij}  \, dV   \\
+    &  \delta L_{totale} \,= \, \delta L_{deformazione}
+\end{align*}
+
+Ovvero il lavoro virtuale compiuto dalle forze esterne è uguale al lavoro virtuale di deformazione.
+
+
+
 

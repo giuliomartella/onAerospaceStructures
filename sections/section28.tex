@@ -1,3 +1,51 @@
-\section{28. Modello di trave. Calcolo diretto matrice di rigidezza per trave incastrata con metodo delle forze}
+\section{Modello di trave. Calcolo diretto matrice di rigidezza per trave incastrata con metodo delle forze}
+
+
+\begin{definizioneBox}
+    La matrice di rigidezza $\boldsymbol{K}$ lega le componenti delle forze alle componenti di spostamento. L'elemento $K_{ij} $ rappresenta la forza(o momento) in direzione $i$ causa di uno spostamento (o rotazione) unitario diretta come $j$. La matrice è simmetrica e presenta quindi sei componenti  indipendenti.
+    La matrice di rigidezza è l'inversa della matrice di flessibilità $\boldsymbol{K}  = \boldsymbol{C}^{-1}$
+    \begin{equation*}
+    \begin{bmatrix}
+F_z\\
+F_y \\
+M
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{E\bar{A}}{l} & 0 & 0 \\
+0 & \frac{12EJ_x}{l^3} & -\frac{6EJ_x}{l^2} \\
+0 & -\frac{6EJ_x}{l^2} & \frac{4EJ_x}{l}
+\end{bmatrix}
+\begin{bmatrix}
+s_z \\
+s_y \\
+\theta_x
+\end{bmatrix}
+\end{equation*}
+\end{definizioneBox}
+
+
+ Calcoliamo $K_{22}$ e $K_{23}$ attraverso il metodo delle forze. A partire dalla solita trave la rendo iperstatica vincolando l'estremo destro con un pattino-manicotto  e applico una forza verticale $F_y$, l'incognita iperstatica è il momento come reazione vincolare.\\
+    Sistema reale :  $M_x =-F_yz-X$. Sistema fittizio: $\delta M_x = -1$. 
+    \begin{align*}
+        \delta L_e &= \theta_x \cdot 1 = 0\cdot 1 = 0 \\
+        \delta L_d &= \int_0^l \left(   \frac{\delta M_xM_x}{EJ}\right)\,dz 
+        = \left(   F_y\frac{l^2}{2} +Xl\right)\frac{1}{EJ}\\
+       X&= -F_y\frac{l}{2} 
+    \end{align*}
+
+    Risolta l'incognita iperstatica cerco lo spostamento $s_y$:\\
+    Sistema reale :  $M_x =-F_yz + F_y\frac{l}{2} $. Sistema fittizio: $\delta M_x = -z$. 
+    \begin{align*}
+        \delta L_e &= s_y \cdot 1  \\
+        \delta L_d &= \int_0^l \left(   \frac{\delta M_xM_x}{EJ}\right)\,dz 
+        = \int_0^l -z\left(   -F_yz + F_y\frac{l}{2}  \right)   \frac{1}{EJ}\,dz 
+        = \frac{F_y l^3}{12EJ}\\
+       K_{22} &= \frac{F_y}{s_y}  = \frac{12EJ}{l^3}
+    \end{align*}
+
+    Per quanto riguarda $K_{23}$ si può ottenere dalla sua definizione $M = K_{23}s_y$ riconoscendo $M$ come la reazione vincolare sul margine destro, equilibrante rispetto a $M_x(z=0)$, quindi di segno opposto, risulta quindi $K_{23} = -\frac{6EJ}{l^2}$.
+
+    Analogamente il termine $K_{11}$ si può ottenere inserendo un manicotto sull'estremo destro, il termine $K_{33}$ inserendo una cerniera. I termini rimanenti possono essere ricavati attraverso le condizioni di equilibrio con le reazioni vincolari.
 
 

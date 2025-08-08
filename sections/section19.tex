@@ -1,3 +1,96 @@
-\section{19. Modello di trave. Espressione delle sigma mediante il teorema di Menabrea.}
+\section{Modello di trave. Espressione delle sigma mediante il teorema di Menabrea.}
+
+Riscriviamo le equazioni di equivalenza tra le azioni interne e le componenti degli sforzi. Essendo equilibranti i carichi corrispondono a condizioni di equilibrio.
+
+\begin{align*}
+    T_y \, &=\, \int_{\bar{A}} \tau_y \, dA 
+    &\quad\quad T_x \, &=\, \int_{\bar{A}} \tau_x \, dA 
+    &\quad\quad T_z \, &=\, \int_{\bar{A}} \sigma \, dA \\
+    M_y \, &=\, - \int_{\bar{A}} \sigma x \, dA 
+    &\quad\quad M_x \, &=\,  \int_{\bar{A}} \sigma y \, dA 
+    &\quad\quad M_z \, &=\, \int_{\bar{A}} ( \tau_y x - \tau_x y ) \, dA
+\end{align*}
+
+Applico il teorema di Menabrea per aggiungere le condizioni di congruenza:
+\begin{equation*}
+    V_d = \frac{1}{2} \int_\Omega  \left\{\varepsilon\right\}^T \left\{\sigma\right\}\, dV \,=\, \frac{1}{2} \int_\Omega  \left(  \sigma\varepsilon + \tau_x\gamma_x + \tau_y\gamma_y \right)\,dV
+\end{equation*}
+Dal legame costitutivo applicato al modello di trave risulta:
+\begin{equation*}
+    \varepsilon = \frac{\sigma}{E} \quad \quad \quad \gamma_x = \frac{\tau_x}{G} \quad \quad \quad \gamma_y = \frac{\tau_y}{G} 
+\end{equation*}
+
+\begin{equation*}
+    V_d = \,=\, \frac{1}{2} \int_\Omega  \left(  \frac{\sigma^2}{E} +  \frac{\tau_x^2}{G}  +\frac{\tau_y^2}{G}  \right)\,dV 
+   \, =\, V_d(\sigma) + V_d(\tau_x,\tau_y)
+\end{equation*}
+
+Dall'espressione dell'energia di deformazione e dalle equazioni di equivalenza si evince che le equazioni che trattano le $\sigma$ sono disaccoppiate da quelle che trattano le $\tau$, si possono quindi manipolare in modo indipendente. Iniziamo dalle $\sigma$:
+\begin{equation*}
+    V_d  \,=\, \frac{1}{2} \int_l  \int_{\bar{A}}   \frac{\sigma^2}{E} \,dA\,dz
+\end{equation*}
+
+
+Considero anche:
+\begin{equation*}
+     T_z \, =\, \int_{\bar{A}} \sigma \, dA \quad\quad M_x \, =\,  \int_{\bar{A}} \sigma y \, dA\quad\quad M_y \, =\, - \int_{\bar{A}} \sigma x \, dA
+\end{equation*}
+Passo tutti i termini dentro i rispettivi integrali di superficie:
+\begin{equation*}
+      \int_{\bar{A}} \left(\sigma-\frac{T_z}{\bar{A}}\right) \, dA\, =\, 0 \quad\quad
+      \int_{\bar{A}} \left(\sigma y-\frac{M_x}{\bar{A}}\right) \, dA\, =\, 0\quad\quad 
+      \int_{\bar{A}} \left(\sigma x+\frac{M_y}{\bar{A}}\right) \, dA\, =\, 0A
+\end{equation*}
+
+Essendo queste quantità nulle, per la linearità dell'operatore integrale posso sommarle nell'espressione dell'energia. Le premoltiplico per i moltiplicatori di Lagrange $\lambda_i$. 
+
+\begin{equation*}
+    V_d  \,=\, \frac{1}{2} \int_l  \int_{\bar{A}} \, \left[ \frac{\sigma^2}{E}
+   + \lambda_1 \left(\sigma-\frac{T_z}{\bar{A}}\right)
+   + \lambda_2 \left(\sigma y - \frac{M_x}{\bar{A}}\right)
+   + \lambda_3 \left(\sigma x + \frac{M_y}{\bar{A}}\right)
+    \right]  \,dA\,dz
+\end{equation*}
+
+
+Chiamando l'espressione sotto il segno di integrale $F(\sigma)$ troveremo un minimo risolvendo $\frac{\partial F}{\partial \sigma} = 0$ con i moltiplicatori di Lagrange, vale a dire:
+\begin{align*}
+    \frac{2\sigma}{E}+\lambda_1+\lambda_2 y+\lambda_3 x = 0\\
+    \sigma = -\frac{E}{2} \left( \lambda_1+\lambda_2 y+\lambda_3 x\right)
+\end{align*}
+Riprendo le equazioni di equivalenza per calcolare il valore di $\lambda_i$:
+\begin{align*}
+     T_z \, &=\, \int_{\bar{A}} -\frac{E}{2}  \left( \lambda_1+\lambda_2 y+\lambda_3 x\right) \, dA \\
+     M_x \, &=\,  \int_{\bar{A}} -\frac{E}{2}  \left( \lambda_1 y+\lambda_2 y^2+\lambda_3 xy\right)  \, dA\\
+     M_y \, &=\, - \int_{\bar{A}} -\frac{E}{2}  \left( \lambda_1 x+\lambda_2 xy+\lambda_3 x^2\right)  \, dA
+\end{align*}
+
+Definiamo i momenti statici della sezione, i momenti d'inerzia e il momento centrifugo:
+\begin{align*}
+    S_x \, &=\, \int_{\bar{A}} x \, dA \quad & S_y \, &=\, \int_{\bar{A}} y \, dA &&\text{(momenti statici)}\\
+    J_x \, &=\, \int_{\bar{A}} y^2 \, dA \quad & J_y \, &=\, \int_{\bar{A}} x^2 \, dA &&\text{(momenti d’inerzia)}\\
+    J_{xy} \, &=\, \int_{\bar{A}} xy \, dA &&\text{(momento centrifugo)}
+\end{align*}
+
+Se la sezione è omogenea, ovvero quando $E$ rimane costante sulla sezione, posso portare $E$ fuori dagli integrali. Così facendo escludo dalla trattazione i materiali compositi e in generale unioni di materiali con moduli diversi.
+
+\begin{align*}
+    T_z \, &=\, -\frac{E}{2} \left( \lambda_1 \bar{A} + \lambda_2 S_y + \lambda_3 S_x \right) \\
+    M_x \, &=\, -\frac{E}{2} \left( \lambda_1 S_x + \lambda_2 J_x + \lambda_3 J_{xy} \right) \\
+    M_y \, &=\, \frac{E}{2} \left( \lambda_1 S_y + \lambda_2 J_{xy} + \lambda_3 J_y \right)
+\end{align*}
+
+Usando come sistema di riferimento il sistema principale d'inerzia, tale per cui $S_x = 0$, $S_y=0 $ e $J_{xy}=0$, risulta:
+\begin{equation*}
+    \lambda_1 = -\frac{2}{E}\frac{T_z}{\bar{A}}, \quad\quad\quad
+    \lambda_2 = -\frac{2}{E}\frac{M_x}{J_x}, \quad\quad\quad
+    \lambda_3 = +\frac{2}{E}\frac{M_y}{J_y}
+\end{equation*}
+
+Da cui ricaviamo, per sezioni omogenee e rispetto agli assi principali d'inerzia:
+
+ \begin{equation*}
+        \sigma = \frac{T_z}{\bar{A}} +  \frac{M_x}{J_x}y -\frac{M_y}{J_y}x 
+ \end{equation*}
 
 

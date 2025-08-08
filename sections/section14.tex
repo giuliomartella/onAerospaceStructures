@@ -1,3 +1,22 @@
 \section{Modello di trave. Ipotesi fondamentali.}
+Ipotesi fondamentali nel caso di approccio alle forze.
+\begin{enumerate}
+    \item La trave è il volume generato dalla traslazione di una figura piana (sezione) lungo un asse ad essa perpendicolare.\\
+    \item Siano $L$ la dimensione caratteristica longitudinale e $l$ quella trasversale, allora $L>>l$. La trave si definisce un corpo allungato.\\
+    \item I carichi vengono applicati solamente alle estremità. I carichi distribuiti introducono un errore violando questa ipotesi.\\
+    \item Si definiscono le azioni interne: un sistema di tre forze e tre momenti che, sezione per sezione, mantengono in equilibrio la trave rispetto ai carichi esterni. Concordi con gli assi della sezione $\{ T_x \quad T_y \quad T_z \quad M_x \quad M_y \quad M_z \}^T$. I versi positivi delle azioni interne su una sezione corrispondono a versi negativi nella faccia corrispondente per rispettare l'equilibrio.\\
+    \item Le sole componenti diverse da zero di $\left\{\sigma\right\}$ sono le componenti che giacciono sul piano della sezione $(x,y)$: $\left\{ \sigma_{zz} \quad \sigma_{zx} \quad \sigma_{zy} \right\}^T$, per cui:
+    \begin{align*}
+        \sigma_{zz} \,=\, \sigma \quad\quad\quad \sigma_{zx}\,&=\,\tau_x \quad\quad\quad \sigma_{zy} \,=\,\tau_y\\
+         \sigma_{xx}\,=\,\sigma_{yy}\,&=\,\sigma_{xy}\,=\,0
+    \end{align*}\\
+    \item Il valore degli sforzi $\left\{\sigma\right\}$ calcolati in un punto $P$ della trave dipende solamente dal valore delle azioni interne calcolate sulla sezione a cui $P$ appartiene. Dunque il valore di $\left\{\sigma\right\}$ non dipende dalla reale distribuzione dei carichi.
+\end{enumerate}
 
-
+Riguardo l'approccio agli spostamenti:
+\begin{enumerate}
+    \item Stessa definizione geometrica dell'approccio alle forze.\\
+    \item $\left\{S\right\}_P$ esprimibili in funzione di $\left\{w\right\}_Q$.\\
+    \item Se $Q$ si sposta di $w_z$, tutti i punti della sezione si spostano di $w_z$.\\
+    \item La sezione è sempre ortogonale all'asse.
+\end{enumerate}

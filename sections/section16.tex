@@ -1,3 +1,23 @@
-\section{16. Modello di trave. Legame azioni interne carichi distribuiti.}
+\section{Modello di trave. Legame azioni interne carichi distribuiti.}
 
+Considero un concio infinitesimo di trave, questo mi consente di considerare il carico uniforme.
+
+A partire dalla sezione nel piano $(y,z)$:
+\begin{align*}
+    \sum F_z &=0 \quad\quad \rightarrow \quad &&&dT_z &= 0\\
+    \sum F_y &=0 \quad\quad \rightarrow \quad &-T_y +T_y+dT_y +r_ydz &= 0 \quad\quad \rightarrow \quad\quad &dT_y &= -r_ydz\\
+    \sum M_x^A &=0 \quad\quad \rightarrow \quad &-T_ydz-M_x+M_x+dM_x +r_ydz\frac{dz}{2} &= 0 \quad\quad \rightarrow \quad\quad &dM_x &= T_ydz
+\end{align*}
+
+Dove il termine $r_ydz\frac{dz}{2}$ viene ignorato perché infinitesimo di ordine superiore. Ruotando valuto le azioni interne nel piano $(x,z)$:
+\begin{align*}
+    \sum F_x &=0 \quad\quad \rightarrow \quad &-T_x +T_x+dT_x +r_xdz &= 0 \quad\quad \rightarrow \quad\quad &dT_x &= -r_xdz\\
+    \sum M_y^A &=0 \quad\quad \rightarrow \quad &T_xdz-M_y+M_y+dM_y -r_xdz\frac{dz}{2} &= 0 \quad\quad \rightarrow \quad\quad &dM_y &= -T_xdz
+\end{align*}
+
+Infine:
+\begin{align*}
+    \sum F_z &=0 \quad\quad \rightarrow \quad &-T_z +T_z+dT_z +r_zdz &= 0 \quad\quad \rightarrow \quad\quad &dT_z &= -r_zdz\\
+    \sum M_z^A &=0 \quad\quad \rightarrow \quad &m_zdz-M_z+M_z+dM_z  &= 0 \quad\quad \rightarrow \quad\quad &dM_z &= -m_xdz
+\end{align*}
 

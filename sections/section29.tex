@@ -1,3 +1,107 @@
-\section{29. Modello di trave. Metodo degli spostamenti per la risoluzione di sistemi di travi.}
+\section{Modello di trave. Metodo degli spostamenti per la risoluzione di sistemi di travi.}
+
+Consideriamo una biella libera nel piano, gli unici spostamenti consentiti sono quelli allineati con l'asse della trave. La matrice di rigidezza diventa la stessa di una molla essendo consentite solo azioni assiali, il sistema è $2\times 2$.
+
+\begin{equation*}
+\left\{
+\begin{array}{c}
+F_{1}\\
+F_{2} 
+\end{array}
+\right\}
+=
+\begin{bmatrix}
+\frac{EA}{l} & -\frac{EA}{l}\\
+-\frac{EA}{l} & \frac{EA}{l}
+\end{bmatrix}
+\left\{
+\begin{array}{c}
+s_{1} \\
+s_{2}
+\end{array}
+\right\}
+\end{equation*}
+
+Per una trave libera nello spazio lo stesso sistema diventa $12\times12$, voglio trovare un metodo per risolvere un sistema arbitrario di travi nello spazoo conoscendo le matrici di rigidezza locali $\boldsymbol{\bar{K}}$.
 
 
+    Approccio agli spostamenti: le incognite sono gli spostamenti reali degli estremi di ogni trave di cui è composta la struttura, per cui si procede con:
+    \begin{enumerate}
+        \item Identificazione e numerazione arbitraria delle travi.\\
+         \item Identificazione dei sistemi di riferimento locali delle singole travi.\\
+          \item Identificazione e numerazione arbitraria dei nodi.\\
+    \end{enumerate}
+
+
+Analizziamo una struttura composta da 13 travi ($n=13$) e 8 nodi ($N=8$). Il numero di incognite nel piano è $gdl = 3N$, mentre nello spazio $gdl = 6N$. In una prima analisi consideriamo la struttura senza i vincoli.
+
+\begin{enumerate}
+ \setcounter{enumi}{3}
+    \item Per ciascuna trave conosco: $\left\{\bar{A}, E, l ,G, J_x, J_y\right\}$, per cui scrivo il legame 
+    $\left\{\bar{F}\right\}_i = [\bar{K}]_i\left\{\bar{s}\right\}_i$ per ogni i-esima trave.\\
+    \item Conosco il posizionamento di ciascuna trave nella struttura, e quindi i collegamenti fra travi e nodi.\\
+    \item Conosco la orientazione delle travi rispetto al sistema di riferimento globale.\\
+\end{enumerate}
+
+Scrivere $[\bar{K}]_i$ garantisce la congruenza per ogni singola trave (perché è composta a partire da equazioni di congruenza). Trovandoci in un metodo agli spostamenti uso il PLV per scrivere le condizioni di equilibrio.
+
+\begin{enumerate}
+ \setcounter{enumi}{6}
+    \item Il lavoro virtuale di deformazione, nel sistema di riferimento locale:
+    \begin{equation*}
+        \delta L_d = \sum_{i=1}^n \delta L_{di} = \left\{\delta \bar{s}\right\}_i^T\left\{\bar{F}\right\}_i
+        =\left\{\delta \bar{s}\right\}_i^T  [\bar{K}]_i  \left\{ \bar{s}\right\}_i
+    \end{equation*}\\
+    \item Siano $\left\{u\right\}_i$ gli spostamenti dei punti nel sistema di riferimento globale, tali che:
+    \begin{equation*}
+        \left\{ \bar{s}\right\}_i = [T]_i \left\{u\right\}_i
+    \end{equation*}\\
+    \item Il lavoro di deformazione nel sistema globale diventa:
+    \begin{align*}
+        \delta L_d  &=\left\{\delta \bar{s}\right\}_i^T  [\bar{K}]_i  \left\{ \bar{s}\right\}_i\\
+        &=\left\{\delta u\right\}_i^T   [T]_i [\bar{K}]_i  [T]_i  \left\{ u\right\}_i\\
+        &=\left\{\delta u\right\}_i^T  [K]_i  \left\{u\right\}_i
+    \end{align*}\\
+    \item Devo ottenere un unico sistema lineare per tutta la struttura, tale che $\left\{u\right\}$ contenga gli spostamenti di tutti i nodi. Definisco la matrice di incidenza $[\Omega]_i$ in modo che $\left\{u\right\}_i=[\Omega]_i \left\{u\right\}$. Trasformo $[K]_i $ attraverso la matrice di incidenza, ottengo così la matrice di rigidezza espansa $[\Omega]_i^T  [K]_i  [\Omega]_i$. La matrice di rigidezza di tutta la struttura $[K]$ è uguale alla sommatoria di tutte le matrici di rigidezza espanse. Il lavoro di deformazione diventa:
+    \begin{align*}
+        \delta L_d  &=\sum_{i=1}^n \delta L_{di} \\
+        &= \sum_{i=1}^n  \left(    \left\{\delta u\right\}^T  [\Omega]_i^T  [K]_i  [\Omega]_i  \left\{ u\right\}    \right)\\
+         &= \left\{\delta u\right\}^T  \left(\sum_{i=1}^n      [\Omega]_i^T  [K]_i  [\Omega]_i     \right) \left\{u\right\}
+    \end{align*}\\
+    \item Il lavoro virtuale esterno, essendo $\left\{F\right\}$ il vettore dei carichi,  diventa:
+    \begin{equation*}
+        \delta L_e = \left\{\delta u\right\}^T \left\{F\right\}
+    \end{equation*}
+    \item Grazie al principio dei lavori virtuali impongo l'equilibrio e ritrovo un sistema lineare, ancora sottodeterminato.
+    \begin{align*}
+    \delta L_d &= \delta L_e\\
+        \left\{\delta u\right\}^T  [K] \left\{ u\right\} &= \left\{\delta u\right\}^T \left\{F\right\}\\
+         [K] \left\{ u\right\} &=  \left\{F\right\}\\
+    \end{align*}\\
+    \item Inserisco i vincoli, ovvero gli spostamenti imposti nulli, cancellando le righe corrispondenti, la struttura diventa quindi non labile e posso invertire la matrice di rigidezza per risolvere il problema (o usare un metodo per i sistemi lineari). Per spostamenti vincolati generici (non nulli) riorganizzo i vettori $\left\{ u\right\}$ e $\left\{F\right\}$, fra elementi liberi e vincolati, e quindi la matrice di rigidezza.
+    \begin{align*}
+&[K]\{u\} = \{F\}, \quad
+\{u\} =
+\begin{bmatrix}
+\{u_L\}\\[4pt]
+\{u_V\}
+\end{bmatrix},
+\quad
+\{F\} =
+\begin{bmatrix}
+\{F_L\}\\[4pt]
+\{F_V\}
+\end{bmatrix} \\[6pt]
+&\text{\(\{u_L\}\): spostamenti liberi (incognite da risolvere)} \\
+&\text{\(\{u_V\}\): spostamenti vincolati (imposti, noti)} \\
+&\text{\(\{F_L\}\): forze applicate ai gradi di libertà liberi} \\
+&\text{\(\{F_V\}\): forze (reazioni) ai gradi di libertà vincolati} \\[6pt]
+&[K] =
+\begin{bmatrix}
+K_{LL} & K_{LV}\\[4pt]
+K_{VL} & K_{VV}
+\end{bmatrix} \\[6pt]
+\end{align*}
+
+    
+\end{enumerate}

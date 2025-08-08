@@ -1,3 +1,62 @@
-\section{31. Equazione dei flussi sorgenti nella prima forma.}
+\section{Equazione dei flussi sorgenti nella prima forma.}
+
+Partiamo dalle equazioni indefinite di equilibrio:
+
+\begin{equation*}
+    \sigma_{ij/i}    + b_i = 0  
+\end{equation*}
+e consideriamo trascurabili le forze di volume, per cui semplicemente ritroviamo nulla la divergenza del tensore degli sforzi:
+
+\begin{equation*}
+    \begin{cases}
+        \sigma_{xx/x}  + \sigma_{yx/y}  + \sigma_{zx/z}   = 0\\
+        \sigma_{xy/x}  + \sigma_{yy/y}  + \sigma_{zy/z}   = 0\\
+        \sigma_{xz/x}  + \sigma_{yz/y}  + \sigma_{zz/z}  = 0\\
+    \end{cases}
+\end{equation*}
+
+Queste sono valide per un solido generico, se ipotizziamo lo stato di sforzo di una trave:
+
+\begin{align*}
+        \sigma_{zz} \,=\, \sigma \quad\quad\quad \sigma_{zx}\,&=\,\tau_x \quad\quad\quad \sigma_{zy} \,=\,\tau_y\\
+         \sigma_{xx}\,=\,\sigma_{yy}\,&=\,\sigma_{xy}\,=\,0
+\end{align*}
+
+Per cui le equazioni diventano:
+
+\begin{equation*}
+    \begin{cases}
+        \tau_{x/z}    = 0\\
+        \tau_{y/z} = 0\\
+        \tau_{x/x}  + \tau_{y/y}  + \sigma_{/z}  = 0\\
+    \end{cases}
+\end{equation*}
+
+Per un punto generico della trave $\tau_x$ e $\tau_y$ giacciono sul piano della sezione, per questo possiamo vederle come componenti di un tensore $\boldsymbol{\tau}$ e definire opportunamente una relazione puntuale.
+
+\begin{align*}
+     \tau_{x/x}  + \tau_{y/y}  + \sigma_{/z}  &= 0\\
+      \mathrm{div}\, \boldsymbol{\tau}  + \sigma_{/z}  &= 0\\
+\end{align*}
+
+La integro rispetto ad una piccola porzione di area della sezione:
+
+\begin{equation*}
+    \int_{A'}    \mathrm{div}\, \boldsymbol{\tau}  \, dA   +     \int_{A'}  \sigma_{/z} \,   dA   \,=\,0
+\end{equation*}
+
+\begin{definizioneBox}
+    Flusso di taglio attraverso il contorno $C'$ dell'area $A'$:
+    \begin{equation*}
+    \Phi \,=\,   - \int_{A'}  \sigma_{/z} \,   dA   \,=\,- \frac{d}{dz}\int_{A'}  \sigma \,   dA
+\end{equation*}
+
+Dove $N =\int_{A'}  \sigma \,   dA $, quando $A'=A$, $N$ corrisponde all'azione assiale.
+ \begin{equation*}
+    \Phi \,=\,  - \,\frac{dN}{dz}
+\end{equation*}
+
+Questa definizione vale sempre perché deriva da una riscrittura dell'equazione di equilibrio in direzione $z$ senza ulteriori ipotesi. Scrive la condizione di equilibrio in direzione dell'asse della trave $z$ usando le $\tau$ sulla faccia.
+\end{definizioneBox}
 
 

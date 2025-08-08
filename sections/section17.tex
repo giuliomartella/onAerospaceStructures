@@ -1,3 +1,113 @@
-\section{17. Modello di trave. Stato di sforzo e di deformazione.}
+\section{Modello di trave. Stato di sforzo e di deformazione.}
+
+Nel modello di trave, ponendo $z$ come direzione dell'asse e $(x,y)$ come piano della sezione, le uniche componenti non nulle di $\left\{\sigma\right\}$ sono:
+\begin{equation*}
+    \sigma_{zz}\, =\, \sigma, \quad\quad\quad  \sigma_{zx}\, =\, \tau_x, \quad\quad\quad \sigma_{zy}\, =\, \tau_y 
+\end{equation*}
+Per simmetria del tensore degli sforzi sono diverse da zero, nel tensore $\boldsymbol{\sigma}$, anche le componenti $\sigma_{xz}$ e $\sigma_{yz}$.\\
+Adesso eseguo dei tagli alla trave
+\begin{enumerate}
+    \item Un taglio con piano di normale $x$,\\
+    \item Un taglio con piano di normale $y$,\\
+    \item Un taglio con piano di normale generica, combinazione lineare di $x$ e $y$.
+\end{enumerate}
+Sempre per simmetria del tensore degli sforzi ognuno di questi tagli evidenzia una $\tau$ sul piano del taglio in direzione $z$ e una corrispondente sul piano della sezione, in direzione della normale del piano di taglio. Questi tagli idealmente possono arrivare fino alle superfici laterali, che però sono scariche per ipotesi.\\
+Valutiamo, attraverso la relazione di Cauchy $\boldsymbol{\sigma}^T\mathbf{n}=\mathbf{t_n}$, il vettore degli sforzi sulla superficie laterale con normale $x$.
+ 
+\begin{equation*}
+\begin{bmatrix}
+\sigma_{xx} & \sigma_{yx} & \sigma_{zx} \\
+\sigma_{xy} & \sigma_{yy} & \sigma_{zy} \\
+\sigma_{xz} & \sigma_{yz} & \sigma_{zz}
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}
+\sigma_{xx} \\
+\sigma_{xy} \\
+\sigma_{xz}
+\end{bmatrix}
+= \mathbf{0}   
+\quad\quad\quad \rightarrow \quad\quad\quad 
+\begin{matrix}
+\sigma_{xx} = 0 \\
+\sigma_{xy} = 0 \\
+\sigma_{xz} = \sigma_{zx}  = \tau_x = 0
+\end{matrix}
+\end{equation*}
+
+Mentre i primi due risultati sono prescritti dallo sforzo nel modello di trave, il terzo vale al bordo. Analogamente possiamo ottenere che sula faccia esterna con normale diretta come $y$: $\tau_y = 0$. Questa analisi prova che le $\tau$ siano tangenti al contorno della sezione e, di conseguenza, che tutte le $\tau$ normali al bordo della sezione risultino nulle.\\
+
+Per valutare le deformazioni partiamo dalla notazione di Voigt per un materiale elastico, lineare e isotropo.
+\begin{equation*}
+\left\{
+\begin{array}{c}
+\varepsilon_{xx} \\
+\varepsilon_{yy} \\
+\varepsilon_{zz} \\
+\gamma_{yz} \\
+\gamma_{xz} \\
+\gamma_{xy}
+\end{array}
+\right\}
+=
+\left[
+\begin{array}{cccccc}
+\displaystyle \frac{1}{E} & \displaystyle -\frac{\nu}{E} & \displaystyle -\frac{\nu}{E} & 0 & 0 & 0 \\
+\displaystyle -\frac{\nu}{E} & \displaystyle \frac{1}{E} & \displaystyle -\frac{\nu}{E} & 0 & 0 & 0 \\
+\displaystyle -\frac{\nu}{E} & \displaystyle -\frac{\nu}{E} & \displaystyle \frac{1}{E} & 0 & 0 & 0 \\
+0 & 0 & 0 & \displaystyle \frac{1}{G} & 0 & 0 \\
+0 & 0 & 0 & 0 & \displaystyle \frac{1}{G} & 0 \\
+0 & 0 & 0 & 0 & 0 & \displaystyle \frac{1}{G}
+\end{array}
+\right]
+\left\{
+\begin{array}{c}
+\sigma_{xx} \\
+\sigma_{yy} \\
+\sigma_{zz} \\
+\sigma_{yz} \\
+\sigma_{xz} \\
+\sigma_{xy}
+\end{array}
+\right\}
+\end{equation*}
+
+Considerando solo le componenti di sforzo non nulle nel modello di trave:
+\begin{equation*}
+    \begin{bmatrix}
+\varepsilon \\
+\gamma_{x} \\
+\gamma_{y}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\displaystyle \frac{1}{E} & 0 & 0 \\
+0 & \displaystyle \frac{1}{G} & 0 \\
+0 & 0 & \displaystyle \frac{1}{G}
+\end{bmatrix}
+\begin{bmatrix}
+\sigma_x \\
+\tau_{x} \\
+\tau_{y}
+\end{bmatrix}
+\end{equation*}
+
+Sono presenti anche le componenti:
+\begin{equation*}
+    \varepsilon_{xx} = -\frac{\nu}{E}\sigma \quad\quad\quad\quad  \varepsilon_{yy} = -\frac{\nu}{E}\sigma
+\end{equation*}
+Queste deformazioni, dovute a vincoli interni o condizioni di simmetria, non compiono lavoro e non sono quindi considerate tra le incognite del problema.\\
+
+Riguardo l'andamento di sforzi e deformazioni nella trave ritroviamo tre componenti:
+ \begin{equation*}
+        \sigma = \frac{T_z}{\bar{A}} +  \frac{M_x}{J_x}y -\frac{M_y}{J_y}x \quad\quad\quad \varepsilon = \frac{T_z}{E\bar{A}} +  \frac{M_x}{EJ_x}y -\frac{M_y}{EJ_y}x 
+ \end{equation*}
+ Il primo contributo è uniforme e costante lungo tutta la sezione. Il secondo ha una variazione lineare lungo $y$ mentre il terzo ha una variazione lineare lungo $x$. Dividendo per il modulo di Young si ottiene l'analoga distribuzione della deformazione assiale.
+
 
 

@@ -1,3 +1,121 @@
-\section{22. Modello di trave. Calcolo degli spostamenti e delle iperstatiche. Scelta dei sistemi fittizi.}
+\section{Modello di trave. Calcolo degli spostamenti e delle iperstatiche. Scelta dei sistemi fittizi.}
+
+Utilizzo il PLVC, scrivo equazioni di congruenza che consentono di calcolare spostamenti e iperstatiche.
+\subsubsection*{Calcolo spostamenti}
+Attraverso il PLVC gli spostamenti reali compiono lavoro per le forze del sistema fittizio.
+Il sistema fittizio è un sistema virtuale di forze, è dunque: arbitrario, infinitesimo ed equilibrato.\\
+Per calcolare ogni componente di spostamento utilizzo il PLVC con un sistema di forze virtuali pari ad una forza(o momento) unitaria parallela ed equiversa alla componente di spostamento (o rotazione) incognita.\\
+Per risolvere il problema vanno quindi calcolate le azioni interne (attraverso le relazioni differenziali) di entrambi i sistemi, successivamente si calcola il lavoro di deformazione del sistema.
+
+\begin{align*}
+    \delta L_d \,&=\, \delta L_d(T_y, \, \delta T_y)\,+\,\delta L_d(M, \, \delta M)\\
+    \delta L_e &= spostamenti\,reali \, \cdot\, forze\, virtuali \,= \, 1\cdot S \,=\, S
+\end{align*}
+
+Dove il termine $ \delta L_d(T_y, \, \delta T_y)$ risulta trascurabile.\\
+
+Si usa il PLVC e non il PLV perché il calcolo dello spostamento è una condizione di congruenza, si calcola uno spostamento reale (mentre nel PLV sono fittizi), uso una forza virtuale per avere un lavoro esterno immediato da calcolare (nel PLV le forze sono reali).
+
+\begin{esempioBox}
+Consideriamo una trave orizzontale lunga $l$, incastrata nel suo estremo sinistro e libera nel suo estremo destro, soggetta a un carico distribuito uniforme e verticale  $r_y$, immaginiamo di voler calcolare lo spostamento verticale dell'estremo libero $s_y$.
+Consideriamo innanzitutto il sistema reale per cui vale:
+\begin{equation*}
+    \begin{cases}
+        dT_y = -r_y dz\\
+        dM_x = T_ydz
+    \end{cases}
+    \quad\quad\quad \rightarrow\quad\quad\quad 
+    \begin{cases}
+        T_y = -r_y z\\
+        M_x = -r_y \frac{z^2}{2}
+    \end{cases}
+\end{equation*}
+Di seguito consideriamo il sistema fittizio, dove scegliamo di applicare solo una forza unitaria diretta come $s_y$:
+\begin{equation*}
+    \begin{cases}
+        \delta T_y = -1\\
+        \delta M_x = -z
+    \end{cases}
+\end{equation*}
+Il lavoro virtuale di deformazione è:
+\begin{align*}
+    \delta L_d \,&=\, \delta L_d(T_y, \, \delta T_y)\,+\,\delta L_d(M, \, \delta M)\\
+    &= \,\delta L_d(M, \, \delta M)\\
+    &=\, \int_l 
+    \left(
+         \frac{\delta M_x \, M_x}{E J_x} 
+    \right) \, dz \\
+    &=\, \int_l    \frac{r_y z^3}{2E J_x}  \, dz \\
+    &=\, \frac{r_y z^4}{8 J_x}
+\end{align*}
+
+Che eguagliato a $\delta L_e = 1\cdot s_y$, restituisce:
+\begin{equation*}
+    s_y\,=\, \frac{r_y z^4}{8 J_x}
+\end{equation*}
+\end{esempioBox}
 
 
+
+
+\subsubsection*{Calcolo iperstatiche}
+
+Applico il PLVC, il sistema reale di spostamenti lavora per un sistema fittizio di forze. Posso prendere uno spostamento noto qualunque, per essere noto deve essere vincolato (quindi di solito nullo), in questo punto applico una forza fittizia di modo che:
+\begin{equation*}
+    \delta L_e \,=\,\delta F\cdot 0 \,=\,0
+\end{equation*}
+per comodità pongo $\delta F=1$.\\
+La struttura fittizia non deve necessariamente essere congruente, è quindi possibile semplificarla rimuovendo dei vincoli (purché sia verificato l'equilibrio).
+All'equilibrio è necessario aggiungere un'equazione di congruenza, applicando quindi il PLVC.\\
+
+Dunque per un sistema iperstatico calcolo le azioni interne, scrivo le condizioni di equilibrio, aggiungo le condizioni di congruenza con il PLVC, in numero pari alle incognite iperstatiche.\\
+Per scrivere il PLVC identifico una componente di spostamento nota, la reazione vincolare in quel punto diventa l'incognita, contemporaneamente calcolo lo spostamento noto sfruttando il sistema fittizio. Ricordiamo che il sistema fittizio deve essere equilibrato.
+
+    
+
+
+
+
+\begin{esempioBox}
+Consideriamo una trave orizzontale lunga $l$, incastrata nel suo estremo sinistro e con un carrello a scorrimento orizzontale sull'estremo destro, soggetta a un carico distribuito uniforme e verticale  $r_y$, immaginiamo di voler calcolare la reazione vincolare del carrello sull'estremo destro $s_y$.
+Consideriamo innanzitutto il sistema reale, dove l'incognita iperstatica è indicata con $X$. Sommiamo linearmente i contributi alle azioni interne dell'iperstatica e del carico distribuito, per cui vale:
+\begin{equation*}
+    \begin{cases}
+        T_y = -X \\
+        M_x = -Xz
+    \end{cases}
+    \quad\quad\quad 
+    \begin{cases}
+        T_y = -r_y z\\
+        M_x = -r_y \frac{z^2}{2}
+    \end{cases}
+    \quad\quad\quad \rightarrow\quad\quad\quad 
+    \begin{cases}
+        T_y = -X -r_y z\\
+        M_x = -Xz -r_y \frac{z^2}{2}
+    \end{cases}
+\end{equation*}
+Di seguito consideriamo il sistema fittizio, dove scegliamo di applicare solo una forza unitaria diretta come $s_y$:
+\begin{equation*}
+    \begin{cases}
+        \delta T_y = -1\\
+        \delta M_x = -z
+    \end{cases}
+\end{equation*}
+Il lavoro virtuale di deformazione è:
+\begin{align*}
+    \delta L_d \,&=\, \delta L_d(T_y, \, \delta T_y)\,+\,\delta L_d(M, \, \delta M)\\
+    &= \,\delta L_d(M, \, \delta M)\\
+    &=\, \int_l 
+    \left(
+         \frac{\delta M_x \, M_x}{E J_x} 
+    \right) \, dz \\
+    &=\, \int_l  -z \left( -Xz- \frac{r_y z^2}{2}  \right) \frac{1}{E J_x}\, dz \\
+    &=\, \left( X\frac{l^3}{3}+ r_y\frac{l^4}{8}  \right) \frac{1}{E J_x}
+\end{align*}
+
+Che eguagliato a $\delta L_e = 1\cdot s_{y}=0$, restituisce:
+\begin{equation*}
+    X = -\frac{3}{8}r_y l
+\end{equation*}
+\end{esempioBox}

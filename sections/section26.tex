@@ -1,3 +1,154 @@
-\section{26. Modello di trave. Matrice di flessibilità e matrice di rigidezza.}
+\section{Modello di trave. Matrice di flessibilità e matrice di rigidezza.}
+
+\subsubsection*{Matrice di flessibilità}
+
+\begin{definizioneBox}
+    La matrice di flessibilità $\boldsymbol{C} $lega le componenti di spostamento alle componenti di forze applicate. L'elemento $C_{ij} $ rappresenta lo spostamento(o la rotazione) in direzione $i$ di una forza (o momento) unitaria diretta come $j$. La matrice è simmetrica e presenta quindi sei componenti  indipendenti.
+    \begin{equation*}
+    \begin{bmatrix}
+s_z \\
+s_y \\
+\theta_x
+\end{bmatrix}
+=
+\begin{bmatrix}
+C_{11} & C_{12} & C_{13} \\
+C_{21} & C_{22} & C_{23} \\
+C_{31} & C_{32} & C_{33}
+\end{bmatrix}
+\begin{bmatrix}
+F_z\\
+F_y \\
+M
+\end{bmatrix}
+\end{equation*}
+\end{definizioneBox}
+
+Usiamo il PLVC ($\delta L_e =  \delta L_d $) per risolvere una serie di travi orizzontali, lunghe $l$, incastrate all'estremo sinistro e libere all'estremo destro.
+\begin{itemize}
+    \item $C_{11}$
+    Sistema reale : $T_z = F_z $. Sistema fittizio: $\delta T_z = 1$. 
+    \begin{align*}
+        \delta L_e &= s_z \cdot 1 \\
+        \delta L_d &= \int_0^l \frac{\delta T_z T_z}{E\bar{A}} dz = \frac{T_z}{E\bar{A}}l\\
+        s_z &= C_{11} F_z\quad \quad\rightarrow\quad\quad C_{11} =\frac{l}{E\bar{A}}
+    \end{align*}\\
+
+    \item $C_{12}$
+    Sistema reale : $T_z = -F_y $, $M_x=-Fy\,z$. Sistema fittizio: $\delta T_z = 1$. 
+    \begin{align*}
+        \delta L_e &= s_z \cdot 1 \\
+        \delta L_d &= 0\\
+        s_z &= C_{12} F_y\quad \quad\rightarrow\quad\quad C_{12} =0
+    \end{align*}\\
+
+    \item $C_{13}$
+    Sistema reale : $M_x=-M$. Sistema fittizio: $\delta T_z = 1$. 
+    \begin{align*}
+        \delta L_e &= s_z \cdot 1 \\
+        \delta L_d &= 0\\
+        s_z &= C_{13} M\quad \quad\rightarrow\quad\quad C_{13} =0
+    \end{align*}\\
+
+    \item $C_{22}$
+    Sistema reale : $T_y = -F_y $, $M_x =-F_yz$. Sistema fittizio: $\delta T_z = -1$, $\delta M_x = -z$. 
+    \begin{align*}
+        \delta L_e &= s_y \cdot 1 \\
+        \delta L_d &= \int_0^l \left(  \frac{\delta T_y T_y}{GA^*_y} +  \frac{\delta M_xM_x}{EJ_x}\right)\,dz 
+        =\int_0^l \left(    \frac{F_yz^2}{EJ_x}  \right)\,dz 
+        = F_y\frac{l^3}{3EJ_x}\\
+        s_y &= C_{22} F_y\quad \quad\rightarrow\quad\quad C_{22} =\frac{l^3}{3EJ_x}
+    \end{align*}\\
+
+    \item $C_{23}$
+    Sistema reale :  $M_x =-M$. Sistema fittizio: $\delta T_z = -1$, $\delta M_x = -z$. 
+    \begin{align*}
+        \delta L_e &= s_y \cdot 1 \\
+        \delta L_d &= \int_0^l \left(   \frac{\delta M_xM_x}{EJ_x}\right)\,dz 
+        =\int_0^l \left(    \frac{M_z}{EJ_x}  \right)\,dz 
+        = M\frac{l^2}{2EJ_x}\\
+        s_y &= C_{23} M\quad \quad\rightarrow\quad\quad C_{23} =\frac{l^3}{2EJ_x}
+    \end{align*}\\
+    
+    \item $C_{33}$
+    Sistema reale :  $M_x =-M$. Sistema fittizio: $\delta M_x = -1$. 
+    \begin{align*}
+        \delta L_e &= \theta_x \cdot 1 \\
+        \delta L_d &= \int_0^l \left(   \frac{\delta M_xM_x}{EJ_x}\right)\,dz 
+        = M\frac{l}{EJ_x}\\
+        \theta_x &= C_{33} M\quad \quad\rightarrow\quad\quad C_{33} =\frac{l}{EJ_x}
+    \end{align*}
+    
+\end{itemize}
+
+Visti i risultati la matrice di flessibilità diventa:
+\begin{equation*}
+    \begin{bmatrix}
+s_z \\
+s_y \\
+\theta_x
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{l}{E\bar{A}} & 0 & 0 \\
+0 & \frac{l^3}{3EJ_x} & \frac{l^2}{2EJ_x} \\
+0 & \frac{l^2}{2EJ_x} & \frac{l}{EJ_x}
+\end{bmatrix}
+\begin{bmatrix}
+F_z\\
+F_y \\
+M
+\end{bmatrix}
+\end{equation*}
 
 
+\subsubsection*{Matrice di rigidezza}
+
+\begin{definizioneBox}
+    La matrice di rigidezza $\boldsymbol{K}$ lega le componenti delle forze alle componenti di spostamento. L'elemento $K_{ij} $ rappresenta la forza(o momento) in direzione $i$ causa di uno spostamento (o rotazione) unitario diretta come $j$. La matrice è simmetrica e presenta quindi sei componenti  indipendenti.
+    La matrice di rigidezza è l'inversa della matrice di flessibilità $\boldsymbol{K}  = \boldsymbol{C}^{-1}$
+    \begin{equation*}
+    \begin{bmatrix}
+F_z\\
+F_y \\
+M
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{E\bar{A}}{l} & 0 & 0 \\
+0 & \frac{12EJ_x}{l^3} & -\frac{6EJ_x}{l^2} \\
+0 & -\frac{6EJ_x}{l^2} & \frac{4EJ_x}{l}
+\end{bmatrix}
+\begin{bmatrix}
+s_z \\
+s_y \\
+\theta_x
+\end{bmatrix}
+\end{equation*}
+\end{definizioneBox}
+
+Mentre calcolare la matrice di flessibilità era agevole con il metodo delle forze, calcolare la matrice di rigidezza richiede di imporre degli spostamenti, ho quindi due opzioni per calcolarla. Inserire un nuovo vincolo per imporre lo spostamento e risolvere con il metodo delle forze una struttura iperstatica, oppure più semplicemente invertendo la matrice di flessibilità $\boldsymbol{C}$. Nell'inversione della matrice di flessibilità la prima ed ultima componente sono immediate essendo: $K_{11} = C_{11}^{-1}$ e $K_{33} = C_{33}^{-1}$.
+
+\begin{esempioBox}
+    Calcolo di $K_{22}$ e $K_{23}$ attraverso il metodo delle forze. A partire dalla solita trave la rendo iperstatica vincolando l'estremo destro con un pattino-manicotto  e applico una forza verticale $F_y$, l'incognita iperstatica è il momento come reazione vincolare.\\
+    Sistema reale :  $M_x =-F_yz-X$. Sistema fittizio: $\delta M_x = -1$. 
+    \begin{align*}
+        \delta L_e &= \theta_x \cdot 1 = 0\cdot 1 = 0 \\
+        \delta L_d &= \int_0^l \left(   \frac{\delta M_xM_x}{EJ}\right)\,dz 
+        = \left(   F_y\frac{l^2}{2} +Xl\right)\frac{1}{EJ}\\
+       X&= -F_y\frac{l}{2} 
+    \end{align*}
+
+    Risolta l'incognita iperstatica cerco lo spostamento $s_y$:\\
+    Sistema reale :  $M_x =-F_yz + F_y\frac{l}{2} $. Sistema fittizio: $\delta M_x = -z$. 
+    \begin{align*}
+        \delta L_e &= s_y \cdot 1  \\
+        \delta L_d &= \int_0^l \left(   \frac{\delta M_xM_x}{EJ}\right)\,dz 
+        = \int_0^l -z\left(   -F_yz + F_y\frac{l}{2}  \right)   \frac{1}{EJ}\,dz 
+        = \frac{F_y l^3}{12EJ}\\
+       K_{22} &= \frac{F_y}{s_y}  = \frac{12EJ}{l^3}
+    \end{align*}
+
+    Per quanto riguarda $K_{23}$ si può ottenere dalla sua definizione $M = K_{23}s_y$ riconoscendo $M$ come la reazione vincolare sul margine destro, equilibrante rispetto a $M_x(z=0)$, quindi di segno opposto, risulta quindi $K_{23} = -\frac{6EJ}{l^2}$.
+    
+\end{esempioBox}

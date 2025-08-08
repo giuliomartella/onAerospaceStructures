@@ -1,3 +1,35 @@
-\section{33. Equazione dei flussi sorgenti. Applicazioni a casi semplici.}
+\section{Equazione dei flussi sorgenti. Applicazioni a casi semplici.}
+
+Equazione dei flussi sorgenti:
+\begin{equation*}
+       \Phi\, = -\, \frac{T_y}{J_x}S'_x  \,-\, \frac{T_x}{J_y}S'_y 
+    \end{equation*}
+Innanzitutto, osserviamo che prendendo come linea di controllo il contorno della sezione (sempre rispetto agli assi principali d'inerzia), i momenti statici si annullano e così anche il flusso di taglio: le $\tau$ sono tangenti al contorno
+
+\subsubsection*{Trave a doppia T con taglio verticale}
+A partire dalla sezione della trave prendo una linea di contorno che prende poco più dell'estremo inferiore, il taglio è in direzione $y$, di conseguenza:
+
+\begin{equation*}
+       \Phi\, = -\, \frac{T_y}{J_x}S'_x  \,\,, \quad \quad \quad  \quad \quad S'_x = \int_{A'}y \,dA
+    \end{equation*}
+    Scelgo adesso linee di contorno progressivamente più grandi, includendo una quota maggiore dell'anima della trave. Il momento statico, già negativo, aumenta in modulo con un andamento monotono fino a quando la linea di contorno non trova l'asse $x$ di simmetria della trave, dove trova un massimo. Il flusso di taglio $\Phi$ è positivo, quindi esce da queste linee di contorno ed aumenta in modulo. Le $\tau$ dopo la soletta si concentrano nell'anima.\\
+    $\Phi$ e quindi le $\tau$ sono massime per $y=0$, dopodiché si vanno riducendo fino all'anima opposta.\\
+    Questa sezione va bene per reggere sforzi di taglio e flessione perché le $\sigma$ sono massime agli estremi della sezione e sono nulle sull'asse $x$ mentre le $\tau$ sono nulle agli estremi e massimi passando per l'asse $x$. Questo permette di compensare gli sforzi del materiale.
+    
+\subsubsection*{Trave a sezione rettangolare}
+
+Considerando una trave a sezione rettangolare, decidiamo di prendere una linea di contorno che tagli la sezione ortogonalmente a $y$ e ne includa una parte rettangolare lungo tutta $x$. L'area della sezione di contorno è $A' = b\left( \frac{h}{2}-y\right)$ per $y_{cgA'} = \frac{1}{2}\left( \frac{h}{2}+y\right)$, di conseguenza  $S'_x = b\left( \frac{h^2}{4} - \frac{y^2}{2}\right) = $. Il momento statico in funzione di $y$ ha un andamento parabolico, nullo agli estremi della sezione e massimo(positivo) per $y=0$. Di conseguenza $\Phi$ sarà nullo agli estremi e massimo per $y=0$. Le $\tau$ sono quindi dirette come $y$ ed entranti nelle linee di controllo, diminuendo di modulo allontanandosi dall'asse $y$.
+
+
+
+
+
+
+
+
+
+
+
+
 
 

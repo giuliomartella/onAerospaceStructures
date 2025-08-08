@@ -1,3 +1,35 @@
-\section{25. Modello di trave. Definizione di centro di taglio e diffenenze nell'uso degli assi di riferimento.}
+\section{Modello di trave. Definizione di centro di taglio e differenze nell'uso degli assi di riferimento.}
+
+Il centro di taglio (CT) è il punto per il quale, applicando delle forze di taglio $T_x$ e $T_y$, l'energia di deformazione associata alle $\tau$ è disaccoppiata:
+
+\begin{equation*}
+    V_{d}= \frac{1}{2} \int_l 
+    \left[
+        \frac{T_x^2}{G A^*_x} 
+        + \frac{T_y^2}{G A^*_y} 
+        + \frac{M_z^2}{G J_t}
+    \right] dz
+\end{equation*}
+
+Riguardo la scelta del sistema di riferimento, per calcolare $T_z$, $M_x$, $M_y$ uso il sistema principale d'inerzia, per  $T_x$, $T_y$, $M_z$ uso il sistema, con il centro nel centro di taglio e gli assi orientati come quelli del sistema principale d'inerzia. Per verificare questa affermazione chiamiamo questo modo di procedere $A$ e lo confrontiamo con $B$ dove calcoliamo tutte le quantità rispetto al baricentro e $C$, dove calcoliamo tutte le quantità rispetto al centro di taglio. Ipotizzo CG e CT allineati sull'asse $z$, la distanza fra loro vale $d$.\\
+Poiché i tre sistemi sono equilibranti rispetto ai carichi sono anche equivalenti fra loro.
+\begin{itemize}
+    \item Equivalenza fra $A$ e $B$:
+    \begin{align*}
+        T_x^B &= T_x^A \quad\quad\quad \quad &M_x^B &= M_x^A \\
+        T_y^B &= T_y^A \quad\quad\quad \quad &M_y^B + T_z^Bd &= M_x^A+T_z^Ad \\
+        T_z^B &= T_z^A \quad\quad\quad \quad &M_x^B -T_y^Bd&= M_x^A \\
+    \end{align*}
+    ritrovo quindi un errore nel calcolo della torsione, una componente importante nella trattazione delle ali.\\
+    \item Equivalenza fra $A$ e $C$:
+    \begin{align*}
+        T_x^C &= T_x^A \quad\quad\quad \quad &M_x^C &= M_x^A \\
+        T_y^C &= T_y^A \quad\quad\quad \quad &M_y^C - T_z^Cd &= M_x^A \\
+        T_z^C &= T_z^A \quad\quad\quad \quad &M_x^C &= M_x^A \\
+    \end{align*}
+    in questo caso sbaglio il calcolo della flessione.\\    
+\end{itemize}
+Se $T_z$ è piccola o nulla l'errore commesso scegliendo l'opzione $C$ è piccolo. Nelle ali non ci sono azioni dirette come l'asse $z$, dunque l'errore commesso è trascurabile. Questa considerazione può non valere per le pale degli elicotteri, sottoposte a una forte azione assiale per via della forza centrifuga, per queste usiamo un modello di trave a due assi.
+
 
 

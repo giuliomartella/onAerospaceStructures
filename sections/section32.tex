@@ -1,3 +1,53 @@
-\section{32. Equazione dei flussi sorgenti nella seconda forma}
+\section{Equazione dei flussi sorgenti nella seconda forma}
+
+L'equazione dei flussi sorgenti definisce il legame fra le $\tau$ sulla sezione e la risultante in $z$.
+Lavoriamo su una piccola porzione della trave, definita da un cilindro infinitesimo, con asse parallelo a $z$. Gli sforzi assiali sulle facce circolari si possono considerare costanti, ricordando che per il modello di trave le $\tau $ rimangono costanti in $z$.\\
+
+Sviluppiamo l'equilibrio in $z$:
+\begin{align*}
+    (\sigma + d\sigma)\,dA - \sigma \,dA+\tau\, dzdc \,&=\,0\\
+    d\sigma \,dA +\tau\, dzdc \,&=\,0\\
+    d\sigma \,dA +\tau_n\, dzdc \,&=\,0\\
+\end{align*}
+
+Integro dividendo per $dz$:
+\begin{equation*}
+    \int_{A'} \frac{d\sigma}{dz} \,dA+  \int_{C'} \tau_n \,dC = 0
+\end{equation*}
+ Ritrovo quindi l'equazione dei flussi sorgenti:
+
+  \begin{equation*}
+    \Phi \,=\,  - \,\frac{dN}{dz}
+\end{equation*}
+
+Adesso introduciamo il modello di trave considerando  gli assi principali d'inerzia. $S'_x = \int_{A'}y \,dA$ e $S'_y = \int_{A'}x \,dA$ sono i momenti statici riferiti a $A'$, area interna al contorno $C'$.
+
+ \begin{equation*}
+        \sigma = \frac{T_z}{\bar{A}} +  \frac{M_x}{J_x}y -\frac{M_y}{J_y}x
+    \end{equation*}
+
+    \begin{align*}
+    \Phi \,=\,  - \,\frac{dN}{dz} &= - \,\frac{d}{dz} \int_{A'}    \left(\frac{T_z}{\bar{A}} +  \frac{M_x}{J_x}y -\frac{M_y}{J_y}x \right) \,dA\\
+    &= - \,\frac{d}{dz} \left(\frac{T_z}{\bar{A}} A'+  \frac{M_x}{J_x}S'_x -\frac{M_y}{J_y}S'_y \right)\\
+    &= - \,\frac{d}{dz} \left(\frac{T_z}{\bar{A}} A'\right)-  \frac{d}{dz} \left(\frac{M_x}{J_x}S'_x \right)-\frac{d}{dz} \left(\frac{M_y}{J_y}S'_y \right)\\
+    &= -\, \frac{T_y}{J_x}S'_x  \,-\, \frac{T_x}{J_y}S'_y 
+\end{align*}
+
+    Dunque per travi a sezioni costanti vale:
+    \begin{equation*}
+       \Phi\, = -\, \frac{T_y}{J_x}S'_x  \,-\, \frac{T_x}{J_y}S'_y 
+    \end{equation*}
+
+Invece per travi a sezione rastremata:
+\begin{equation*}
+       \Phi\, = -\, \frac{T_y}{J_x}S'_x  \,-\, \frac{T_x}{J_y}S'_y   + M_x \frac{d}{dz} \left(\frac{S'_x}{J_x} \right)-M_y\frac{d}{dz} \left(\frac{S'_y}{J_y} \right)
+    \end{equation*}
+
+    
+
+
+
+
+
 
 
