@@ -1,48 +1,48 @@
+
 \section{Tetraedro di Cauchy}
+Consideriamo un punto materiale $P$ all’interno di un corpo continuo. Attorno a $P$ costruiamo un \textbf{tetraedro infinitesimo} le cui quattro facce siano:
+\begin{itemize}
+    \item una faccia obliqua, la cui normale unitaria sia $\mathbf{n} = (n_x, n_y, n_z)$;
+    \item tre facce coordinate, perpendicolari rispettivamente agli assi $x$, $y$ e $z$.
+\end{itemize}
 
-Il \textbf{tetraedro di Cauchy} è una costruzione geometrica fondamentale in meccanica dei solidi, usata per ricavare la relazione tra il vettore degli sforzi $.\mathbf{t}^{(\mathbf{n})}$ su un piano generico di normale $\mathbf{n}$ e il tensore degli sforzi $\mathbf{\sigma}$ nel punto. Questo strumento permette di collegare il concetto di sforzo su piani qualunque agli sforzi sulle direzioni coordinate principali.
-% Descrizione geometrica
-Si considera un \textbf{tetraedro infinitesimo} entro il corpo, con tre facce parallele ai piani coordinati (ortogonali agli assi $.x$ $,y$ e $,z$) e una quarta faccia obliqua di area $,\Delta A$ con normale unitaria $,\mathbf{n} = (n_x, n_y, n_z)$ Le aree delle facce coordinate sono $.\Delta A_x$ $,\Delta A_y$ $,\Delta A_z$
-% Relazione tra le aree
-Per la geometria del tetraedro, si ha:
-\begin{equation*}
-\Delta A_x = \Delta A \cdot n_x\qquad
-\Delta A_y = \Delta A \cdot n_y, \qquad
-\Delta A_z = \Delta A \cdot n_z
-\end{equation*}
-cioè ciascuna area coordinata è pari all’area della faccia obliqua moltiplicata per il rispettivo coseno direttore della normale $,\mathbf{n}$
-%—BILANCIO DELLE FORZE SUL TETRAEDRO—
-Imponendo l’equilibrio delle forze sulle cinque facce del tetraedro (forze interne e forze di volume per unità di volume $.\mathbf{b}$):
-\begin{equation*}
-\mathbf{t}^{(\mathbf{n})} \ \Delta A
-- \mathbf{t}^{(\mathbf{e}_x)} \, \Delta A_x
-- \mathbf{t}^{(\mathbf{e}_y)} \, \Delta A_y
-- \mathbf{t}^{(\mathbf{e}_z)} \, \Delta A_z
-+ \mathbf{b} \Delta V = 0
-\end{equation*}
-dove:
-- $\mathbf{t}^{(\mathbf{n})}$: vettore sforzo sulla faccia obliqua ($\Delta A$)
-- $\mathbf{t}^{(\mathbf{e}_i)}$: vettore sforzo sulle facce ortogonali agli assi ($\Delta A_i$)
-- $\Delta V$: volume infinitesimo del tetraedro
-- $\mathbf{b}$: forza di volume per unità di volume (ad esempio peso specifico)
-%—PASSAGGIO AL LIMITE E RELAZIONE DI CAUCHY—
-Dividendo per $\Delta A$ e facendo tendere $\Delta A \to 0$ (e dunque anche $\Delta V \to 0$) il termine $,\mathbf{b}\Delta V$ si annulla più rapidamente (essendo $\Delta V$ di ordine superiore rispetto a $\Delta A$) e otteniamo:
-\begin{equation*}
-\mathbf{t}^{(\mathbf{n})} =
-\mathbf{t}^{(\mathbf{e}_x)} n_x +
-\mathbf{t}^{(\mathbf{e}_y)} n_y +
-\mathbf{t}^{(\mathbf{e}_z)} n_z
-\end{equation*}
-Questa equazione è la \textbf{relazione di Cauchy} che esprime il vettore sforzo su un piano qualunque come combinazione lineare dei vettori sforzi sulle facce coordinate.
-% Forma tensoriale
-In forma tensoriale, la relazione si scrive:
-\begin{equation*}
-\mathbf{t}^{(\mathbf{n})} = \mathbf{\sigma}^T \mathbf{n}
-\end{equation*}
-\begin{equation*}
-\text{oppure in forma esplicita sulle componenti:}\qquad t_j = \sigma_{ij} n_i
-\end{equation*}
-dove $\sigma_{ij}$ sono le componenti del tensore degli sforzi di Cauchy e la notazione $^T$ indica la trasposizione (spesso trascurata quando il tensore è simmetrico)
+Sulla faccia obliqua agisce il \textbf{vettore sforzo} $\mathbf{t}^{(\mathbf{n})}$ (o \textit{vettore delle trazioni}) relativo alla normale $\mathbf{n}$.  
+Sulle tre facce coordinate agiscono invece i vettori sforzo $\mathbf{t}^{(x)}$, $\mathbf{t}^{(y)}$ e $\mathbf{t}^{(z)}$, diretti secondo le forze che il materiale circostante esercita sulla faccia considerata.
 
-Questa relazione è usata per ruotare tensori di ordine 2 (per esempio le matrici di rigidezza di materiali ortotropi). Inoltre è usata nella dimostrazione del PLV per ottenere gli sforzi tangenti al contorno.
+\subsubsection*{Geometria del tetraedro}
+Il tetraedro è costruito in modo che il vertice opposto alla faccia obliqua coincida con il punto $P$, e le tre facce coordinate siano contenute nei piani $x = 0$, $y = 0$ e $z = 0$.  
+Se $\Delta S_n$ è l’area della faccia obliqua, la proiezione di quest’area sulle facce coordinate fornisce:
+\begin{equation*}
+\Delta S_x = n_x \, \Delta S_n, \quad
+\Delta S_y = n_y \, \Delta S_n, \quad
+\Delta S_z = n_z \, \Delta S_n
+\end{equation*}
+dove $n_x$, $n_y$, $n_z$ sono le componenti della normale unitaria $\mathbf{n}$.
 
+\subsubsection*{Equilibrio del tetraedro}
+Poiché il tetraedro è infinitesimo, le forze di volume sono proporzionali al volume ($O(\Delta V)$) mentre le forze superficiali sono proporzionali all’area ($O(\Delta S)$). Nel limite $\Delta V \to 0$, le forze di volume diventano trascurabili rispetto alle forze superficiali, e l’equilibrio statico impone:
+\begin{equation*}
+\mathbf{t}^{(\mathbf{n})} \, \Delta S_n + \mathbf{t}^{(x)} \, \Delta S_x + \mathbf{t}^{(y)} \, \Delta S_y + \mathbf{t}^{(z)} \, \Delta S_z = \mathbf{0}
+\end{equation*}
+
+Sostituendo le relazioni geometriche e dividendo per $\Delta S_n$ si ottiene:
+\begin{equation*}
+\mathbf{t}^{(\mathbf{n})} + n_x \, \mathbf{t}^{(x)} + n_y \, \mathbf{t}^{(y)} + n_z \, \mathbf{t}^{(z)} = \mathbf{0}
+\end{equation*}
+
+\subsubsection*{Forma tensoriale}
+Introduciamo il \textbf{tensore degli sforzi di Cauchy} $\boldsymbol{\sigma}$, le cui colonne sono i vettori sforzo sulle facce coordinate:
+\begin{equation*}
+\boldsymbol{\sigma} =
+\begin{bmatrix}
+| & | & | \\
+\mathbf{t}^{(x)} & \mathbf{t}^{(y)} & \mathbf{t}^{(z)} \\
+| & | & |
+\end{bmatrix}
+\end{equation*}
+
+La relazione di equilibrio si riscrive come:
+\begin{equation*}
+\mathbf{t}^{(\mathbf{n})} = \boldsymbol{\sigma} \, \mathbf{n}
+\end{equation*}
+Questa è la \textbf{legge di Cauchy}, che permette di calcolare il vettore sforzo agente su una qualsiasi faccia conoscendo il tensore degli sforzi e la normale alla faccia stessa.

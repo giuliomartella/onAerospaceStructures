@@ -1,3 +1,80 @@
-\section{38. Schema a semiguscio e risoluzione di sezioni aperte}
+\section{Schema a semiguscio e risoluzione di sezioni aperte}
+
+Data una generica sezione a semiguscio con $n$ correnti e $m $ pannelli ho come incognite $n$ azioni assiali per i correnti e $m$ flussi di taglio nei pannelli.
+
+Procediamo con:
+\begin{enumerate}
+    \item Numerazione arbitraria dei pannelli e scelta arbitraria del verso positivo dei flussi.\\
+    \item Numerazione arbitraria dei correnti.\\
+    \item Numerazione arbitraria delle celle e scelta del verso positivo delle loro rotazioni.\\
+    \item Per usare l'equazione dei flussi sorgenti in seconda forma serve riferirsi agli assi principali d'inerzia, per identificarli:
+    \begin{itemize}
+        \item Considerando che solo i correnti hanno area, trovo il baricentro e centro lì un nuovo sistema di riferimento parallelo al primo.
+            \begin{equation*}
+                \boldsymbol{x}_{cg}=\frac{\sum_i^nA_i\boldsymbol{x}_i}{\sum_i^nA_i}
+            \end{equation*}\\
+        \item Rispetto al nuovo sistema calcolo i momenti d'inerzia e il momento centrifugo:
+    \begin{equation*}
+     J_{\tilde{x}} = \sum_i A_i \tilde{y}_i^2 \quad\quad\quad
+     J_{\tilde{y}} = \sum_i A_i \tilde{x}_i^2 \quad\quad\quad
+     J_{\tilde{x}\tilde{y}} = \sum_i A_i \tilde{x}_i \tilde{y}_i
+    \end{equation*}\\
+    \item Se $ J_{\tilde{x}\tilde{y}} = 0$ $(\tilde{x},\tilde{y})$ sono già assi principali d'inerzia. Altrimenti devono essere ruotati di una quantità $\alpha$:
+    \begin{equation*}
+        \alpha = \frac{1}{2} \arctan\left(\frac{2 J_{\tilde{x}\tilde{y}} }{J_{\tilde{x}} J_{\tilde{y}} }\right)
+    \end{equation*}\\
+    \item Per trovare gli assi principali d'inerzia posso sfruttare eventuali simmetrie fra i correnti.
+    \end{itemize}
+    \item Calcolo le $\sigma$ attraverso le azioni assali nei correnti:
+    \begin{align*}
+        \sigma = \frac{T_z}{\bar{A}} +  \frac{M_x}{J_x}y -\frac{M_y}{J_y}x \\
+        N_i = \sigma_iA_i= \frac{T_z}{\bar{A}}A_i +  \frac{M_x}{J_x}S_{xi} -\frac{M_y}{J_y}S_{yi}
+     \end{align*}\\
+    \item Calcolo le $\tau$ attraverso i flussi, a seconda del numero di celle $N$:
+    \begin{itemize}
+        \item Se $N=0$ la sezione è aperta e la struttura è labile a torsione, ci sono meno incognite che condizioni di equilibrio (flussi).\\
+        \item Se $N=1$ la sezione ha una cella, la struttura è isostatica e ci sono tante incognite quante condizioni di equilibrio.\\
+        \item Se $N>1$ la sezione ha più celle, la struttura è iperstatica, ci sono più incognite che condizioni di equilibrio e il sistema andrà completato con delle condizioni di congruenza.
+    \end{itemize}
+\end{enumerate}
+
+\begin{esempioBox}
+    Consideriamo una sezione aperta con un numero di celle $N=0$, di correnti $m=4$ e con un numero di pannelli $n=m-1=3$, aree dei correnti $A$, spessore dei pannelli $t$. La sezione ha dimensioni $a\times h$ ed è applicato al centro un taglio positivo $T_y$.\\
+    Per simmetria dei correnti il baricentro si trova al centro della sezione. Il momento di inerzia è $J_x = 4\frac{Ah^2}{4}=Ah^2$. Prendo la prima linea di controllo includendo un solo corrente e un solo pannello, le linee successive includono anche il corrente e il pannello adiacenti, l'ultima prende solo l'ultimo pannello e l'ultimo corrente.
+    \begin{equation*}
+       \Phi\, = -\, \frac{T_y}{J_x}S'_x  \,-\, \frac{T_x}{J_y}S'_y 
+    \end{equation*}
+    \begin{align*}
+        \Phi_1 \,&=\, +q_1 \,= \, = -\frac{T_y}{J_x}\left( A\frac{h}{2} \right) \,=\, -\frac{T_y}{2h}\\
+         \Phi_2 \,&=\, +q_2 \,= \, = -\frac{T_y}{J_x}\left( A\frac{h}{2}+A\frac{h}{2} \right) \,=\, -\frac{T_y}{h}\\
+          \Phi_3 \,&=\, +q_3 \,= \, = -\frac{T_y}{J_x}\left( A\frac{h}{2}+A\frac{h}{2}-A\frac{h}{2} \right) \,=\, -\frac{T_y}{2h}\\
+           \Phi_4 \,&=\, -q_3 \,= \, = -\frac{T_y}{J_x}\left( -A\frac{h}{2} \right) \,=\, +\frac{T_y}{2h}\\
+    \end{align*}
 
 
+Posso verificare l'esattezza dei valori dei flussi scrivendo le risultanti delle forze lungo gli assi:
+\begin{equation*}
+    R_x\, = \, \frac{T_y}{2h}a-\frac{T_y}{2h}a=0  \quad\quad\quad R_y\, = \, \frac{T_y}{h}h = T_y
+\end{equation*}
+
+Adesso applico le equazioni di equivalenza alle rotazioni. Considero che non posso applicare alcun $M_z$ perché la sezione aperta è labile rispetto alla torsione. Uso come polo il primo corrente.
+\begin{align*}
+    M_1 (T_x, T_y, M_z)=  M_1 (T_x, T_y) = \sum^m_{j=1}2q_j\Omega_{1j}\\
+    M_1(T_y)=Ty\frac{a}{2}\\
+    \sum^m_{j=1}2q_j\Omega_{1j} = 2\frac{T_y}{h} \frac{ah}{2} +2\frac{T_y}{2h} \frac{ah}{2} = \frac{3}{2}T_ya
+\end{align*}
+L'equazione di equivalenza alle rotazioni non è verificata quindi la struttura non è equilibrata. Suppongo ora $T_y$ passi per un punto arbitrario e impongo l'equilibrio.
+\begin{equation*}
+\begin{cases}
+     M_1(T_y)=Ty\,x\\
+    \sum^m_{j=1}2q_j\Omega_{1j} = \frac{3}{2}T_ya
+\end{cases}
+\quad\quad\quad\rightarrow\quad\quad\quad
+   x=\frac{3}{2}a
+\end{equation*}
+Il punto trovato corrisponde per il centro di taglio, l'unico punto in cui è possibile applicare il carico su una sezione aperta soddisfacendo l'equivalenza alle rotazioni.
+
+\end{esempioBox}
+
+
+Posizionando il taglio nel centro di taglio funziona la soluzione della sezione a semiguscio, ovvero le $\tau$ sono parallele alla linea media nella sezione. Posizionando il taglio su un altro punto si genera invece una distribuzione a farfalla, una soluzione non ammessa dal nostro modello, tuttavia ottenibile con una sovrapposizione degli effetti. Per quanto visto, in una sezione aperta il valore delle $\tau$ a farfalla è molto maggiore di quelle costanti, dunque nella loro sovrapposizione la distribuzione a farfalla è dominante.

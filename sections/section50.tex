@@ -1,3 +1,53 @@
-\section{50. Flessione differenziale}
+\section{Flessione differenziale}
 
+La flessione differenziale è il meccanismo con cui le sezioni aperte (se vincolate) riescono ad assorbire un momento torcente. Accade solo in presenza di un incastro o di un vincolo capace di sostenere la reazione vincolare.
 
+Considero una sezione aperta semplice con tre pannelli e quattro correnti, applico il momento $M_z = +M$. Valuto il primo flusso con l'approccio classico.
+\begin{equation*}
+    q_1 \,=\, -\frac{T_y}{J_x}S'_x-\frac{T_x}{J_y}S'_y \,=\,0
+\end{equation*}
+L'approccio classico prevede flussi nulli. Provo a usare l'equilibrio sui due assi e alle rotazioni.
+
+\begin{align*}
+    R_x &=0 \quad\rightarrow\quad q_2=0\\
+    R_x &=0 \quad\rightarrow\quad q_1=q_3\\
+\end{align*}
+\begin{equation*}
+    M_1 = \sum2q\Omega = 2q_3\Omega_3\quad\rightarrow\quad q_3=\frac{M}{ab}=q_1
+\end{equation*}
+Dunque grazie all'equilibrio conosco i flussi, uso quindi l'equazione dei flussi sorgenti in prima forma:
+\begin{equation*}
+    \Phi = -\frac{dN}{dz}\quad\quad\quad N= \int_A\,\sigma_z\,dA
+\end{equation*}
+\begin{align*}
+    \Phi \,&=\, +\frac{M}{ab}=\,-\frac{dN_1}{dz}\\
+    \Phi \,&=\, -\frac{M}{ab}=\,-\frac{dN_2}{dz}\\
+    \Phi \,&=\, +\frac{M}{ab}=\,-\frac{dN_3}{dz}\\
+    \Phi \,&=\, -\frac{M}{ab}=\,-\frac{dN_4}{dz}\\
+\end{align*}
+
+Adesso integriamo la prima:
+\begin{align*}
+     dN_1\,&=\,-\frac{M}{ab}dz\\
+    \int_{N_1(0)}^{N_1(z)}  dN_1\,&=\,\int_0^z-\frac{M}{ab}dz\\
+    N_1(z) - N_1(0)  &=-\frac{M}{ab}z
+\end{align*}
+
+Essendo la trave libera per $z=L$, devo avere $N_1(L) = 0$, per cui:
+\begin{align*}
+    N_1(L) - N_1(0)  &=-\frac{M}{ab}z\\
+    N_1(0) &= \frac{M}{ab}L\\
+     N_1(z) &= -\frac{M}{ab}z+\frac{M}{ab}L \\
+\end{align*}
+
+Considerando gli altri correnti:
+\begin{align*}
+     N_2(z) &= +\frac{M}{ab}z-\frac{M}{ab}L \\
+      N_3(z) &= -\frac{M}{ab}z+\frac{M}{ab}L \\
+       N_4(z) &= +\frac{M}{ab}z-\frac{M}{ab}L \\
+\end{align*}
+
+Dai risultati si evince che i correnti 1 e 3 lavora a trazione, mentre i correnti 2 e 4 lavorano a compressione. Nella deformata $q_1$ flette verso il basso mentre $q_3$ verso l'alto.\\
+Quindi in una trave con sezione aperta l'applicazione di un momento torcente genera delle azioni assiali nei correnti. Le sezioni non rimangono piane e non siamo più nel modello di de Saint Venant.\\
+
+Nel caso in cui avessi più di tre pannelli, alle condizioni di equilibrio bisognerebbe aggiungere delle equazioni di congruenza (più complicate non valendo più il modello di trave).

@@ -1,3 +1,59 @@
-\section{44. Lavoro di deformazione ed energia di deformazione per una sezione a semiguscio.}
+\section{Lavoro di deformazione ed energia di deformazione per una sezione a semiguscio.}
 
+Energia di deformazione associata alle $\tau$, assumendo il modello di trave:
+\begin{equation*}
+    \delta V_d \,=\, \frac{1}{2}\int_\Omega \tau\,\gamma \, dV \,=\, \int_L\int_{\bar{A}} (\gamma_x\tau_x+ \gamma_y\tau_y) \, dA\,dz
+\end{equation*}
 
+Considerando ora che i correnti non hanno sforzi $\tau$, che sono invece solo nei pannelli, scriviamo:
+
+\begin{align*}
+    V_{d\tau} &= \sum^m_{j=1} V_{d\tau_j} \\
+    q_j&=\tau_j\,t_j    \quad \quad \quad\rightarrow \quad \quad \quad \tau_{\mathrm{media}_j}=\frac{q_j}{t_j}\\
+    \gamma_j &=\frac{\tau_j}{G} = \frac{q_j}{Gt_j}\\
+\end{align*}
+
+Quindi l'energia di deformazione legata alle $\tau$ per ogni singolo pannello è:
+\begin{align*}
+    V_{d\tau_j} \,&=\, \frac{1}{2}\int_{\Omega_j} \tau_j\,\gamma_j \, dV \,\\
+    &=\,\frac{1}{2} \int_L\int_{\bar{A}_j}\tau_j\,\gamma_j \, dA\,dz\\
+     &=\,\frac{1}{2} \int_L\int_{l_j}\int_{t_j}  \left( \frac{q_j}{t_j} \,\frac{q_j}{Gt_j} \right)     \, dt\,dl\,dz\\
+     &=\, \frac{1}{2} \int_L \,\frac{q_j^2}{Gt_j^2}\left( t_j\,l_j \right) \,dz\\
+         &=\, \frac{1}{2} \int_L \,\frac{q_j^2}{Gt_j}\,l_j \,dz
+\end{align*}
+
+Per tutti i pannelli:
+\begin{equation*}
+     V_{d\tau} \,=\, \frac{1}{2} \int_L \,\sum^m_{j=1}\frac{q_j^2}{Gt_j}\,l_j \,dz
+\end{equation*}
+
+Il lavoro di deformazione legato alle $\tau$ per ogni pannello è:
+
+\begin{equation*}
+     \delta L_{d\tau} \,=\,  \int_L \,\sum^m_{j=1}\frac{q_j\delta q_j}{Gt_j}\,l_j \,dz
+\end{equation*}
+
+Se uso il centro di taglio per calcolare le azioni interne, rispetto all'energia di deformazione, vale:
+
+\begin{equation*}
+    V_{d\tau}= \frac{1}{2} \int_l 
+    \left[
+        \frac{T_x^2}{G A^*_x} 
+        + \frac{T_y^2}{G A^*_y} 
+        + \frac{M_z^2}{G J_t}
+    \right] dz
+\end{equation*}
+
+Partendo da una struttura, applicando uno alla volta $T_x$, $T_y$ ed $M_z$ posso calcolare rispettivamente $A^*_x$, $A^*_y$ e $J_y$.
+
+Possiamo confrontare l'espressione per il calcolo dell'energia di deformazione associata alle $\tau$ con l'energia associata alle $\sigma$:
+
+\begin{equation*}
+    V_{d\sigma}= \frac{1}{2} \int_l 
+    \left[
+        \frac{T_z^2}{E\bar{A}} 
+        + \frac{M_x^2}{E J_x}
+        + \frac{M_y^2}{E J_y}
+    \right] dz
+\end{equation*}
+Notiamo come per una trave allungata $V_{d\sigma}>>V_{d\tau}$, il contrario per una trave tozza.

@@ -1,3 +1,32 @@
-\section{49. Andamento delle azioni interne per una trave diaframmata}
+\section{Andamento delle azioni interne per una trave diaframmata}
+
+Una trave diaframmata è una trave a semiguscio che, lungo la sua estensione, presenta diaframmi consecutivi. Si dice baia la parte della trave compresa tra diaframmi successivi.\\
 
 
+I pannelli sono vincolati ai diaframmi. Il carico distribuito arriva ai diaframmi come risultante di $r$ sui pannelli, dunque posso valutare l'equilibrio sostituendo ai pannelli la risultante dei carichi distribuiti che gli sono applicati.\\
+Il pannello risulterà quindi vincolato su due appoggi, ovvero i diaframmi, modellabili come carrelli.\\
+Con questo modello il pannello stesso diviene una trave e, nello spessore, a causa della flessione locale, si forma una $\sigma_z$ con andamenti a farfalla.
+\begin{equation*}
+    \sigma_z\,=\, \sigma_{z,\,\mathrm{locale}}\,+\, \sigma_{z,\,\mathrm{globale}}
+    \,=\, \sigma_{z,\,\mathrm{locale}}\,+\, \left(\frac{T_z}{\bar{A}}+\frac{M_x}{J_x}y-\frac{M_y}{J_y}x\right)
+\end{equation*}
+La $\sigma_{z,\,\mathrm{locale}}$ deriva dalla flessione del pannello e causa delle pressioni, è molto inferiore a $\sigma_{z,\,\mathrm{globale}}$
+($5<<200MPa$).\\
+
+Nelle travi diaframmate i carichi si entrano solamente grazie ai diaframmi come carichi concentrati. L'andamento delle azioni interne è quindi influenzato dalla spaziatura dei diaframmi.\\
+
+
+Per esempio una trave non diaframmata soggetta a un carico distribuito costante $r_y$ avrà come azioni interne una $T_y$ lineare e un $M_x$ parabolico.\\
+Lo stesso carico applicato a una trave diaframmata si concentra in un numero discreto di punti nell'inserimento dei diaframmi come $\Delta T = \int_{z_1}^{z_2}\,r_y\,dz$.\\
+Le $   \Delta T$ possono variare solo fra i diaframmi, al contrario rimangono costanti, assumono quindi un andamento costante a tratti.
+Gli $M_x$ essendo l'integrale di una funzione costante a tratti risultano essere lineari a tratti, con una funzione che cambia pendenza dopo ogni diaframma.
+
+Guardiamo invece il caso di un carico distribuito $r_y$ lineare, una trave non diaframmata avrà un $T_y$ parabolico e un $M_x$ cubico.
+Nel caso di una trave diaframmata l'andamento del diagramma di taglio rimane costante a tratti. Possiamo sottolineare come fra ogni baia ci sia un'equivalenza fra l'integrale del taglio nella struttura e l'integrale del carico distribuito. Analogamente il momento flettente rimane costante a tratti.\\
+
+Possiamo aggiungere delle considerazioni sui flussi. Estraiamo un pannello dalla trave e valutiamo l'equilibrio. Nel modello della trave a semiguscio lungo ogni pannello $q_j$ è costante lungo $z$. Dato $q_j=-\frac{T}{J}S'$, se $q_j$ è costante lungo $z$ lo è anche $T$. Dunque anche nel pannello si ha una variazione di flusso solo passando attraverso un diaframma.
+\begin{equation*}
+    \Phi\,=\, q_2-q_1\,=\,  -\frac{dN}{dz}
+\end{equation*}
+
+Quindi se $q$ sono costanti in $z$ allora $N$ sono lineari in $z$, di conseguenza lo sono anche $M_x$ ed $M_y$.

@@ -1,3 +1,44 @@
-\section{41. Definizione e calcolo del centro di taglio per sezioni a semiguscio aperte}
+\section{Definizione e calcolo del centro di taglio per sezioni a semiguscio aperte}
+
+\begin{definizioneBox}
+    Centro di taglio di una sezione aperta. Unico punto in cui è possibile applicare il taglio e comunque rispettare l'equazione di equivalenza alle rotazioni.
+\end{definizioneBox}
+
+Consideriamo una sezione a semiguscio aperta e calcoliamo i flussi attraverso l'equazione dei flussi sorgenti in seconda forma:
+\begin{equation*}
+       \Phi\, = -\, \frac{T_y}{J_x}S'_x  \,-\, \frac{T_x}{J_y}S'_y 
+    \end{equation*}
+    \begin{align*}
+        \Phi_1 \,&=\, +q_1 \,= \, = -\frac{T_y}{J_x}\left( A\frac{h}{2} \right) \,=\, -\frac{T_y}{2h}\\
+         \Phi_2 \,&=\, +q_2 \,= \, = -\frac{T_y}{J_x}\left( A\frac{h}{2}+A\frac{h}{2} \right) \,=\, -\frac{T_y}{h}\\
+          \Phi_3 \,&=\, +q_3 \,= \, = -\frac{T_y}{J_x}\left( A\frac{h}{2}+A\frac{h}{2}-A\frac{h}{2} \right) \,=\, -\frac{T_y}{2h}
+    \end{align*}
+
+
+Possiamo ora applicare l'equazione di equivalenza alle rotazioni:
+\begin{equation*}
+    M_1 (T_x, T_y, M_z)\,=\, \sum^m_{j=1}2q_j\Omega_{1j} \,=\, 2\frac{T_y}{h} \frac{ah}{2} +2\frac{T_y}{2h} \frac{ah}{2} \,=\, \frac{3}{2}T_ya
+\end{equation*}
+
+Suppongo ora $T_y$ passi per un punto arbitrario e impongo l'equilibrio.
+\begin{equation*}
+\begin{cases}
+     M_1(T_y)=Ty\,x\\
+    \sum^m_{j=1}2q_j\Omega_{1j} = \frac{3}{2}T_ya
+\end{cases}
+\quad\quad\quad\rightarrow\quad\quad\quad
+   x=\frac{3}{2}a
+\end{equation*}
+
+
+
+Quando il taglio è applicato nel centro di taglio, la sezione a semiguscio presenta una distribuzione delle $\tau$ parallela alla linea media. Se invece il taglio è applicato in un punto diverso, si genera una distribuzione “a farfalla”, non ammessa dal nostro modello ma ottenibile come sovrapposizione degli effetti. In una sezione aperta, le $\tau$ associate alla distribuzione a farfalla risultano molto più elevate rispetto a quelle costanti; di conseguenza, nella sovrapposizione, la distribuzione a farfalla risulta predominante.
+
+
+
+
+
+
+
 
 

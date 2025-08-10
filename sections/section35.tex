@@ -1,3 +1,45 @@
-\section{35. Ipotesi della sezione a semiguscio.}
+\section{Ipotesi della sezione a semiguscio.}
+
+Riprendiamo le ipotesi per la sezione a guscio:
+\begin{enumerate}
+    \item Le $\tau$ sono tangenti al contorno del pannello.\\
+    \item Non consideriamo gli andamenti delle $\tau$ a farfalla perché generano rigidezza torsionale nulla.\\
+    \item Le $\tau$ sono parallele e simmetriche rispetto alla linea media.\\
+    \item Il flusso di taglio è :
+    \begin{equation*}
+            q(l) = \int_{-\frac{t}{2}}^{+\frac{t}{2}} \, \tau \,dt  \quad\quad\rightarrow\quad\quad q(l) \,= \, \tau_{media} \,t
+        \end{equation*}
+       Ed è variabile lungo $l$ perché le $\tau$ possono variare lungo la linea media.\\
+    \item Risultante delle $\sigma$:
+    \begin{equation*}
+            p(l) = \int_{-\frac{t}{2}}^{+\frac{t}{2}} \, \sigma \,dt  \quad\quad\rightarrow\quad\quad q(l) \,= \, \sigma_{media} \,t
+        \end{equation*}
+        Essendo $\sigma = \frac{M}{J}y$ e $t<<L$, le $\sigma $ sono costanti lungo lo spessore.\\
+    \item Poiché il momento di trasporto di un corrente è molto maggiore del suo momento d'inerzia locale, quest'ultimo viene trascurato. Si ignora la forma del corrente e si considera solo la sua area e posizione. Non è quindi possibile distinguere le $\sigma$ fra i punti di un corrente.\\
+    \item Le $\sigma $ si considerano costanti nei correnti.
+    \item Definisco l'azione assiale per l'i-esimo corrente: $N_i\,=\,\sigma_iA_i$.\\
+    \item Dati $T_x$ e $T_y$ che dipendono dall'area, essendo l'area dei correnti trascurabile rispetto a quella della sezione, considero trascurabili le $\tau$ nei correnti.     
+\end{enumerate}
+
+Aggiungo quindi l'ipotesi specifica della sezione a semiguscio. Ogni pannello è caratterizzato da un valore $q_j$ costante:
+    \begin{equation*}
+        q_j=cost  \quad\quad \quad  \Phi = - \frac{T}{J}S'=0
+    \end{equation*}
+    Per cui si configurano due casi
+    \begin{itemize}
+        \item Se è presente solo $M_z \neq0$ ($T_x=T_y=0$), allora $\Phi=0$ e non si introduce alcuna approssimazione.\\
+        \item Se $T_x,T_y\neq0$, allora per avere $\Phi=0$ ipotizzo $S'=0$, ovvero ipotizzo pannelli ad area nulla. Per non ignorare l'area dei pannelli includo le loro quantità nell'area dei correnti adiacenti.
+    \end{itemize}
+In questo modo i flussi di taglio sono costanti nei pannelli e variano solo attraversando i correnti.
+\begin{equation*}
+       \Phi =  q_2 - q_1= - \frac{T}{J}S'
+    \end{equation*}
+    Come conseguenza le $\sigma$ sono solamente nei correnti, essendo i pannelli privi di area.
+
+Riassumendo:
+\begin{compactitem}
+    \item I pannelli sopportano le $\tau$ $\quad\rightarrow\quad$ flussi di taglio.\\
+    \item I correnti sopportano le $\sigma$ $\quad\rightarrow\quad$ azioni assiali.
+\end{compactitem}
 
 

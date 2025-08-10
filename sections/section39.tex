@@ -1,3 +1,83 @@
-\section{39. Schema a semiguscio e risoluzione di sezioni ad una cella}
+\section{Schema a semiguscio e risoluzione di sezioni ad una cella}
+
+
+Data una generica sezione a semiguscio con $n$ correnti e $m $ pannelli ho come incognite $n$ azioni assiali per i correnti e $m$ flussi di taglio nei pannelli.
+
+Procediamo con:
+\begin{enumerate}
+    \item Numerazione arbitraria dei pannelli e scelta arbitraria del verso positivo dei flussi.\\
+    \item Numerazione arbitraria dei correnti.\\
+    \item Numerazione arbitraria delle celle e scelta del verso positivo delle loro rotazioni.\\
+    \item Per usare l'equazione dei flussi sorgenti in seconda forma serve riferirsi agli assi principali d'inerzia, per identificarli:
+    \begin{itemize}
+        \item Considerando che solo i correnti hanno area, trovo il baricentro e centro lì un nuovo sistema di riferimento parallelo al primo.
+            \begin{equation*}
+                \boldsymbol{x}_{cg}=\frac{\sum_i^nA_i\boldsymbol{x}_i}{\sum_i^nA_i}
+            \end{equation*}\\
+        \item Rispetto al nuovo sistema calcolo i momenti d'inerzia e il momento centrifugo:
+    \begin{equation*}
+     J_{\tilde{x}} = \sum_i A_i \tilde{y}_i^2 \quad\quad\quad
+     J_{\tilde{y}} = \sum_i A_i \tilde{x}_i^2 \quad\quad\quad
+     J_{\tilde{x}\tilde{y}} = \sum_i A_i \tilde{x}_i \tilde{y}_i
+    \end{equation*}\\
+    \item Se $ J_{\tilde{x}\tilde{y}} = 0$ $(\tilde{x},\tilde{y})$ sono già assi principali d'inerzia. Altrimenti devono essere ruotati di una quantità $\alpha$:
+    \begin{equation*}
+        \alpha = \frac{1}{2} \arctan\left(\frac{2 J_{\tilde{x}\tilde{y}} }{J_{\tilde{x}} J_{\tilde{y}} }\right)
+    \end{equation*}\\
+    \item Per trovare gli assi principali d'inerzia posso sfruttare eventuali simmetrie fra i correnti.
+    \end{itemize}
+    \item Calcolo le $\sigma$ attraverso le azioni assali nei correnti:
+    \begin{align*}
+        \sigma = \frac{T_z}{\bar{A}} +  \frac{M_x}{J_x}y -\frac{M_y}{J_y}x \\
+        N_i = \sigma_iA_i= \frac{T_z}{\bar{A}}A_i +  \frac{M_x}{J_x}S_{xi} -\frac{M_y}{J_y}S_{yi}
+     \end{align*}\\
+    \item Calcolo le $\tau$ attraverso i flussi, a seconda del numero di celle $N$:
+    \begin{itemize}
+        \item Se $N=0$ la sezione è aperta e la struttura è labile a torsione, ci sono meno incognite che condizioni di equilibrio (flussi).\\
+        \item Se $N=1$ la sezione ha una cella, la struttura è isostatica e ci sono tante incognite quante condizioni di equilibrio.\\
+        \item Se $N>1$ la sezione ha più celle, la struttura è iperstatica, ci sono più incognite che condizioni di equilibrio e il sistema andrà completato con delle condizioni di congruenza.
+    \end{itemize}
+\end{enumerate}
+
+
+\begin{esempioBox}
+    Sezioni ad una cella.\\
+    Consideriamo una sezione a semiguscio a una cella, di forma rettangolare, con 6 correnti e 6 pannelli. Le aree dei correnti misurano $A$, lo spessore dei pannelli $t$ e la sezione ha dimensione $2a\times h$, dove $a$ è la lunghezza di ogni pannello orizzontale. Sono applicati un taglio al centro $T_y$ e un momento $M_z$. Per simmetria dei correnti il baricentro si trova al centro della sezione.\\
+    Il momento d'inerzia è $J_x=6A\frac{h^2}{4}=\frac{3}{2}Ah^2$. Ci troviamo nel metodo delle forze quindi scriviamo prima le condizioni di equilibrio. \\
+    Uso l'equazione dei flussi sorgenti in seconda forma per scrivere $n-1$ condizioni di equilibrio, ogni volta adattando la linea di contorno considerata, dopodiché chiudo il sistema imponendo l'equilibrio alle rotazioni.
+    \begin{equation*}
+       \Phi\, = -\, \frac{T_y}{J_x}S'_x  \,-\, \frac{T_x}{J_y}S'_y 
+    \end{equation*}
+    \begin{align*}
+        q_1-q_6 \,&=\, -\frac{T_y}{J_x}\frac{Ah}{2}\,=\, - \frac{T_y}{3h}\\
+         q_2-q_1 \,&=\, -\frac{T_y}{J_x}\frac{Ah}{2}\,=\, - \frac{T_y}{3h}\\
+          q_4-q_2 \,&=\, -\frac{T_y}{J_x}\left(\frac{Ah}{2}-\frac{Ah}{2}\right)\,=\, 0\\
+           q_4-q_3 \,&=\, -\frac{T_y}{J_x}\left(-\frac{Ah}{2}\right)\,=\,  \frac{T_y}{3h}\\
+            q_5-q_4 \,&=\, -\frac{T_y}{J_x}\left(-\frac{Ah}{2}\right)\,=\,  \frac{T_y}{3h}\\
+    \end{align*}
+    Per l'equilibrio alle rotazioni:
+    \begin{align*}
+    M_1 (T_x, &T_y, M_z)=  M_1 (T_x, T_y) = \sum^m_{j=1}2q_j\Omega_{1j} \quad\quad\quad dove:\\
+    \Omega_{11}&=0 \quad\quad\quad \Omega_{12}=0 \quad\quad\quad \Omega_{13}=ah \quad\quad\quad   \\
+     \Omega_{14}&=\frac{ah}{2} \quad\quad\quad \Omega_{15}=\frac{ah}{2} \quad\quad\quad \Omega_{16}=0 \quad\quad\quad    \\
+\end{align*}
+
+\begin{equation*}
+    \begin{cases}
+        M_1(T_y)=M_z+Tya\\
+    \sum^m_{j=1}2q_j\Omega_{1j} = -2(q_3ah+q_4\frac{ah}{2}+q_5\frac{ah}{2})
+    \end{cases}
+\end{equation*}
+
+Chiudendo così un sistema di 6 equazioni e 6 incognite.\\
+Si può anche tagliare un pannello ed esprimere i flussi come:
+\begin{equation*}
+    q_j\,=\,q'_j\,+\,   \sum^N_{k=1}\,\alpha_{jk}\,q^*_k
+\end{equation*}
+Questa tecnica consiste nel sovrapporre gli effetti dei $q'_j$ e dei $q^*_k$. I primi sono i flussi nel caso ogni cella fosse tagliata in un pannello e quindi aperta e labile rispetto alla torsione. I secondi sono i flussi che circolano in ogni cella per rispettare l'equilibrio alle rotazioni.
+
+
+    
+\end{esempioBox}
 
 

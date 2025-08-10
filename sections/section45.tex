@@ -1,3 +1,47 @@
-\section{45. Calcolo del fattore di torsione per una sezione a semiguscio.}
+\section{Calcolo del fattore di torsione per una sezione a semiguscio.}
 
+Supponiamo di lavorare con una trave allungata a sezione sottile rettangolare, la modelliamo come una sezione a semiguscio ad una cella, con 4 correnti e 4 pannelli. La sezione originale, con uno spessore $t$, ha dimensioni $b\times a$, la sezione modellata ha dimensioni $\bar{b}\times\bar{a}$. Nel passaggio alla rappresentazione della linea media infatti: $a = \bar{a}+t$ e $b = \bar{b}+t$ .
 
+Il \textbf{teorema di Bredt} per sezioni chiuse a parete sottile stabilisce che la rigidezza torsionale è inversamente proporzionale alla flessibilità al taglio della sezione. La formula generale è:
+\begin{equation}
+    \frac{1}{GJ_t} = \frac{1}{4\Omega^2 G} \oint \frac{ds}{t(s)}
+\end{equation}
+dove $\Omega$ è l'area racchiusa dalla linea media, $t(s)$ è lo spessore locale della parete, e l'integrale rappresenta la flessibilità complessiva della sezione al taglio.
+
+Per una sezione rettangolare chiusa con dimensioni $\bar{a} \times \bar{b}$ e spessore uniforme $t$, l'area racchiusa è $\Omega = (\bar{a}-t)(\bar{b}-t)$ e l'integrale di flessibilità diventa:
+\begin{equation}
+    \oint \frac{ds}{t(s)} = \frac{2\bar{a}}{t} + \frac{2\bar{b}}{t} = \frac{2(\bar{a} + \bar{b})}{t}
+\end{equation}
+
+Sostituendo nella formula di Bredt e invertendo, si ottiene il momento di inerzia torsionale:
+\begin{equation}
+    J_t = \frac{4\Omega^2}{\oint \frac{ds}{t(s)}}  = \frac{2t(\bar{a}-t)^2(\bar{b}-t)^2}{\bar{a} + \bar{b}}
+\end{equation}
+
+Questa espressione mostra che la rigidezza torsionale è proporzionale allo spessore e al quadrato dell'area racchiusa, mentre è inversamente proporzionale al perimetro esterno della sezione.\\
+Verifichiamo ora il calcolo con i flussi di taglio. Per calcolare il fattore di torsione $\frac{1}{GJ_t}$ applico solo il momento torcente $M_z$.
+
+\begin{equation*}
+    q_j\,=\,q'_j\,+\,   \sum^N_{k=1}\,\alpha_{jk}\,q^*_k\,=\,   \sum^N_{k=1}\,\alpha_{jk}\,q^*_k
+\end{equation*}
+\begin{equation*}
+    2q^*\Omega \,=\,  2q^*\bar{a} \bar{b}\,=\, M_z\quad\quad\quad\rightarrow\quad\quad\quad q^*\,=\,\frac{M_z}{2\bar{a} \bar{b}}
+\end{equation*}
+Per cui dal modello di trave e poi dal modello delle sezioni a semiguscio:
+
+\begin{align*}
+   V_{d} \,&=\, \frac{1}{2} \int_L \,\frac{M_z^2}{GJ_t} \,dz\\
+    V_{d\tau} \,&=\, \frac{1}{2} \int_L \,\sum^m_{j=1}\frac{q_j^2l_j}{Gt_j} \,dz\\
+        V_d   &=\, \frac{1}{2G} \,\sum^m_{j=1}\frac{q_j^2l_j}{t_j} \\
+         &=\, \frac{1}{2Gt} \,\left(  \frac{M_z^2}{2\bar{a} \bar{b}}  \right) \left(  \bar{a} +\bar{b} +\bar{a} +\bar{b}  \right) \\
+      &=\, \frac{M_z^2}{2Gt} \,\frac{\bar{a} +\bar{b}}{2\bar{a}^2 \bar{b}^2}\\
+\end{align*}
+
+Uguagliando le due espressioni:
+\begin{equation*}
+    \frac{1}{2} \,\frac{M_z^2}{GJ_t}\,=\, \frac{M_z^2}{2Gt} \,\frac{\bar{a} +\bar{b}}{2\bar{a}^2 \bar{b}^2}
+    \quad\quad\quad\rightarrow\quad\quad\quad
+    J_t\,=\,\frac{2\bar{a}^2 \bar{b}^2t}{\bar{a} +\bar{b}}
+\end{equation*}
+
+L'espressione coincide con quella ricavata con la teoria di Bredt.

@@ -1,3 +1,46 @@
-\section{42. Definizione e calcolo del centro di taglio per sezioni a semiguscio chiuse.}
+\section{Definizione e calcolo del centro di taglio per sezioni a semiguscio chiuse.}
+
+
+\begin{definizioneBox}
+    Centro di taglio per una sezione a semiguscio chiusa. Unico punto in cui applicato il taglio sono $T_x,T_y$ e $M_z$ sono disaccoppiati energeticamente.
+    \begin{equation*}
+    V_d\,=\,\frac{1}{2}\int_A \, \gamma_{M_z}\,\tau_T\,dA=0
+\end{equation*}
+
+Applicando il taglio nel CT, la sezione non ruota $\dot{\theta}=0$, posso usare questa condizione per trovare la sua posizione.
+\end{definizioneBox}
+
+Considero una sezione a semiguscio chiusa, con due celle, rettangolare, di dimensioni $(a+2a)\times2h$. Confronto il numero di incognite e equazioni:
+\begin{equation*}
+    \text{Incognite:} \begin{cases}
+        m \text{ (flussi)} \\
+        1 \text{ }(x(CT))
+    \end{cases}
+    \qquad
+    \text{Equazioni:} \begin{cases}
+        (n-1): & \Phi = -\frac{T}{J}S \\
+        1: & M = \sum 2q\Omega \\
+        (N-1): & \dot{\theta}_k = \dot{\theta}_p \\
+        1: & \dot{\theta}_k = 0
+    \end{cases}
+\end{equation*}
+
+Risultano $m+1$ incognite ed $[n-1+1(m-n+1)-1+1]\,=\,m+1$ equazioni. Procediamo con la risoluzione:
+\begin{enumerate}
+    \item Se la sezione non è simmetrica trovo gli assi principali d'inerzia e mi riferisco a loro.\\
+    \item Taglio due pannelli aprendo le celle.\\
+    \item Scrivo $(n-1)$ equazioni dei flussi sorgenti $ \Phi\, = -\, \frac{T_y}{J_x}S'_x  $, trovo $q'_j$.\\
+    \item Scrivo:
+    \label{puntoB}
+    \begin{equation*}
+        M\,=\,2q\Omega\,=\, \sum^m_{j=1}\,2q'_j\Omega_{Oj} +\sum^N_{k=1}\,2q^*_k\Omega_{k}\,=\, T_j \,x_{CT}
+    \end{equation*}\\
+    \item Pongo nulla la torsione, da cui ricavo $q^*_k$:
+    \begin{equation*}
+        \dot{\theta}\,=\,\frac{1}{2G\Omega}\sum^m_{j=1}\,\frac{q_j\,l_j}{t_j}\,
+    \end{equation*}\\
+    \item Uso il punto \ref{puntoB} per ricavare la posizione del CT.
+    
+\end{enumerate}
 
 

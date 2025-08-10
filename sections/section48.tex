@@ -1,3 +1,89 @@
-\section{48. Calcolo degli sforzi all'interno dei diaframmi}
+\section{Calcolo degli sforzi all'interno dei diaframmi}
+
+Considero una trave a semiguscio con una centina nel mezzo. Estraggo la centina dalla struttura per valutarne gli sforzi. Le forze si scaricano con un salto del taglio nel punto in cui ho la centina. Si ha così un sistema di flussi equivalenti che caricano la sezione a semiguscio. Il diaframma introduce nella sezione i carichi concentrati per mezzo di flussi che, sul diaframma sono equilibranti ai carichi esterni, invece nella sezione sono equivalenti ai carichi esterni. Sulla centina ho flussi uguali e contrari rispetto alla sezione. Dunque sulla centina il sistema dato dai flussi sui pannelli e dai carichi esterni è autoequilibrante.\\
+
+
+Per chiarificare, sul diaframma ho un sistema di flussi lungo le giunzioni con i pannelli che fanno equilibrio ai carichi esterni, dunque i flussi sui bordi della centina sono equilibranti rispetto ai carichi applicati. Il sistema dato da flussi e carichi applicati rappresenta un sistema autoequilibrato.\\
+
+\begin{esempioBox}
+    Consideriamo una sezione rettangolare semplice diaframmata, ora la priviamo del diaframma e studiamo i flussi equivalenti.\\
+    La sezione ha dimensioni $a\times h$ ed è caricata con una forza $T_x=F$ applicata con un braccio $y=-\frac{3}{2}h$ dal baricentro.
+
+    \begin{align*}
+        J_y = \left(-\frac{a}{2}\right)^2A +\left(\frac{a}{2}\right)^2A+ \left(\frac{a}{2}\right)^2A +\left(-\frac{a}{2}\right)^2A = a^2A\quad\\
+    \end{align*}
+
+    \begin{align*}
+         q'_1 \,&= \,  -\frac{F}{J_y}\left( -A\frac{a}{2} \right) \,=\, \frac{T_y}{2a}\\
+          q'_2 \,&= \, -\frac{F}{J_y}\left( -A\frac{a}{2}-A\frac{a}{2} \right) \,=\, \frac{T_y}{a}\\
+           q'_3 \,&= \,  -\frac{F}{J_y}\left( -A\frac{a}{2}-A\frac{a}{2}+A\frac{a}{2} \right) \,=\, \frac{T_y}{2a}\\
+            q'_4 \,&= \, 0
+    \end{align*}
+
+    L'equilibrio alle rotazioni rispetto al polo 3:
+    \begin{equation*}
+        Fh\,=\,2q^*ah+2\frac{F}{2a}\frac{ah}{2}   \quad\quad\quad\rightarrow\quad\quad\quad q^*=\frac{F}{4a}
+    \end{equation*}
+    Per cui risultano:
+    \begin{equation*}
+        q_1 \,=\, \frac{3}{4}\frac{F}{a} \quad \quad  
+         q_2 \,=\, \frac{5}{4}\frac{F}{a} \quad \quad  
+          q_3 \,=\, \frac{3}{4}\frac{F}{a} \quad \quad  
+           q_4 \,=\, \frac{1}{4}\frac{F}{a} 
+    \end{equation*}
+
+    Sul diaframma considero i flussi opposti (di modo che siano equilibranti) e calcolo le azioni interne sommando i contributi dovuti ai flussi e quelli dovuti al carico concentrato.
+    \begin{itemize}
+        \item Considerando i flussi opposti:
+        \begin{equation*}
+            \begin{cases}
+                R_y=0\\R_z=0\\M_x=0
+            \end{cases}
+            \rightarrow\quad
+            \begin{cases}
+                T_y+\frac{3}{4}\frac{F}{a} h=0\\
+                T_z +\frac{1}{4}\frac{F}{a}    -\frac{3}{4}\frac{F}{a} =0\\
+                M_x +\frac{1}{4}\frac{F}{a} z\frac{h}{2} + \frac{5}{4}\frac{F}{a}z\frac{h}{2} +\frac{3}{4}\frac{F}{a}hz=0
+            \end{cases}
+            \rightarrow\quad
+            \begin{cases}
+                T_y =-\frac{3}{4}\frac{F}{a}h\\
+                T_z  =\frac{F}{a}  z\\
+                M_x = - \frac{3}{2}\frac{F}{a}hz
+            \end{cases}
+        \end{equation*}\\
+        \item Considerando invece i carichi esterni:
+        \begin{align*}
+    0<z<\frac{a}{2}&: \quad T_y = 0, \; T_z = 0, \; M_x = 0 
+    \qquad\qquad\\
+    \frac{a}{2}<z<a&: \quad T_y = 0, \; T_z = -F, \; M_x = \frac{3}{2}Fh
+\end{align*}
+\item Le azioni interne totali sono:
+
+
+% Primo intervallo: 0 < z < a/2
+\begin{equation*}
+    0<z<\frac{a}{2}: \quad 
+    \begin{cases}
+        T_y = -\frac{3}{4}\frac{F}{a}h + 0 = -\frac{3}{4}\frac{F}{a}h \\
+        T_z = \frac{F}{a}z + 0 = \frac{F}{a}z \\
+        M_x = -\frac{3}{2}\frac{F}{a}hz + 0 = -\frac{3}{2}\frac{F}{a}hz
+    \end{cases}
+\end{equation*}
+
+% Secondo intervallo: a/2 < z < a
+\begin{equation*}
+    \frac{a}{2}<z<a: \quad 
+    \begin{cases}
+        T_y = -\frac{3}{4}\frac{F}{a}h + 0 = -\frac{3}{4}\frac{F}{a}h\\
+        T_z = \frac{F}{a}z + -F = F(\frac{z}{a}-1) \\
+        M_x = -\frac{3}{2}\frac{F}{a}hz + \frac{3}{2}Fh = \frac{3}{2}Fh\left(1 - \frac{z}{a}\right)
+    \end{cases}
+\end{equation*}
+    \end{itemize}
+
+Essendo la struttura priva di vincoli, si verifica che in $z=0^-$ e in $z=a^+$ le azioni interne si annullino.
+    
+\end{esempioBox}
 
 

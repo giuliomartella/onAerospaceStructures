@@ -1,3 +1,24 @@
-\section{36. Discretizzazione della sezione a semiguscio e possibili dstribuzioni delle aree dei pannelli.}
+\section{Discretizzazione della sezione a semiguscio e possibili distribuzioni delle aree dei pannelli.}
 
+Nello schema a semiguscio per ottenere $\Phi$ nullo anche quando sono presenti azioni di taglio serve porre a zero l'area dei pannelli. Per non perdere parte dell'area totale della sezione assegniamo questa area ai correnti circostanti. Così ottengo i flussi costanti lungo ogni pannello.\\
+Se per un particolare pannello si ritene che considerare il flusso di taglio costante sia un'ipotesi troppo grossolana, posso inserire dei correnti fittizi, in modo da discretizzare il pannello iniziale in più parti con flussi costanti a tratti. I pannelli fittizi aumentano il numero di equazioni e incognite.\\
+Valuto come variano le $    \sigma$ con la redistribuzione dell'area, assumendo $M_y=0$:
+\begin{equation*}
+    \sigma = \frac{T_z}{\bar{A}}+\frac{M_x}{J_x}y
+\end{equation*}
+
+Valutiamo il contributo del momento di trasporto del panello rispetto al suo centro prima e dopo aver redistribuito l'area:
+\begin{align*}
+    J_x^{pannello} = \frac{1}{12}th^3\\
+    J_x^{s.g.} = 2\frac{A^{pannello}}{2} \frac{h^2}{4}=2\frac{ht}{2} \frac{h^2}{4} = \frac{1}{4} th^3
+\end{align*}
+
+Con questa distribuzione ho modificato il momento d'inerzia, posso imporre una distribuzione che lo imponga costante, assegnando ad ogni corrente $\tilde{A}$, tale che:
+\begin{equation*}
+     J_x =2\tilde{A}\frac{h^2}{4} =\frac{1}{12}th^3  \quad \quad \rightarrow\quad \quad \tilde{A} = \frac{ht}{6} 
+\end{equation*}
+
+Questo secondo approccio però fa sbagliare l'area totale.\\
+Nella definizione dell'area devo anche tenere conto di eventuali instabilità (come la tensione diagonale), che causano la riduzione dell'area utile per sostenere i carichi.\\
+Si definisce dunque area collaborante la parte di area del pannello che riesce, al netto delle instabilità, a sopportare i carichi $\sigma$.
 

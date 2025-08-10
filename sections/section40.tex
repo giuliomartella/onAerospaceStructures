@@ -1,3 +1,64 @@
-\section{40. Definizione di torsione per lo schema a semiguscio per sezioni a una cella e più celle.}
+\section{Definizione di torsione per lo schema a semiguscio per sezioni a una cella e più celle.}
+
+La torsione è una rotazione rigida di tutta la sezione attorno all'asse $z$, uscente dal centro di taglio.
+
+\subsubsection*{ Sezioni ad una cella}
+Considero un tronchetto di trave infinitesimo $dz$. Uso il PLVC.\\
+Sistema reale: spostamenti $\theta + d\theta$ e $\theta$, forze $q_j$, $N_i$. Sistema fittizio: per equilibrio consideriamo due momenti unitari $\delta M_z =1$ e $\delta M_z =-1$ e, dato che $\sigma$ non dipende da $M_z$ risulta  $\delta N_i=0$. L'equilibrio alla rotazione impone:
+\begin{equation*}
+    \delta q_j \,=\, \frac{\delta M_z}{2\Omega}\,=\,\frac{1}{2\Omega}
+\end{equation*}
+
+Applico il PLVC:
+\begin{align*}
+    \delta L_e\,&=\, (+1)(\theta + d\theta) + (-1)\theta \,=\,  d\theta\\
+     \delta L_d\,&=\, \delta L_d(N_i) + \delta L_d(q_j) + \delta L_d(\mathrm{diaframma} ) 
+\end{align*}
+Dove $\delta L_d(N_i)=0$ perché sono nulle le azioni a assiali mentre $\delta L_d(\mathrm{diaframma})=0$ è perché consideriamo i diaframmi rigidi.\\
+
+\begin{align*}
+    \delta L_d(q)\,=\, \sum^m_{j=1}\,\frac{q_j\,\delta q_j\,l_j}{G\,t_j}\,dz
+    \,=\, \frac{1}{2G\Omega}\sum^m_{j=1}\,\frac{q_j\,l_j}{t_j}\,dz\\
+    \delta L_e \,=\, \delta L_d  
+    \quad\quad\rightarrow\quad\quad
+    d\theta \,=\,\frac{1}{2G\Omega}\sum^m_{j=1}\,\frac{q_j\,l_j}{t_j}\,dz\\
+\end{align*}
+
+Quindi la torsione per una sezione a una cella risulta:
+\begin{equation*}
+    \dot{\theta} \,=:\, \frac{d\theta}{dz}\,=\,\frac{1}{2G\Omega}\sum^m_{j=1}\,\frac{q_j\,l_j}{t_j}\,
+\end{equation*}
+
+
+\subsubsection*{ Sezioni a più celle}
+
+Sistema reale: spostamenti $\theta + d\theta$ e $\theta$, forze $q_j$, $N_i$. Sistema fittizio: per equilibrio consideriamo due momenti unitari $\delta M_z =1$ e $\delta M_z =-1$ e, dato che $\sigma$ non dipende da $M_z$ risulta  $\delta N_i=0$. \\
+Per calcolare i flussi virtuali uso il PLVC, non è richiesta la congruenza bensì l'equilibrio del sistema fittizio. Concentro quindi tutto il momento torcente in una sola cella, questa operazione non rispetta le condizioni di congruenza perché la presenza dei diaframmi vincola tutti i punti della sezione a torcersi insieme. Non potrei adottare questo metodo se il momento applicato fosse reale, in questo caso tutte le celle si torcerebbero.\\
+Ricordiamo che $\alpha{ij}$ è un coefficiente che assume i valori $(-1;0;1)$ in base all'appartenenza di un pannello a una cella e alla concordanza del segno del flusso sul panello rispetto alla cella.
+\begin{equation*}
+    \delta q_j\,=\,\alpha_{jk}\,\frac{1}{2\Omega}
+\end{equation*}
+\begin{align*}
+     \delta L_e \,&=\, d\theta\\
+     \delta L_d\,&=\, \sum^m_{j=1}\,\frac{q_j\,\delta q_j\,l_j}{G\,t_j}\,dz
+    \,=\, \frac{1}{2G\Omega_k}\sum^m_{j=1}\,\frac{\alpha_{jk}\,q_j\,l_j}{t_j}\,dz\\
+\end{align*}
+
+Per ogni sezione quindi
+\begin{equation*}
+   \frac{d\theta_k}{dz} \,=\, \dot{\theta}_k \,=\,\frac{1}{2G\Omega_k}\sum^m_{j=1}\,\frac{\alpha_{jk}q_j\,l_j}{t_j}\,
+\end{equation*}
+
+Quindi da $M_z=1$ calcolo $q_j$, $\dot{\theta}$ per poi avere $\dot{\theta}=\frac{1}{GJ_t}$. L'energia di deformazione risulta:
+\begin{equation*}
+    V_d\,=\,\frac{1}{2}\int_0^l \, M_z^2\dot{\theta}\,dz \,=\,\frac{1}{2}\int_0^l \, \frac{M_z^2}{GJ_t}\,dz
+\end{equation*}
+
+Ricordiamo che la presenza dei diaframmi impone un moto rigido nel piano della sezione, impongono quindi la congruenza. Quindi per $\forall k,p$ celle vale:
+\begin{equation*}
+    \dot{\theta}_k\,=\,\dot{\theta}_p
+\end{equation*}
+
+
 
 

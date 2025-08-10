@@ -1,3 +1,29 @@
-\section{46. Calcolo del fattore di taglio per una sezione a semiguscio.}
+\section{Calcolo del fattore di taglio per una sezione a semiguscio.}
 
+I fattori di taglio per una sezione a semiguscio, derivanti dalla formulazione per l'energia di deformazione per le $\tau$:
+\begin{equation*}
+    V_{d\tau}= \frac{1}{2} \int_l 
+    \left[
+        \frac{T_x^2}{G A^*_x} 
+        + \frac{T_y^2}{G A^*_y} 
+        + \frac{M_z^2}{G J_t}
+    \right] dz
+\end{equation*}
 
+sono $ \frac{1}{G A^*_x} $ e $\frac{1}{G A^*_y} $. Consideriamo una semplice sezione rettangolare di dimensioni $a\times h$.
+\begin{enumerate}
+    \item Applico un $T_y$ puro, ovvero passante per il CT, per simmetria per questa sezione cade sul baricentro.\\
+    \item Sfrutto la simmetria della geometria e dei carichi per calcolare i flussi di taglio: $q_j=\frac{T_y}{2h}$ sui pannelli verticali e zero su quelli orizzontali.\\
+    \item Eguaglio le due espressioni per l'energia di deformazione per unità di lunghezza:
+        \begin{equation*}
+            V_d   =\, \frac{1}{2G} \,\sum^m_{j=1}\frac{q_j^2l_j}{t_j}
+            \quad\quad\quad
+             V_{d}= \frac{1}{2} \frac{T_y^2}{G A^*_y} 
+        \end{equation*}\\
+\end{enumerate}
+
+Nel nostro esempio risulta:
+\begin{align*}
+    \frac{1}{2Gt} \left( \frac{2T_y^2}{4h^2}h \right)\,=\,\frac{1}{2} \frac{T_y^2}{G A^*_y} \\
+     \frac{1}{G A^*_y}\,=\,  \frac{1}{2G th}
+\end{align*}

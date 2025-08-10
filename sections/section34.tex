@@ -1,5 +1,54 @@
 \section{Passaggio dalla sezione in parete sottile alla sezione a guscio.}
 
+Da questo punto considereremo strutture composte da pannelli sottili, correnti esili e diaframmi (ordinate o centine). Prendiamo ad esempio una struttura formata da quattro pannelli collegati da quattro correnti, estraiamo il pannello per analizzarlo. Per questo continua a valere il modello di trave, per cui le $\sigma$ sono note, le $\tau$ rispettano l'equazione dei flussi sorgenti in seconda forma. Adesso consideriamo:
+
+\begin{enumerate}
+    \item Le $\tau$ sono tangenti al contorno del pannello.\\
+    \item Non consideriamo l'andamento delle $\tau$ a farfalla perché la rigidezza torsionale che generano è nulla, le $\tau$ sono quindi dirette sempre nello stesso verso. Inoltre consideriamo due linee di controllo che includono bordi opposti, per cui vale $ \Phi\, = -\, \frac{T_y}{J_x}S'_x $, dove $S'_x = A'y_{CA}$. Dato che $y_{CA}$ può variare al massimo dello spessore della trave $t<<L$, i flussi di taglio attraverso le due linee di controllo saranno molto simili. Assumiamo quindi che le $\tau$ non varino nello spessore del pannello. Ipotizziamo anche che i pannelli abbiano spessore costante.\\
+    \item Le $\tau$ sono parallele e simmetriche rispetto la linea media $l.m.$.
+    \item A questo punto:
+    \begin{definizioneBox}
+        Flusso di taglio nel pannello:
+        \begin{equation*}
+            q(l) = \int_{-\frac{t}{2}}^{+\frac{t}{2}} \, \tau \,dt
+        \end{equation*}
+        Dato che le $\tau $ sono costanti lungo lo spessore rimane:
+        \begin{equation*}
+            q(l) \,= \, \tau_{media} \,t
+        \end{equation*}
+        Il flusso di taglio $q(l)$ è un vettore diretto come la linea media, è la risultante delle $\tau$ nello spessore. 
+    \end{definizioneBox}
+    Dopo aver svolto l'integrale sopra lo spessore del pannello diventa irrilevante, posso quindi descrivere il pannello attraverso la sua linea media.
+    In teoria $\tau$ può cambiare lungo il pannello, questo comporta:
+    \begin{align*}
+        &\Phi\, = \, q_{ju} -q_{je}\,=\, -\frac{T}{J}S'\\
+        &q_{ju} \,\neq\, q_{je}  \quad \quad \rightarrow  \quad \quad  -\frac{T}{J}S'\,\neq\, 0 \quad \quad \rightarrow  \quad \quad S'\,\neq\, 0
+    \end{align*}\\
+    \item Definiamo la risultante delle $\tau$ nello spessore come:
+    \begin{equation*}
+        p(l) = \int_{-\frac{t}{2}}^{+\frac{t}{2}} \, \sigma \,dt\,= \, \sigma_{media} \,t
+    \end{equation*}
+    Questo perché le $\sigma$ variano poco nello spessore essendo $\sigma = \frac{M}{J}y$ e $t<<L$.
+    $p$ e $q$ sono ortogonali.\\
+    \item I correnti sono esili, ovvero piccoli rispetto alle dimensioni della sezione, e lontani rispetto agli assi principali d'inerzia. Valutiamo  il loro contributo al momento d'inerzia $J_{xi}= A_iy_i^2 + J_{\bar{x}}$ , dalle ipotesi sopra $A_iy_i^2 >> J_{\bar{x}}$, ovvero il momento di trasporto è molto maggiore del momento di trasporto locale. Se due correnti hanno la stessa area e sono posizionati alla stessa distanza dall'origine del sistema, allora danno lo stesso contributo al momento d'inerzia totale, perde di significato la forma del corrente.\\
+    \item Ignorando la forma del corrente non possiamo più distinguere le $\sigma$ tra un punto e un altro della sezione di questo. Segue che le $\sigma$ sono costanti nei correnti.\\
+    \item Definisco l'azione assiale nel corrente i-esimo come:
+    \begin{equation*}
+        N_i \,=\, \sigma_i A_i
+        \quad  \quad  \quad  \quad
+        \sigma_i\,=\,
+         \frac{T_z}{ \bar{A}} 
+        + \frac{M_x}{ J_x} y_i
+        - \frac{M_y}{ J_y} x_i
+    \end{equation*}
+    Modellando i pannelli solo attraverso la linea media i correnti diventano l'unico elemento dotato di area nella sezione.   \\
+    \item Dipendono dall'area $T_x = \int_{\bar{A}}\tau_x\,dA$ e  $T_y = \int_{\bar{A}}\tau_y\,dA$. Sapendo che l'area dei correnti è piccola rispetto a quella della sezione (dato che i pannelli sono sviluppati in lunghezza), il contributo delle $\tau$ nei correnti è trascurabile rispetto a quello nei pannelli, lo supponiamo nullo.
+    
+    
+    
+\end{enumerate}
+
+
 
 
 

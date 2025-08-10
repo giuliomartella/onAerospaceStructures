@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{pgffor}
 \usepackage{paralist}
+\usepackage[breakable]{tcolorbox}
 
 
 \usepackage[italian]{babel}
@@ -20,61 +21,41 @@
 \date{\today}
 
 
+% Box base comune - DRY principle
+\tcbset{
+  baseBox/.style={
+    enhanced,
+    colback=white,
+    colframe=black,
+    boxrule=0.2pt,
+    arc=0mm,
+    fonttitle=\bfseries\small,
+    coltitle=black,
+    attach title to upper,
+    boxed title style={
+      empty,
+      size=small,
+      interior empty,
+      top=-1pt, bottom=0pt, left=3pt, right=3pt
+    },
+    top=1pt, bottom=1pt, left=4pt, right=4pt,
+    breakable, before skip=10pt, after skip=10pt, enhanced, lines before break=4
+  }
+}
+
 \newtcolorbox{definizioneBox}{
-  enhanced,
-  colback=white,             % nessun riempimento
-  colframe=black,            % bordo nero
-  boxrule=0.3pt,             % bordo sottile
-  arc=0mm,                   % angoli retti
-  fonttitle=\bfseries,       % titolo in grassetto
- title={Definizione\phantom{X}},
-  coltitle=black,
-  attach title to upper,
-  boxed title style={
-    empty,
-    size=small,
-    interior empty,
-    top=0pt, bottom=0pt, left=4pt, right=4pt
-  },
-  top=2pt, bottom=2pt, left=6pt, right=6pt
+  baseBox,
+  title={ Definizione\quad \quad}
 }
 
 \newtcolorbox{enunciatoBox}{
-  enhanced,
-  colback=white,             % nessun riempimento
-  colframe=black,            % bordo nero
-  boxrule=0.3pt,             % bordo sottile
-  arc=0mm,                   % angoli retti
-  fonttitle=\bfseries,       % titolo in grassetto
- title={Enunciato\phantom{X}},
-  coltitle=black,
-  attach title to upper,
-  boxed title style={
-    empty,
-    size=small,
-    interior empty,
-    top=0pt, bottom=0pt, left=4pt, right=4pt
-  },
-  top=2pt, bottom=2pt, left=6pt, right=6pt
+  baseBox,
+  title={ Enunciato\quad \quad}
 }
 
 \newtcolorbox{esempioBox}{
-  enhanced,
-  colback=white,          % nessun riempimento
-  colframe=black,         % bordo nero
-  boxrule=0.3pt,          % bordo sottile
-  arc=0mm,                % angoli retti
-  fonttitle=\bfseries,    % titolo in grassetto
-   title={Esempio\phantom{X}},
-  coltitle=black,         % nessun colore di sfondo al titolo
-  attach title to upper,  % titolo sulla linea in alto
-  boxed title style={
-    empty,
-    size=small,
-    interior empty,       % nessun riempimento nel riquadro titolo
-    top=0pt, bottom=0pt, left=4pt, right=4pt
-  },
-  top=2pt, bottom=2pt, left=6pt, right=6pt
+  baseBox,
+  title={Esempio\quad \quad}
 }
 
 

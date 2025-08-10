@@ -1,3 +1,57 @@
-\section{43. Risoluzione delle sezioni a semiguscio mediante la riduzione della sezione ad albero.}
+\section{Risoluzione delle sezioni a semiguscio mediante la riduzione della sezione ad albero.}
+
+Dalla risoluzione di una sezione chiusa attraverso l'equazione dei flussi sorgenti e l'equivalenza delle rotazioni otteniamo un sistema $n\times n$, dove $n$ è il numero dei correnti, questo è un problema più agevole al calcolo automatico che a quello manuale.\\
+Cerchiamo un modo di scrivere l'equazione dei flussi sorgenti in modo da avere linee di controllo che attraversano sempre un solo pannello. Dobbiamo dunque trasformare la sezione in una sezione ad albero. Applichiamo il principio di sovrapposizione degli effetti e consideriamo due contributi:
+\begin{equation*}
+    q_j\,=\,q'_j\,+\,   \sum^N_{k=1}\,\alpha_{jk}\,q^*_k
+\end{equation*}
+\begin{compactitem}
+    \item $q'_j$ rispettano le $(n-1)$ equazioni dei flussi sorgenti,\\
+    \item  $q^*_k$ rispettano le equazioni di equivalenza alle rotazioni e le equazioni di congruenza.
+\end{compactitem}
+
+Per rispettare le equazioni dei flussi sono sufficienti $(n-1)$ valori $q'_j$, i restanti $(n-m+1)$ possono essere posti a zero, in modo arbitrario ma scelto appropriatamente affinché la sezione diventi ad albero. Questi garantiscono l'equilibrio alle traslazioni.\\
+I $q^*_k$ poiché non devono contribuire all'equilibrio alle traslazioni, già verificato dai precedenti, sono flussi circolanti.\\
+Gli $\alpha_{jk}$ servono a capire se il flusso $q_j$ appartiene alla cella $k$ e se il suo verso è concorde con $q^*_k$ .
+
+
+\begin{equation*}
+    \alpha_{jk} = \begin{cases}
+        -1 & \text{se il flusso } q_j \text{ appartiene alla cella } k \text{ con verso opposto a } q^*_k \\
+        \phantom{-}0 & \text{se il flusso } q_j \text{ non appartiene alla cella } k \\
+        \phantom{-}1 & \text{se il flusso } q_j \text{ appartiene alla cella } k \text{ con verso concorde a } q^*_k
+    \end{cases}
+\end{equation*}
+
+\begin{esempioBox}
+    Consideriamo una sezione rettangolare chiusa, con 4 pannelli, 4 correnti e una cella, le dimensioni sono $b\times a$, sono applicati i carichi $T_y$ ed $M_z$. Le caratteristiche della sezione sono:
+    \begin{align*}
+        J_x = \left(-\frac{a}{2}\right)^2A +\left(\frac{a}{2}\right)^2A+ \left(\frac{a}{2}\right)^2A +\left(-\frac{a}{2}\right)^2A = a^2A\quad\\
+        S_{x1} = -\frac{a}{2}A\quad\quad S_{x2} = \frac{a}{2}A\quad\quad S_{x3} = \frac{a}{2}A\quad\quad S_{x4} = -\frac{a}{2}A\\
+    \end{align*}
+
+    \begin{align*}
+         q'_1 \,&= \,  -\frac{T_y}{J_x}\left( A\frac{a}{2} \right) \,=\, -\frac{T_y}{2a}\\
+          q'_2 \,&= \, -\frac{T_y}{J_x}\left( A\frac{a}{2}+A\frac{a}{2} \right) \,=\, -\frac{T_y}{a}\\
+           q'_3 \,&= \,  -\frac{T_y}{J_x}\left( A\frac{a}{2}+A\frac{a}{2}-A\frac{a}{2} \right) \,=\, -\frac{T_y}{2a}\\
+            q'_4 \,&= \, 0
+    \end{align*}
+    Considero ora l'equivalenza dei momenti rispetto al polo 1:
+        \begin{align*}
+            \sum M &= M_z-\frac{1}{2}bT_y\\
+            \sum M &= 2q_2\Omega_2+ 2q_3\Omega_3\\
+            &=2(q'_2+q^*)\frac{ab}{2}+2(q'_3+q^*)\frac{ab}{2}\\
+            &=2q^*ab-\frac{1}{2}bT_y\\
+            q^*&=   \frac{M_z}{2ab}
+        \end{align*}
+
+        I flussi totali risultano:
+    \begin{align*}
+        q_1 &= q'_1 + q^* = -\frac{T_y}{2a} + \frac{M_z}{2ab}\\
+        q_2 &= q'_2 + q^* = -\frac{T_y}{a} + \frac{M_z}{2ab}\\
+        q_3 &= q'_3 + q^* = -\frac{T_y}{2a} + \frac{M_z}{2ab}\\
+        q_4 &= q'_4 + q^* = 0 + \frac{M_z}{2ab} = \frac{M_z}{2ab}
+    \end{align*}
+\end{esempioBox}
 
 

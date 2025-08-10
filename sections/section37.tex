@@ -1,3 +1,32 @@
-\section{37. Risultante e momento risultante del flusso di taglio in un pannello}
+\section{Risultante e momento risultante del flusso di taglio in un pannello}
 
+Consideriamo il pannello $AB$, di forma generica sufficientemente regolare, poniamo $A$ come centro del sistema di riferimento, la componenti della forza risultante sono:
+
+\begin{align*}
+    R_x \,&=\, \int_A^B \,q\,dl\, cos \theta  \,=\,q \int_A^B \,dl\, cos \theta  \,=\,q \int_A^B \,dx \,=\ q \,x_B\\
+      R_y \,&=\, \int_A^B \,q\,dl\, sin \theta  \,=\,q \int_A^B \,dl\, sin \theta  \,=\,q \int_A^B \,dy \,=\ q \,y_B
+\end{align*}
+
+Quindi ad esempio per un pannello verticale: $R_x = 0$, $R_y = ql$. La risultante dipende solo dai punti iniziali e finali, un pannello la cui linea media non è una funzione biettiva avrà parti non collaboranti. Un pannello chiuso ha risultanti nulle.\\
+Per trovare il momento risultante prendiamo ad esempio un pannello ad arco, avente entrambi gli estremi sull'asse $x$. Le risultanti delle forze sono $R_y = 0$, $R_x = ql$. Per avere il braccio di $R_x$ è necessario capire a quale quota $d$ è applicata, scriviamo quindi l'equivalenza dei momenti. Il momento del flusso $   q$  attorno rispetto un polo $O$, con $C$ come punto arbitrario sul pannello:
+\begin{align*}
+    dm \,=\, qdl \,\cdot \, \bar{OC}\,=\,q\,2\, d\Omega_O\\
+    M\,=\, \int_A^B \,dm\,=\,  \int_A^B \,q\,2\,d\Omega_O\,=\,2q\,\Omega_O
+\end{align*}
+dove $\Omega_O$ è l'area spazzata dal raggio vettore che va dal polo al pannello, fra un estremo e l'altro.\\
+Dunque risulta:
+\begin{equation*}
+    \begin{cases}
+        M=Rd\\
+        M = 2q\,\Omega_O
+    \end{cases}
+    \quad\quad \rightarrow\quad\quad
+    Rd= 2q\,\Omega_O
+    \quad\quad \rightarrow\quad\quad
+    q\,\bar{AB}\,d\,=\,2q\,\Omega_O
+    \quad\quad \rightarrow\quad\quad
+    d \,=\, \frac{2 \Omega_A}{\bar{AB}}
+\end{equation*}
+
+Il momento generato dal flusso di taglio per un pannello chiuso, rispetto a un polo interno risulta $M = 2q\,\Omega_O$, dove $\Omega_O$ è l'area interna, indipendente dal polo scelto. Il momento rispetto a un polo esterno è formalmente lo stesso, in quanto l'area esterna al pannello è percorsa due volte con versi opposti.
 
