@@ -1,3 +1,31 @@
-\section{52. Schematizzazione delle giunzioni}
+\section{Schematizzazione delle giunzioni}
 
+\begin{definizioneBox}
+    Giunzioni, elementi che trasferiscono i carichi all'interno della struttura composta da correnti, pannelli e diaframmi.
+\end{definizioneBox}
 
+Negli schemi disegniamo i flussi di giunzione nel piano, ma in realtà scorrono lungo l'asse $z$. Il flusso è trasmesso lungo i pannelli attraverso la linea di giunzione, infatti la forza trasmessa è longitudinale, diretta come $z$.
+
+Posso avere giunzioni semplici, a doppia fila, con sovrapposizione.
+
+\begin{esempioBox}
+    Consideriamo delle giunzioni, dall'alto verso il basso incontriamo due pannelli e poi un corrente, il corrente e poi collegato a un terzo pannello da destra. La prima giunzione collega i primi due pannelli, la seconda arriva al corrente, la terza arriva al terzo pannello.
+    Otteniamo i flussi usando l'equazione dei flussi sorgenti:
+    \begin{align*}
+        q_{G_1} \,&=\,q_1\\
+        q_{G_2} +q_2-q_1\,&=\,0   \qquad \qquad     q_{G_2} \,=\,q_1-q_2\\
+        q_{G_3} \,&=\,q_3\\
+    \end{align*}
+\end{esempioBox}
+
+Possiamo ottenere la giunzione ad esempio per mezzo di una chiodatura. Si definisce passo $p$ la distanza fra due chiodi successivi.
+Le forze complessive trasmesse sono $qL$ mentre la forza su ogni chiodo è:
+\begin{equation*}
+    \frac{F_{tot}}{n_{chiodi}} \,=\, \frac{qL}{n} \,=\,qp
+\end{equation*}
+
+Esistono due tipologie di giunzioni:
+\begin{compactitem}
+    \item Continue (saldature, incollaggi): il trasferimento dei carichi da un pannello all'altro, o ad un corrente, avviene in modo distribuito e continuo.\\
+    \item Discontinue (chiodature, vite-dado, saldature per punti): il trasferimento dei carichi avviene in modo puntuale e discreto.
+\end{compactitem}

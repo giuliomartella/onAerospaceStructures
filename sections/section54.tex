@@ -1,3 +1,59 @@
-\section{54. Andamento dei flussi in una giunzione con due file non simmetriche di chiodi}
+\section{Andamento dei flussi in una giunzione con due file non simmetriche di chiodi}
+
+Prendiamo ad esempio due pannelli, dello stesso spessore, collegati da due file di chiodi. Rispetto al centro della giunzione fra i due pannelli ritroviamo una simmetria per rotazione di $\pi/2$ , in questo senso i carichi applicati sono antisimmetrici.\\
+Ogni fila di chiodi trasmette metà del flusso, di modo che $q_{G_1}=q_{G_2} = q_G$.\\
+L'equazione dei flussi sorgenti applicata, per esempio, a un contorno che copre il primo pannello e le due file diventa:
+\begin{equation*}
+    2q_G\,=\,q  \qquad\rightarrow\qquad q_G\,=\,\frac{q}{2}
+\end{equation*}
+Nel caso in cui i due pannelli avessero spessore diverso non si potrebbero usare le relazione sopra. Posso scrivere comunque una equazione per i flussi:
+\begin{equation*}
+   q_{G_1}+q_{G_2} = q
+\end{equation*}
+Ritrovandoci nel metodo delle forze aggiungo un'equazione di congruenza scritta con il teorema di Menabrea:
+\begin{equation*}
+    V_d\,=\, V_d(q) +V_d(q_{G_1},q_{G_2} )
+\end{equation*}
+
+Per valutare l'energia di deformazione usiamo un approccio semi-empirico. Modello la deformata come una molla di rigidezza $K$ incognita.\\
+
+
+La legge di Hooke per la giuntura è $F=Ks$, la forza trasmessa dal chiodo $F=qp$, dove $p=\frac{L}{N}=\frac{1}{N}$ rappresenta il passo della chiodatura nel caso di profondità unitaria. L'energia di deformazione per un solo chiodo e poi per la chiodatura, composta da $N$ elementi è:
+\begin{align*}
+    V_{d_i}\,&=\,\frac{1}{2}\frac{F^2}{K}\,=\,\frac{q^2p^2}{2K}\\
+      V_{d}\,&=\,\frac{q^2p^2}{2K}N\\
+            &= ,\frac{1}{2}\frac{q^2p}{K}\,
+\end{align*}
+
+Sia $b$ la distanza fra le due file di chiodi. L'energia di deformazione legata alla giunzione riceve il contributo della deformazione dei chiodi e il contributo dei flussi di taglio nella frazione di pannelli compresi fra le due file di chiodi, per cui:
+
+\begin{align*}
+    V_{d}\,&=\,V_d(q) +\frac{1}{2} \left( \frac{q_{G_2}^2}{Gt_1}  b  +\frac{q_{G_2}^2}{Gt_2}  b  +\frac{q_{G_1}^2p}{K} +\frac{q_{G_2}^2p}{K}     \right)\\
+    &=\,V_d(q) +\frac{1}{2} \left( \frac{(q-q_{G_1})^2}{Gt_1}  b  +\frac{q_{G_1}^2}{Gt_2}  b  +\frac{q_{G_1}^2p}{K} +\frac{(q-q_{G_1})^2p}{K}     \right)\\
+\end{align*}
+
+Introduco i coefficienti:
+\begin{equation*}
+    \beta=\frac{t_1}{t_2} \qquad\alpha=\frac{pGt_1}{Kb}\approx\,\frac{\text{rigidezza del pannello }}{\text{rigidezza della chiodatura}}
+\end{equation*}
+
+Applico il teorema di Menabrea derivando l'energia di deformazione:
+\begin{align*}
+    V_{d}\,&=\,\frac{1}{2} \left( -2\frac{(q-q_{G_1})}{Gt_1}  b  +2\frac{q_{G_1}}{Gt_2}  b  +2\frac{q_{G_1}p}{K} +2\frac{(q-q_{G_1})p}{K}     \right)\\
+    &=\,  -2(q-q_{G_1}) + 2q_{G_1}\beta    + 2q_{G_1}\alpha    -2(q-q_{G_1})\alpha\\
+   & \frac{\partial V_d}{\partial q_{G_1}}\,=\,0  \qquad\rightarrow\qquad q_{G_1} \,=\,q\,\frac{(1+\alpha)}{(1+\beta+2\alpha)}  
+\end{align*}
+
+
+
+$K$ si determina in generale con due prove statiche, prima sollecitando a taglio un solo pannello, poi sollecitando, sempre a taglio, una struttura di due pannelli uniti dalla giuntura in esame. Durante i test i pannelli vengono fissati a due elementi opposti detti atterraggi. Nella prima prova si misura la rigidezza del solo pannello $K_p$, nella seconda la rigidezza del pannello con la chiodatura $K_{p+c}$. Uso un'analogia rispetto a due molle in serie, per cui:
+\begin{equation*}
+    \frac{1}{K_{p+c}}\,=\, \frac{1}{K_{p}}  \,+\,\frac{1}{K_{c}}
+\end{equation*}
+
+
+
+
+
 
 

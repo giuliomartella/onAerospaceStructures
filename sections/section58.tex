@@ -1,3 +1,88 @@
-\section{58. Ingobbamento. Applicazione a casi semplici}
+\section{Ingobbamento. Applicazione a casi semplici}
+
+Partendo dall'equazione per l'ingobbamento:
+\begin{align*}
+     s_{2j}-s_{1j} \,&=\,\frac{q_j\,l_j}{Gt_j}- 2\Omega_{Oj}\dot{\theta}\\
+\end{align*}
+
+\begin{esempioBox}
+    Consideriamo il caso di una semplice sezione a una cella rettangolare, di dimensioni $2a\times a$, ove è applicata solo una coppia $M_z$.
+\begin{align*}
+    q\,&=\, \frac{M_z}{2\Omega}\,=\,\frac{M_z}{4a^2}\\
+     \dot{\theta}  \,&=\,\frac{1}{2G\Omega}\sum^m_{j=1}\frac{q_j\,l_j}{t_j}\\
+     &=\,\frac{1}{2G\,2a^2}\frac{M_z}{4a^2t}(a+a+2a+2a)\\
+     &=\,\frac{3}{8}\frac{M_z}{G\,a^3t}\\
+\end{align*}
+Prendo come polo il centro della sezione per cui:
+\begin{align*}
+    \Omega_1\,&=\,2a\,\frac{a}{2}\frac{1}{2}\,=\,\frac{a^2}{2}\,=\,\Omega_3\\
+     \Omega_2\,&=\,a\,\frac{2a}{2}\frac{1}{2}\,=\,\frac{a^2}{2}\,=\,\Omega_4
+\end{align*}
+
+Per cui calcolo gli spostamenti relativi fra le coppie di correnti:
+\begin{align*}
+     s_{2}-s_{1} \,&=\,\frac{M_z}{4a^2}2a\frac{1}{Gt}-2\left( \frac{a^2}{2} \right) \left(   \frac{3}{8}\frac{M_z}{G\,a^3t}\right)
+     = \frac{1}{8}\frac{M_z}{Gta} \,=\,\Delta s_M\\
+      s_{3}-s_{2} \,&=\,\frac{M_z}{4a^2}a\frac{1}{Gt}-2\left( \frac{a^2}{2} \right) \left(   \frac{3}{8}\frac{M_z}{G\,a^3t}\right)
+     = -\frac{1}{8}\frac{M_z}{Gta} \,=\,-\Delta s_M\\
+      s_{4}-s_{3} \,&=\,\frac{M_z}{4a^2}2a\frac{1}{Gt}-2\left( \frac{a^2}{2} \right) \left(   \frac{3}{8}\frac{M_z}{G\,a^3t}\right)
+     = \frac{1}{8}\frac{M_z}{Gta} \,=\,\Delta s_M\\
+      s_{1}-s_{4} \,&=\,\frac{M_z}{4a^2}a\frac{1}{Gt}-2\left( \frac{a^2}{2} \right) \left(   \frac{3}{8}\frac{M_z}{G\,a^3t}\right)
+     =- \frac{1}{8}\frac{M_z}{Gta} \,=\,-\Delta s_M\\
+\end{align*}
+
+Come riferimento impostiamo il primo corrente, per cui:
+\begin{align*}
+    s_1\,&=\,0\\
+     s_2\,&=\,\Delta s_M\\
+     s_3-\Delta s_M \,&=\,-\Delta s_M \qquad\rightarrow\qquad s_3\,=\,0\\
+      s_4-0\,&=\,\Delta s_M \qquad\rightarrow\qquad s_4\,=\,\Delta s_M\\
+\end{align*}
+
+Gli spostamenti sono relativi quindi li redistribuisco per una migliore visualizzazione:
+\begin{equation*}
+    s_1\,=\,s_3\,=\,-\frac{\Delta s_M}{2}\qquad\qquad   s_2\,=\,s_4\,=\,\frac{\Delta s_M}{2}
+\end{equation*}
+    
+\end{esempioBox}
+
+
+
+\begin{esempioBox}
+    Consideriamo la stessa sezione del caso precedente, questa volta imponendo solo un taglio $T_y$ al centro. Per simmetria i flussi sono immediati:
+    \begin{align*}
+     q_1 \,&=\, 0\\
+      q_2 \,&=\,-\frac{T_y}{2a} \\
+      q_3 \,&=\,0 \\
+      q_4 \,&=\,\frac{T_y}{2a} \\
+\end{align*}
+
+Il taglio passa per il CT, la torsione è nulla. Calcolo gli spostamenti con la formula dell'ingobbamento.
+
+\begin{align*}
+     s_{2}-s_{1} \,&=\,0\\
+      s_{3}-s_{2} \,&=\,-\frac{T_y}{2a} \frac{a}{Gt}\,=\,  -\frac{T_y}{2Gt}\,=\, -\Delta s_T\\
+      s_{4}-s_{3} \,&=\,0\\
+      s_{1}-s_{4} \,&=\,\frac{T_y}{2a} \frac{a}{Gt}\,=\,  \frac{T_y}{2Gt}\,=\, \Delta s_T
+\end{align*}
+
+Gli spostamenti sono relativi quindi li redistribuisco per una migliore visualizzazione:
+\begin{equation*}
+    s_1\,=\,s_2\,=\,\frac{\Delta s_T}{2}\qquad\qquad   s_3\,=\,s_4\,=\,-\frac{\Delta s_T}{2}
+\end{equation*}
+    
+\end{esempioBox}
+
+
+Si presenta quindi un problema di compatibilità tra la deformazione mostrata e il vincolo di estremità con una faccia piatta (all'incastro).\\
+Questi sono raccordati da un ulteriore sistema di deformazione che rende la deformata totale congruente ai vincoli.\\
+Considero al soluzione fondamentale che conosciamo e la sommo a una soluzione correttiva (ignota), ripristinando la congruenza. La soluzione totale diventa:
+\begin{align*}
+    \left\{ q\right\}_t \,&=\,   \left\{ q\right\}_f  +   \left\{ q\right\}_c \\
+       \left\{ N\right\}_t \,&=\,   \left\{ N\right\}_f  +   \left\{ N\right\}_c \\
+\end{align*}
+
+Dato che  l'equilibrio rispetto ai carichi esterni è dato solo dalla soluzione fondamentale, la soluzione correttiva è autoequilibrante.\\
+Non necessariamente la soluzione correttiva esiste. Ad esempio una sezione a quattro correnti sottoposta a taglio pura ha una deformata con faccia piana, quindi rispetta il vincolo di incastro rigido.
 
 

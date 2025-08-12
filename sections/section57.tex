@@ -1,3 +1,24 @@
-\section{57. Ingobbamento. Dimostrazione}
+\section{Ingobbamento. Dimostrazione}
 
+L'ingobbamento è il movimento dei punti della sezione in direzione $z$ provocato dalle $\tau(q)$ dei pannelli.
 
+Sono sotto esame gli spostamenti lungo $z$ per effetto delle $\tau$. Per calcolare $s_z$ uso  il PLVC su un pannello generico.\\
+Nel sistema reale considero gli spostamenti di due estremi sullo stesso lato, in direzione $z$: $s_1$ ed $s_2$, le rotazioni attorno all'asse a distanza $dz$: $\theta$ e $\theta+d\theta$, i flussi attorno al pannello $q$.\\
+Nel sistema fittizio considero i flussi unitari che generano un momento attorno $z$ uguale a $\delta M=2\Omega$. 
+
+\begin{align*}
+    \delta L_e\,&=\, 2\Omega(\theta+d\theta)-2\Omega\theta -s_1dz+s_2dz\\
+    &=\, 2\Omega\theta + (s_2-s_1)dz\\
+    \delta L_d \,&=\, \frac{q\delta q\,l}{Gt}dz\,=\, \frac{q\,l}{Gt}dz
+\end{align*}
+
+Per cui, eguagliando i lavori di deformazione $ \delta L_e\, =\,\delta L_d$:
+\begin{align*}
+    2\Omega\theta + (s_2-s_1)dz \,&=\,\frac{q\,l}{Gt}dz\\
+    s_2-s_1 \,&=\,\frac{q\,l}{Gt}- 2\Omega\dot{\theta}\\
+     s_{2j}-s_{1j} \,&=\,\frac{q_j\,l_j}{Gt_j}- 2\Omega_{Oj}\dot{\theta}\\
+\end{align*}
+
+Abbiamo trovato quindi la formula per l'ingobbamento, questa non consente di calcolare la traslazione assoluta ma solo quella relativa, dunque la traslazione calcolata è rigida.\\
+Inoltre $\Omega_{Oj}$ dipende dall'asse considerato, per lo stesso pannello cambiando il polo di riferimento cambia anche l'ingobbamento. L'ingobbamento è quindi affetto anche da rotazione calcolata rigida.\\
+Nonostante questo permette di capire qualitativamente come si deformano le sezioni.

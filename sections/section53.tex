@@ -1,3 +1,67 @@
-\section{53. Tipi di giunzioni e differenze.}
+\section{Tipi di giunzioni e differenze.}
 
+
+Esistono due tipologie di giunzioni:
+\begin{compactitem}
+    \item Continue (saldature, incollaggi): il trasferimento dei carichi da un pannello all'altro, o ad un corrente, avviene in modo distribuito e continuo.\\
+    \item Discontinue (chiodature, vite-dado, saldature per punti): il trasferimento dei carichi avviene in modo puntuale e discreto.
+\end{compactitem}
+
+Riguardo le tecnologie:
+\begin{compactitem}
+    \item Saldatura, fusione di un materiale di apporto (della stessa lega). Non si usano in aeronautica generalmente perché le leghe di alluminio ad alte prestazioni non sono saldabili. Si possono usare per acciaio, titanio e alluminio a basse prestazioni (basso sforzo di snervamento, utilizzabile per componenti dimensionati sulla rigidezza).\\
+    \item Incollaggi, soluzione migliore per la giunzione di compositi. Nel caso dei metalli sono meno efficienti di altri metodi ma comunque garantiscono la tenuta stagna.\\
+    \item Chiodatura, sebbene sia la più costosa e la più diffusa in ambito aeronautico.\\
+    \item Vite-dado, ridotta al minimo perché trasmette forze minori rispetto alla chiodatura, è usata solo  dove è necessario garantire la smontabilità.
+\end{compactitem}
+
+\begin{esempioBox}
+    Facciamo un confronto, nella trasmissione dei carichi, fra un chiodo e una vite-dado.
+
+    Il chiodo entra con gioco nel foro e successivamente, con una operazione di ribaditura, si deforma a compressione il gambo. Questo genera la seconda testa e deforma, espandendolo, il gambo all'interno del foro, risultando nell'interferenza fra foro e gambo.
+
+    Il gambo è caricato per contatto e per contatto scarica sul pannello inferiore. Essendo il gambo in appoggio sulle pareti lo sforzo principale è di puro taglio nella zona centrale. \\
+    Il chiodo lavora come una trave tozza, di sezione circolare, sollecitata a flessione e taglio. Essendo però tozza e con una lunghezza di libera inflessione praticamente nulla, la flessione non genera sforzi significativi e lo sforzo predominante  è una $\tau$ nella sezione fra i due pannelli.
+
+    Conoscendo il materiale conosco $\sigma_{max}$, dal criterio di Von Mises $\tau_{max}= \frac{\sigma_{max}}{\sqrt{3}}$ .\\
+    Per una sezione circolare:
+    \begin{equation*}
+        F_{max} \,=\, \tau_{max}\,  \frac{3}{4}\bar{A}\,=\,  \frac{3}{4}xR^2\,\frac{\sigma_{max}}{\sqrt{3}}
+    \end{equation*}
+
+    La vite invece è inserita con gioco nel foro, quando viene stretto il dado lei è sforzata a trazione (con una forza $F_A$ trasmessa sul gambo), che si contrae trasversalmente e aumenta il gioco iniziale. \\
+    La forza viene trasmessa per attrito (con coefficiente $\mu$):
+    \begin{align*}
+        F_{trasmessa}\,&=\, 2\mu F_A\\
+         F_{trasmessa}^{MAX}\,&=\, 2\mu F_A^{MAX}\\
+    \end{align*}
+    Per aumentare la forza trasmessa va aumentata la forza di trazione, serrando il più possibile il dado.
+    Lo stato di sforzo della vite risulta:
+    \begin{align*}
+        \sigma_A\,&=\,\frac{F_A}{\bar{A}} + \frac{\mu F_A t}{w}\\
+         \sigma^{max}\,&=\,\frac{F^{max}_B}{2\mu\bar{A} } + \frac{F^{max}_B t}{2w}\\
+    \end{align*}
+    Dove $w$ è il modulo di resistenza del gambo, per una sezione circolare piena vale: $w=\frac{\pi}{4}r^3$.
+
+
+    Confrontiamo adesso le due tecnologie attraverso le loro forze massime, supponendo di usare lo stesso materiale per chiodo e bullone.
+    \begin{align*}
+        \sigma_{max}=300N/mm^2   \qquad\qquad    \tau_{max}= \frac{\sigma_{max}}{\sqrt{3}}=173N/mm^2\\
+        \phi=6mm  \qquad\qquad  t=3mm\qquad\qquad \mu=0.15  \qquad\qquad
+    \end{align*}
+    \begin{align*}
+        F^{max}_{chiodo}\,&=\, 3668N\\
+        F^{max}_{bullone}\,&=\, \frac{\sigma^{max}}{\frac{1}{2\mu A}+\frac{4t}{2\pi r^3}}\,=\,1590N\\
+    \end{align*}
+
+    La chiodatura riesce a trasmettere una forza molto maggiore del bullone.
+
+    I chiodi possono essere realizzati con lo stesso materiale dei pannelli, il bullone invece è sempre realizzato con materiali di prestazioni superiori. Usare lo stesso materiale ha il vantaggio di non avere allontanamenti a seguito di diverse espansioni termiche.
+
+    Nei bulloni inoltre devo avere basso attrito tra i filetti e dado per poter, a pari coppia applicata, aumentare la trazione. Per questo viene lubrificato (solo) il filetto.
+    
+    
+
+    
+\end{esempioBox}
 

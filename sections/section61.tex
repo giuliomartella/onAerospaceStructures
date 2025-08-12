@@ -1,3 +1,120 @@
-\section{61. Piastra di Kirchoff. Legame deformazioni spostamenti}
+\section{Piastra di Kirchhoff. Legame deformazioni spostamenti}
+
+Una piastra è un elemento strutturale con una dimensione (lo spessore) molto minore delle altre. Per convenzione il piano $x,y$ coincide con il piano medio della piastra. \\Usiamo lo stato di sforzo piano.
+
+Sviluppiamo il modello nell'ambito del metodo degli spostamenti. Esprimiamo tutte le variabili in funzione delle tre componenti di spostamento del piano medio. Le incognite saranno le tre componenti di spostamenti del piano medio.
+
+
+\begin{equation*}
+\left\{
+\begin{array}{c}
+u_0(x,y) \\
+v_0(x,y) \\
+w(x,y)
+\end{array}
+\right\}
+\end{equation*}
+
+dove:
+\begin{compactitem}
+\item $u_0(x,y)$ = spostamento del piano medio nella direzione $x$
+\item $v_0(x,y)$ = spostamento del piano medio nella direzione $y$  
+\item $w(x,y)$ = spostamento del piano medio nella direzione $z$ (fuori dal piano)
+\end{compactitem}
+
+Se un punto del piano medio si sposta di  $u_0$ tutti i punti sulla verticale (in $z$) si spostano di $u_0$. Lo spostamenti di un generico punto sullo spessore della piastra è :
+\begin{equation*}
+    \left\{s
+\right\}_{u_0,v_0}=\left\{
+\begin{array}{c}
+u_0 \\
+v_0
+\end{array}
+\right\}
+\end{equation*}
+Dalla definizione del tensore delle piccole deformazioni:
+\begin{align*}
+    \varepsilon_{xx}&=\frac{1}{2}(s_{x/x}+s_{x/x})=s_{x/x}=u_{0/x}\\
+     \varepsilon_{yy}&=\frac{1}{2}(s_{y/y}+s_{y/y})=s_{y/y}=v_{0/y}\\
+      \gamma_{xy}&=\frac{1}{2}(s_{x/y}+s_{y/x})=u_{0/y}+v_{0/x}\\
+\end{align*}
+\begin{equation*}
+    \left\{\varepsilon_0
+\right\}=\left\{
+\begin{array}{c}
+u_{0/x}\\
+v_{0/y}\\  u_{0/y}+v_{0/x}
+\end{array}
+\right\}
+\end{equation*}
+
+Consideriamo ora $w$. Ipotizziamo che le sezioni si mantengano sempre perpendicolari al piano medio. Prendiamo come esempio una piastra incastrata su una faccia laterale sul piano $y,z$ la cui faccia opposta viene flessa verso l'alto.\\
+Sia $P'$ l'immagine sulla deformata del punto $P$ originale, $w$ lo spostamento verticale del piano medio, $\alpha$ l'angolo che la sezione deformata forma intersecata con quella originale. Sullo spostamento di $P$:
+\begin{align*}
+    s_x&=-z\,sin(\alpha)\\&\simeq-z\,\alpha\\&=-z\,w_{/x}\\
+    s_y&=-z\,w_{/y}
+\end{align*}
+
+\begin{equation*}
+    \left\{s
+\right\}_{w}=-z\left\{
+\begin{array}{c}
+w_{/x} \\
+w_{/y}
+\end{array}
+\right\}
+\end{equation*}
+Per cui:
+\begin{align*}
+    \varepsilon_{xx}&=\frac{1}{2}(s_{x/x}+s_{x/x})=s_{x/x}=-z\,w_{/xx}\\
+     \varepsilon_{yy}&=\frac{1}{2}(s_{y/y}+s_{y/y})=s_{y/y}=-z\,w_{/yy}\\
+      \gamma_{xy}&=(s_{x/y}+s_{y/x})=-z\,w_{/xy}-z\,w_{/yx}=-2z\,w_{/xy}\\
+\end{align*}
+\begin{equation*}
+    \left\{\varepsilon_0
+\right\}=z\left\{
+\begin{array}{c}
+-w_{/xx}\\
+-w_{/yy}\\  -2w_{/xy}
+\end{array}
+\right\}
+=z\left\{ k\right\}
+\end{equation*}
+Definiamo $\left\{ k\right\}$ come il vettore delle curvature. Le deformazioni, in qualunque punto della piastra, possono essere espresse da:
+\begin{equation*}
+    \left\{ \varepsilon\right\}=\left\{ \varepsilon_0\right\}+z\left\{ k\right\}
+\end{equation*}
+
+Nello stato di sforzo piano:
+
+\begin{equation*}
+\left\{\sigma\right\}=\left\{
+\begin{array}{c}
+\sigma_{xx} \\
+\sigma_{yy} \\
+\sigma_{xy}
+\end{array}
+\right\}
+=[D]\left\{\varepsilon\right\}=
+\left[
+\begin{array}{ccc}
+\displaystyle 1 & \displaystyle \nu & 0\\
+\displaystyle \nu & 1 & \large{0} \\
+0& 0 & \frac{1-\nu}{2}
+\end{array}
+\right]\,
+\frac{E}{1-\nu^2}\,
+\left\{
+\begin{array}{c}
+\varepsilon_{xx} \\
+\varepsilon_{yy} \\
+\gamma_{xy}
+\end{array}
+\right\}
+\end{equation*}
+
+\begin{equation*}
+    \left\{ \sigma\right\}=[D]\left\{ \varepsilon_0\right\}+2[D]\left\{ k\right\}
+\end{equation*}
 
 

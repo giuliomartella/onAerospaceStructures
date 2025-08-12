@@ -1,3 +1,177 @@
-\section{62. Piastra di Kirchoff. Legame spostamenti risultanti forze e momenti.}
+\section{Piastra di Kirchhoff. Legame spostamenti risultanti forze e momenti.}
+
+Le azioni interne per la piastra sono:
+\begin{equation*}
+    \left\{
+\begin{array}{c}
+N_x \\
+N_y\\
+N_{xy}
+\end{array}
+\right\} = \int_{-\frac{b}{2}}^{\frac{b}{2}}\,  \left\{\sigma\right\} \,dz
+=  \int_{-\frac{b}{2}}^{\frac{b}{2}}\, [D] \left\{\varepsilon_0\right\} \,dz
+ \int_{-\frac{b}{2}}^{\frac{b}{2}}\,z [D] \left\{k\right\} \,dz
+ =[A]   \left\{\varepsilon_0\right\}  +[B] \left\{k\right\}
+\end{equation*}
+
+\begin{equation*}
+    \left\{
+\begin{array}{c}
+M_y \\
+M_x\\
+M_{xy}
+\end{array}
+\right\} = \int_{-\frac{b}{2}}^{\frac{b}{2}}\,  z\left\{\sigma\right\} \,dz
+=  \int_{-\frac{b}{2}}^{\frac{b}{2}}\, z[D] \left\{\varepsilon_0\right\} \,dz
+ \int_{-\frac{b}{2}}^{\frac{b}{2}}\,z^2 [D] \left\{k\right\} \,dz
+ =[B]   \left\{\varepsilon_0\right\}  +[C] \left\{k\right\}
+\end{equation*}
+
+In un unica notazione:
+\begin{equation*}
+\left\{
+\begin{array}{c}
+N_x \\
+N_y\\
+N_{xy}\\
+M_y \\
+M_x\\
+M_{xy}
+\end{array}
+\right\}
+=
+\begin{bmatrix}
+[A] & [B] \\
+[B] & [C]
+\end{bmatrix}
+\left\{
+\begin{array}{c}
+\boldsymbol{\varepsilon_0}\\
+\boldsymbol{k}
+\end{array}
+\right\}
+\end{equation*}
+
+Per una piastra omogenea ed isotropa $[B]=0$. I termini sono disaccoppiati, le forze dipendono solo da $\boldsymbol{\varepsilon_0}$ e i momenti solo da $\boldsymbol{k}$.
+\begin{equation*}
+\left\{
+\begin{array}{c}
+\boldsymbol{N}\\
+\boldsymbol{M}
+\end{array}
+\right\}
+=
+\begin{bmatrix}
+[A] & \boldsymbol{0} \\
+\boldsymbol{0} & [C]
+\end{bmatrix}
+\left\{
+\begin{array}{c}
+\boldsymbol{\varepsilon_0}\\
+\boldsymbol{k}
+\end{array}
+\right\}
+\end{equation*}
+
+Al contrario per piastre che non sono omogenee ed isotrope i termini sono accoppiati, per esempio tirandola o applicando un taglio questa si può anche flettere.
+
+Tornando alle ipotesi predenti e quindi con $[B]=0$, consideriamo i momenti:
+
+
+\begin{equation*}
+    \left\{
+\begin{array}{c}
+M_y \\
+M_x\\
+M_{xy}
+\end{array}
+\right\} = \int_{-\frac{b}{2}}^{\frac{b}{2}}\,  z\left\{\sigma\right\} \,dz
+ \int_{-\frac{b}{2}}^{\frac{b}{2}}\,z^2 [D] \left\{k\right\} \,dz
+\qquad \qquad [D]=
+\left[
+\begin{array}{ccc}
+\displaystyle 1 & \displaystyle \nu & \displaystyle 0\\
+\displaystyle \nu & \displaystyle 1 & \displaystyle 0 \\
+\displaystyle 0& \displaystyle 0 & \displaystyle \frac{1-\nu}{2}
+\end{array}
+\right]\,
+\frac{E}{1-\nu^2}
+\end{equation*}
+
+\begin{equation*}
+   M_y =  \int_{-\frac{b}{2}}^{\frac{b}{2}}\,z^2 
+   \left[\begin{array}{c}
+1\quad\nu\quad0
+\end{array} \right] 
+   \left[
+   \begin{array}{c}
+-w_{/xx} \\-w_{/yy}\\-2w_{/xy}
+\end{array} \right] \frac{E}{1-\nu^2}\,dz
+=(-w_{/xx} -\nu \,w_{/yy}) \frac{E}{1-\nu^2}\frac{t^3}{12}
+\end{equation*}
+
+Definiamo $\bar{D}=\frac{E}{1-\nu^2}\frac{t^3}{12}$:
+\begin{align*}
+     M_y &= -\bar{D}\,w_{/xx} -\nu \bar{D}\,w_{/yy}\\
+     M_x &= -\nu \bar{D}\,w_{/xx} - \bar{D}\,w_{/yy}\\
+     M_xy &= -(1-\nu)\bar{D}\,w_{/xy} 
+\end{align*}
+
+Ritroviamo quindi la matrice $[D]$, ovvero il legame fra i momenti e la curvatura:
+\begin{equation*}
+\left\{
+\begin{array}{c}
+M_y \\
+M_x\\
+M_{xy}
+\end{array}
+\right\} =
+\left[
+\begin{array}{ccc}
+\displaystyle \bar{D} & \displaystyle \nu\bar{D} & \displaystyle 0\\
+\displaystyle \nu\bar{D} & \displaystyle \bar{D} & \displaystyle 0 \\
+\displaystyle 0& \displaystyle 0 & \displaystyle \bar{D}\frac{1-\nu}{2}
+\end{array}
+\right]\,
+\left\{
+\begin{array}{c}
+-w_{/xx} \\
+-w_{/yy}\\
+-2w_{/xy}
+\end{array}
+\right\} 
+\end{equation*}
+
+Analogamente per le forze:
+
+\begin{equation*}
+\left\{
+\begin{array}{c}
+N_x \\
+N_y\\
+N_{xy}
+\end{array}
+\right\} =
+\left[
+\begin{array}{ccc}
+\displaystyle 1 & \displaystyle \nu & \displaystyle 0\\
+\displaystyle \nu & \displaystyle 1 & \displaystyle 0 \\
+\displaystyle 0& \displaystyle 0 & \displaystyle \frac{1-\nu}{2}
+\end{array}
+\right]\, \frac{tE}{1-\nu^2}
+\left\{
+\begin{array}{c}
+u_{0/x} \\
+v_{0/y}\\
+u_{0/y}+u_{0/x}
+\end{array}
+\right\} 
+\end{equation*}
+
+
+
+
+
+
 
 

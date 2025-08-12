@@ -1,3 +1,220 @@
-\section{59. Metodo degli spostamenti per il calcolo dei flussi in una sezione a semiguscio.}
+\section{Metodo degli spostamenti per il calcolo dei flussi in una sezione a semiguscio.}
+
+Considero un generico pannello. I carichi sono imposti dai flussi uscenti dagli estremi: $q_{1j}$ e $q_{2j}$, sul pannello scorre $q_j$, consegue $q_{1j} = -q_j$ e $q_{2j}=q_j$.
+\begin{align*}
+    s_{2j}-s_{1j} \,&=\,\frac{q_j\,l_j}{Gt_j}- 2\Omega_{Oj}\dot{\theta}\\
+    q_j \,&=\,\frac{Gt_j}{l_j} (s_{2j}-s_{1j}- 2\Omega_{Oj}\dot{\theta})\\
+\end{align*}
+\begin{equation*}
+    \begin{cases}
+        q_{1j} \,&=\,-\frac{Gt_j}{l_j} (s_{2j}-s_{1j}- 2\Omega_{Oj}\dot{\theta})\\
+        q_{2j} \,&=\,\frac{Gt_j}{l_j} (s_{2j}-s_{1j}- 2\Omega_{Oj}\dot{\theta})\\
+        M_{Oj} \,&=\, 2\Omega_{Oj}q_j \,=\,   2\Omega_{Oj}\left(      \frac{Gt_j}{l_j} (s_{2j}-s_{1j}- 2\Omega_{Oj}\dot{\theta})\right)\\
+    \end{cases}
+\end{equation*}
 
 
+Definisco allora:
+ \begin{equation*}
+     \left\{Q\right\}_j = \left\{
+    \begin{array}{c}
+    q_{1j} \\ q_{2j} \\ M_{Oj}
+    \end{array}
+    \right\} \gamma
+   \quad\quad\quad\quad
+    \left\{u\right\} = \left\{
+    \begin{array}{c}
+    s_{1j} \\ s_{2j} \\ \dot{\theta}
+    \end{array}
+    \right\} 
+ \end{equation*}
+
+Per cui vale: 
+\begin{equation*}
+    \left\{Q\right\}_j = [K]_j  \left\{ u\right\}_j
+\end{equation*}
+
+
+
+\begin{equation*}
+\left\{
+\begin{array}{c}
+q_{1j}\\
+q_{2j} \\
+M_{Oj}
+\end{array}
+\right\}
+=
+\frac{Gt_j}{l_j}
+\begin{bmatrix}
+1 & -1 & -2\Omega_{Oj} \\
+-1 & 1 & 2\Omega_{Oj} \\
+-2\Omega_{Oj} & 2\Omega_{Oj} & 4\Omega_{Oj}^2
+\end{bmatrix}
+\left\{
+\begin{array}{c}
+s_{1j} \\
+s_{2j} \\
+\dot{\theta}
+\end{array}
+\right\}
+\end{equation*}
+
+Ritrovandoci nel metodo degli spostamenti usiamo il PLV
+\begin{align*}
+    \delta L_d  &= \sum_{j=1}^m \delta L_{di} \\
+   \delta L_{dj}   &=\left\{\delta u\right\}_j^T   \left\{ Q\right\}_j\\
+        &=\left\{\delta u\right\}_j^T  [K]_j  \left\{u\right\}_j
+\end{align*}
+Il vettore degli spostamenti per ogni pannelli si ricava dal vettore degli spostamenti di tutti i punti della sezione attraverso la matrice di incidenza $[A]_j$, di dimensioni $3\times(m+1)$:
+\begin{equation*}
+    \left\{ u\right\}_j = [A]_j  \left\{U\right\}
+\end{equation*}
+
+\begin{esempioBox}
+    Calcoliamo la matrice di rigidezza per una sezione rettangolare a due celle, con 6 correnti e 7 pannelli. In particolare la matrice ha dimensioni $3\times(m+1)=3\times7$. \\
+    Consideriamo il pannello 3, che ha come estremi il corrente 3 e il corrente 4. In due dimensioni inoltre $\dot{\theta}_3=\dot{\theta}$, l'ultima riga è uguale per qualsiasi pannello.
+
+    \begin{equation*}
+[A]_3 = \begin{bmatrix}
+0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1
+\end{bmatrix}
+\end{equation*}
+Il pannello 7 per esempio ha come estremi i correnti 2 e 5, per cui:
+ \begin{equation*}
+[A]_7 = \begin{bmatrix}
+0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1
+\end{bmatrix}
+\end{equation*}
+    
+\end{esempioBox}
+
+Consideriamo quindi il lavoro virtuale per l'intera struttura:
+\begin{align*}
+ \delta L_{dj}  &=\left\{\delta u\right\}_j^T  [K]_j  \left\{u\right\}_j\\
+ &=\left\{\delta U\right\}^T [A]_j^T [K]_j  [A]_j\left\{U\right\}\\
+    \delta L_d  &= \sum_{j=1}^m \delta L_{di} \\
+        &= \sum_{j=1}^m\left\{\delta U\right\}^T [A]_j^T [K]_j  [A]_j\left\{U\right\} \\
+        &=\left\{\delta U\right\}^T   \left( \sum_{j=1}^m    [A]_j^T [K]_j  [A]_j    \right)\left\{U\right\}\\
+        &=\left\{\delta U\right\}^T    [K]\left\{U\right\}
+\end{align*}
+
+Per scrivere il termine noto considero:
+\begin{align*}
+ \delta L_{dj}  &=\left\{\delta u\right\}_j^T   \left\{Q\right\}_j\\
+ &=\left\{\delta U\right\}_j^T [A]_j^T\left\{Q\right\}_j\\
+    \delta L_d  &= \sum_{j=1}^m  \left\{\delta U\right\}_j^T [A]_j^T\left\{Q\right\}_j \\
+        &=  \left\{\delta U\right\}_j^T \sum_{j=1}^m [A]_j^T\left\{Q\right\}_j
+\end{align*}
+
+Notiamo che i primi $n$ termini della sommatoria (per righe) sono i flussi entranti nei correnti. Riga per riga questa sommatoria coincide con il flusso totale entrante nel corrente (con un meno davanti):
+\begin{equation*}
+    \Phi_i=-\frac{T_x}{J_y}S'_{yi} - \frac{T_y}{J_x}S'_{xi}
+\end{equation*}
+
+\begin{equation*}
+    \sum_{j=1}^m [A]_j^T\left\{Q\right\}_j =
+    \frac{T_x}{J_y}\left\{
+    \begin{array}{c}
+    S'_{y1} \\
+    S'_{y2} \\
+    \vdots \\
+    S'_{yn}\\0
+    \end{array}
+    \right\}
+    + \frac{T_y}{J_x}\left\{
+    \begin{array}{c}
+    S'_{x1} \\
+    S'_{x2} \\
+    \vdots \\
+    S'_{xn}\\0
+    \end{array}
+    \right\}
+    +\left\{
+    \begin{array}{c}
+    0 \\
+    0 \\
+    \vdots \\0\\
+    M_O(T_x,T_y,M_z)
+    \end{array}
+    \right\}
+\end{equation*}
+
+Notiamo che in questa equazione tutti i termini sono noti e posso scrivere:
+\begin{equation*}
+    \left\{\delta U\right\}^T    [K]\left\{U\right\}= \left\{\delta U\right\}^T   \left(   
+    \frac{T_x}{J_y}\left\{
+    \begin{array}{c}
+    S'_{y1} \\
+    S'_{y2} \\
+    \vdots \\
+    S'_{yn}\\0
+    \end{array}
+    \right\}
+    + \frac{T_y}{J_x}\left\{
+    \begin{array}{c}
+    S'_{x1} \\
+    S'_{x2} \\
+    \vdots \\
+    S'_{xn}\\0
+    \end{array}
+    \right\}
+    +\left\{
+    \begin{array}{c}
+    0 \\
+    0 \\
+    \vdots \\0\\
+    M_O(T_x,T_y,M_z)
+    \end{array}
+    \right\}
+    \right)
+\end{equation*}
+
+Per cui ottengo il sistema lineare:
+\begin{align*}
+     [K]\left\{U\right\}&= \left\{Q\right\}\\
+     &=  \left(   
+    \frac{T_x}{J_y}\left\{
+    \begin{array}{c}
+    S'_{y1} \\
+    S'_{y2} \\
+    \vdots \\
+    S'_{yn}\\0
+    \end{array}
+    \right\}
+    + \frac{T_y}{J_x}\left\{
+    \begin{array}{c}
+    S'_{x1} \\
+    S'_{x2} \\
+    \vdots \\
+    S'_{xn}\\0
+    \end{array}
+    \right\}
+    +\left\{
+    \begin{array}{c}
+    0 \\
+    0 \\
+    \vdots \\0\\
+    M_O(T_x,T_y,M_z)
+    \end{array}
+    \right\}
+    \right)     
+\end{align*}
+
+Potendo scrivere solo $(n-1) $ equazioni dei flussi sorgenti, scritta in questo modo $K$ è labile. \\
+Eliminare una riga e colonna equivale a fissare un riferimento di potenziale (ad esempio fissare arbitrariamente uno spostamento di torsione o un flusso di riferimento), evitando la non unicità della soluzione dovuta al fatto che i flussi sono definiti solo a meno di una costante additiva.\\
+Elimino una riga ed una colonna da $[K]$, purché non siano le ultime, che contengono il momento.
+\begin{align*}
+    [K]\left\{U\right\}&= \left\{Q\right\}\\
+    \left\{U\right\}&= [K]^{-1}\left\{Q\right\} \qquad\qquad
+     \left\{u\right\}_j= [A]_j\left\{U\right\}\\
+      \left\{Q\right\}_j&= [K]_j\left\{u\right\}_j\\
+\end{align*}
+
+
+
+   

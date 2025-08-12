@@ -3,20 +3,20 @@
 Supponiamo di lavorare con una trave allungata a sezione sottile rettangolare, la modelliamo come una sezione a semiguscio ad una cella, con 4 correnti e 4 pannelli. La sezione originale, con uno spessore $t$, ha dimensioni $b\times a$, la sezione modellata ha dimensioni $\bar{b}\times\bar{a}$. Nel passaggio alla rappresentazione della linea media infatti: $a = \bar{a}+t$ e $b = \bar{b}+t$ .
 
 Il \textbf{teorema di Bredt} per sezioni chiuse a parete sottile stabilisce che la rigidezza torsionale è inversamente proporzionale alla flessibilità al taglio della sezione. La formula generale è:
-\begin{equation}
+\begin{equation*}
     \frac{1}{GJ_t} = \frac{1}{4\Omega^2 G} \oint \frac{ds}{t(s)}
-\end{equation}
+\end{equation*}
 dove $\Omega$ è l'area racchiusa dalla linea media, $t(s)$ è lo spessore locale della parete, e l'integrale rappresenta la flessibilità complessiva della sezione al taglio.
 
 Per una sezione rettangolare chiusa con dimensioni $\bar{a} \times \bar{b}$ e spessore uniforme $t$, l'area racchiusa è $\Omega = (\bar{a}-t)(\bar{b}-t)$ e l'integrale di flessibilità diventa:
-\begin{equation}
+\begin{equation*}
     \oint \frac{ds}{t(s)} = \frac{2\bar{a}}{t} + \frac{2\bar{b}}{t} = \frac{2(\bar{a} + \bar{b})}{t}
-\end{equation}
+\end{equation*}
 
 Sostituendo nella formula di Bredt e invertendo, si ottiene il momento di inerzia torsionale:
-\begin{equation}
+\begin{equation*}
     J_t = \frac{4\Omega^2}{\oint \frac{ds}{t(s)}}  = \frac{2t(\bar{a}-t)^2(\bar{b}-t)^2}{\bar{a} + \bar{b}}
-\end{equation}
+\end{equation*}
 
 Questa espressione mostra che la rigidezza torsionale è proporzionale allo spessore e al quadrato dell'area racchiusa, mentre è inversamente proporzionale al perimetro esterno della sezione.\\
 Verifichiamo ora il calcolo con i flussi di taglio. Per calcolare il fattore di torsione $\frac{1}{GJ_t}$ applico solo il momento torcente $M_z$.

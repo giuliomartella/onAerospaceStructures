@@ -1,3 +1,229 @@
-\section{60. Stato di sforzo e deformazione piana.}
+\section{Stato di sforzo e deformazione piana.}
+
+Consideriamo un corpo piano, le cui prime due dimensioni sono molto maggiori della terza.
+\subsubsection*{Stato di sforzo piano}
+Considero diverse da zero le sole componenti del tensore di Cauchy che giacciono nel piano $x,y$, ovvero:
+
+\begin{align*}
+         \sigma_{xx}\,\neq\,0\qquad\sigma_{yy}\,\neq\,0\qquad\sigma_{xy}\,\neq\,0
+    \end{align*}
 
 
+Lo stato di sforzo, confrontato a quello del modello di trave diventa:
+    \begin{equation*}
+     \left\{\sigma\right\}^{\text{piano}} = \left\{
+    \begin{array}{c}
+    \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{xy}
+    \end{array}
+    \right\}
+    \quad\quad\quad\quad
+    \left\{\sigma\right\}^{\text{trave}} = \left\{
+    \begin{array}{c}
+    \sigma_{zz} \\ \sigma_{zx} \\ \sigma_{zy}
+    \end{array}
+    \right\}
+ \end{equation*}
+
+ Le componenti del tensore delle piccole deformazioni sono tutte diverse da zero. Consideriamo però significative solo le componenti coniugate agli elementi non nulli del tensore degli sforzi.\\ Se il materiale è isotropo stiamo ignorando solo $\varepsilon_{zz}\neq0$ perché gli scorrimenti $\gamma_{zx}=0$ e $\gamma_{zy}=0$ sono effettivamente nulli.
+
+ Cerchiamo un legame costitutivo $\left\{\varepsilon\right\}=[C]\left\{\sigma\right\}$ considerando inizialmente tutte le componenti:
+
+ \begin{equation*}
+\left\{
+\begin{array}{c}
+\varepsilon_{xx} \\
+\varepsilon_{yy} \\
+\varepsilon_{zz} \\
+\gamma_{yz} \\
+\gamma_{xz} \\
+\gamma_{xy}
+\end{array}
+\right\}
+=
+\left[
+\begin{array}{cccccc}
+\displaystyle \frac{1}{E} & \displaystyle -\frac{\nu}{E} & \displaystyle -\frac{\nu}{E} & & & \\
+\displaystyle -\frac{\nu}{E} & \displaystyle \frac{1}{E} & \displaystyle -\frac{\nu}{E} & & \large{0} & \\
+\displaystyle -\frac{\nu}{E} & \displaystyle -\frac{\nu}{E} & \displaystyle \frac{1}{E} & & & \\
+& & & \displaystyle \frac{1}{G} & & \\
+& \large{0} & & & \displaystyle \frac{1}{G} & \\
+& & & & & \displaystyle \frac{1}{G}
+\end{array}
+\right]
+\left\{
+\begin{array}{c}
+\sigma_{xx} \\
+\sigma_{yy} \\
+\sigma_{zz} \\
+\sigma_{yz} \\
+\sigma_{xz} \\
+\sigma_{xy}
+\end{array}
+\right\}
+\end{equation*}
+
+Per lo stato di sforzo piano cancello le righe e le colonne corrispondenti agli elementi nulli.
+
+\begin{equation*}
+\left\{
+\begin{array}{c}
+\varepsilon_{xx} \\
+\varepsilon_{yy} \\
+\gamma_{xy}
+\end{array}
+\right\}
+=
+\left[
+\begin{array}{ccc}
+\displaystyle \frac{1}{E} & \displaystyle -\frac{\nu}{E} & \\
+\displaystyle -\frac{\nu}{E} & \displaystyle \frac{1}{E} & \large{0} \\
+& \large{0} & \displaystyle \frac{1}{G}
+\end{array}
+\right]
+\left\{
+\begin{array}{c}
+\sigma_{xx} \\
+\sigma_{yy} \\
+\sigma_{xy}
+\end{array}
+\right\}
+\end{equation*}
+
+La matrice è invertibile per cui vale:
+\begin{equation*}
+    \left\{\sigma\right\}=[D] \left\{\varepsilon\right\}
+\end{equation*}
+dove $[D] = [C]^{-1}$
+\begin{equation*}
+\left\{
+\begin{array}{c}
+\sigma_{xx} \\
+\sigma_{yy} \\
+\sigma_{xy}
+\end{array}
+\right\}
+=
+\left[
+\begin{array}{ccc}
+\displaystyle \frac{E}{1-\nu^2} & \displaystyle \frac{\nu E}{1-\nu^2} & \\
+\displaystyle \frac{\nu E}{1-\nu^2} & \displaystyle \frac{E}{1-\nu^2} & \large{0} \\
+& \large{0} & G
+\end{array}
+\right]
+\left\{
+\begin{array}{c}
+\varepsilon_{xx} \\
+\varepsilon_{yy} \\
+\gamma_{xy}
+\end{array}
+\right\}
+\end{equation*}
+
+\subsubsection*{Stato di deformazione piana}
+Considero diverse da zero solo le componenti del tensore delle piccole deformazioni che giacciono sul piano $x,y$. Deformazioni nulle corrisponde ad impedire degli per questo devo imporre nulle le altre deformazioni, imponendo dei vincoli.
+
+Tutte le componenti di $\boldsymbol{\sigma} $ sono diverse da zero, considero però solo le componenti che compiono lavoro, per cui:
+
+
+    \begin{equation*}
+     \left\{\varepsilon\right\} = \left\{
+    \begin{array}{c}
+    \varepsilon_{xx} \\ \varepsilon_{yy} \\ \varepsilon_{xy}
+    \end{array}
+    \right\}
+    \quad\quad\quad\quad
+     \left\{\sigma\right\} = \left\{
+    \begin{array}{c}
+    \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{xy}
+    \end{array}
+    \right\}
+ \end{equation*}
+Considero il legame elastico $ \left\{\sigma\right\}=[D] \left\{\varepsilon\right\}$, con sei gradi di libertà.
+\begin{equation*}
+\left\{
+\begin{array}{c}
+\varepsilon_{xx} \\
+\varepsilon_{yy} \\
+\varepsilon_{zz} \\
+\gamma_{yz} \\
+\gamma_{xz} \\
+\gamma_{xy}
+\end{array}
+\right\}
+=
+\frac{1}{E}
+\begin{bmatrix}
+1 & -\nu & -\nu & 0 & 0 & 0 \\
+-\nu & 1 & -\nu & 0 & 0 & 0 \\
+-\nu & -\nu & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 2(1+\nu) & 0 & 0 \\
+0 & 0 & 0 & 0 & 2(1+\nu) & 0 \\
+0 & 0 & 0 & 0 & 0 & 2(1+\nu)
+\end{bmatrix}
+\left\{
+\begin{array}{c}
+\sigma_{xx} \\
+\sigma_{yy} \\
+\sigma_{zz} \\
+\sigma_{yz} \\
+\sigma_{xz} \\
+\sigma_{xy}
+\end{array}
+\right\}
+\end{equation*}
+
+Impongo i vincoli sulle deformazioni nulle fuori dal piano. Da questi vincoli $\sigma_{zz}\neq0$, però risulta dipendente da $\sigma_{xx}$ e $\sigma_{yy}$, quindi lo riscrivo in funzione di questi.
+
+\begin{equation*}
+\left\{
+\begin{array}{c}
+\sigma_{xx} \\
+\sigma_{yy} \\
+\sigma_{xy}
+\end{array}
+\right\}
+=
+\left[
+\begin{array}{ccc}
+\displaystyle 1-\nu & \displaystyle \nu & 0\\
+\displaystyle \nu & 1-\nu & \large{0} \\
+0& 0 & \frac{1-2\nu}{2}
+\end{array}
+\right]\,
+\frac{E}{(1+\nu)(1-2\nu)}\,
+\left\{
+\begin{array}{c}
+\varepsilon_{xx} \\
+\varepsilon_{yy} \\
+\gamma_{xy}
+\end{array}
+\right\}
+\end{equation*}
+
+E il suo inverso:
+
+\begin{equation*}
+\left\{
+\begin{array}{c}
+\varepsilon_{xx} \\
+\varepsilon_{yy} \\
+\gamma_{xy}
+\end{array}
+\right\}
+=
+\left[
+\begin{array}{ccc}
+\displaystyle 1-\nu & \displaystyle \nu & 0\\
+\displaystyle \nu & 1-\nu & \large{0} \\
+0& 0 & 2
+\end{array}
+\right]\,
+\frac{1+\nu}{E}\,
+\left\{
+\begin{array}{c}
+\sigma_{xx} \\
+\sigma_{yy} \\
+\sigma_{xy}
+\end{array}
+\right\}
+\end{equation*}

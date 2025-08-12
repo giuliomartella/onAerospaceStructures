@@ -1,3 +1,33 @@
-\section{51. Simmetrie}
+\section{Simmetrie}
 
+Le simmetrie sono proprietà del movimento.
+\begin{itemize}
+    \item Per la geometria esistono:
+    \begin{itemize}
+        \item Traslazione, elemento base ripetuto $n$ volte ad una distanza determinata. 
+        Ad esempio considerato un pettine studio prima un dente in posizione generica e poi ripeto per tutti gli altri, ad eccezione per quelli di estremità.\\
+        \item Riflessione, nel piano e nello spazio.\\
+        \item Rotazione, geometria ripetuta e ruotata di un certo angolo. In particolare sfruttiamo la rotazione di $\pi/2$, ad esempio per studiare due lo tre file di chiodi su un pannello.
+    \end{itemize}
+    \item Per i carichi abbiamo anche:
+    \begin{itemize}
+        \item Carichi simmetrici.\\
+        \item Carichi antisimmetrici.
+    \end{itemize}
+\end{itemize}
+
+Consideriamo che ogni carico generico, applicato a una struttura simmetrica, può essere scomposto nella somma di un sistema di carichi simmetrici e di un sistema di carichi antisimmetrici.\\
+
+In particolare, consideriamo una struttura simmetrica. Applicando un carico simmetrico $\varepsilon$, $\sigma$, $s$ sono sempre simmetrici. Applicando un carico antisimmetrico $\varepsilon$, $\sigma$, $s$  sono antisimmetrici in caso di campo di validità lineare.\\
+
+Applichiamo questi concetti ad una struttura bidimensionale caricata simmetricamente. Tagliamo la trave (posta orizzontalmente) a metà, dunque verifichiamo che i punti lungo l'asse di simmetria abbiano spostamenti simmetrici e congruenti. Per rispettare la congruenza gli spostamenti devono essere paralleli, simmetrici e continui, per questo tra un'interfaccia e l'altra combaciano. Per esempio con una trave il cui centro flette verso l'altro, studiando la metà a destra: $s_x$ è vietato perché essendo simmetrico imporrebbe una compenetrazione o lacerazione, non rispettando la congruenza, un $\theta_z$ simmetrico formerebbe una cuspide e si perderebbe la continuità, è ammesso solo $s_y$. Per studiare solo metà della trave va quindi imposto un vincolo (un pattino) che blocca gli spostamenti $s_x$ e $\theta_z$.
+
+Ora analizziamo la stessa struttura caricata in modo antisimmetrico. Uno spostamento $s_x$ antisimmetrico è ammesso perché continuo attraverso l'interfaccia.
+Lo spostamento $s_y$ antisimmetrico non è ammesso perché sarebbe discontinuo attraverso l'interfaccia. La rotazione $\theta_z$ è ammessa perché lascia la deformata continua. Il vincolo corrispondente è un carrello che blocchi lo spostamento verticale.\\
+
+Valutiamo adesso una struttura simmetrica in tre dimensioni, l'asse di simmetria è diventato un piano di simmetria, la cui normale corrisponde all'asse $z$.
+Nel caso di carico simmetrico, analogamente al caso precedente $s_z$ sarebbe vietato dalle equazioni di congruenza mentre $s_x$ ed $s_y$ sono ammessi.
+L'unica rotazione simmetrica ammessa è $\theta_z$, infatti $\theta_x$ e $\theta_y$ producono delle cuspidi nella deformata. Il vincolo da imporre rimane un pattino.
+
+La stessa struttura tridimensionale caricata in modo antisimmetrico. L'unico spostamento antisimmetrico ammesso è $s_z$, infatti $s_x$ ed $s_y$ causerebbero discontinuità. Le rotazioni ammesse sono $\theta_x$ e $\theta_y$ in quanto $\theta_z$ è discontinua all'interfaccia.  Si ponga quindi un vincolo che produca le reazioni $F_x$, $F_y$ e $M_z$.
 

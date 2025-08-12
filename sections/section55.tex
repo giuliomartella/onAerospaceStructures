@@ -1,3 +1,46 @@
-\section{55. Andamento dei flussi in una giunzione con tre file di chiodi}
+\section{Andamento dei flussi in una giunzione con tre file di chiodi}
 
+Analizziamo la giunzione fra due pannelli dello stesso spessore $t_1=t_2$. La giunzione è composta da tre file di chiodi, la distanza tra due file successive è $b$. Rispetto alla fila centrale la struttura ha una simmetria di rotazione di $\pi/2$, in questo senso il carico, ovvero i flussi fra i due pannelli collegati, è antisimmetrico.\\
+I flussi sui pannelli sono $q$, attraverso i chiodi sono: $q_{G_1}$,$q_{G_2}$,$q_{G_3}$, nelle partizioni di pannello tra una fila di chiodi e un'altra sono: $q_A$,$q_B$,$q_C$,$q_D$. In questo modo $q_{G_1}=q_{G_3}:=q_1$,$q_{G_2}:=q_2$ $q_A=q_D$ e $q_B=q_C$.
+
+Possiamo scrivere un'equazione per i flussi :
+\begin{equation*}
+    2q_1+q_2=q   \qquad\rightarrow\qquad q_2=q-2q_1
+\end{equation*}
+
+Consideriamo l'energia di deformazione legata alla chiodatura (modellata come una molla elastica):
+
+\begin{align*}
+    V_{d}\,&=\,V_d(q) +\frac{1}{2} \left( 2\frac{q_1^2b}{Gt}  + 2\frac{(q-q_1)^2b}{Gt} + \frac{2q_1^2p}{K} + q_2^2\frac{p}{K}   \right)\\
+    &=\,V_d(q) +\frac{1}{2} \left( 2\frac{q_1^2b}{Gt}  + 2\frac{(q-q_1)^2b}{Gt} + \frac{2q_1^2p}{K} + (q-2q_1)^2\frac{p}{K}   \right)\\
+\end{align*}
+
+Introduco il coefficiente:
+\begin{equation*}
+ \alpha=\frac{pGt}{Kb}\approx\,\frac{\text{rigidezza del pannello }}{\text{rigidezza della chiodatura}}
+\end{equation*}
+
+Applico il teorema di Menabrea per aggiungere la congruenza, derivo l'energia di deformazione:
+\begin{align*}
+     &\frac{\partial V_d}{\partial q_{G_1}}\,=\,0  \\
+     &4q_1-4(q-q_1)+4q_1\alpha -4(q-2q_1)\alpha=0                                     \\
+      &         q_1(2+3\alpha)-q(1+\alpha)  =0                           \\      
+   &\rightarrow\qquad q_1\,=\,q\,\frac{(1+\alpha)}{(2+3\alpha)}  
+\end{align*}
+
+Evidenziamo due casi notevoli:
+\begin{enumerate}
+    \item Se $\alpha \to0$, ovvero la chiodatura è molto più rigida del pannello:
+    \begin{equation*}
+        q_1=\frac{q}{2}  \qquad \qquad q_2=0
+    \end{equation*}
+    La fila centrale non lavora.\\
+    \item Se $\alpha \to\infty$, ovvero il pannello è molto più rigido della chiodatura:
+    \begin{equation*}
+        q_1=\frac{q}{3}  \qquad \qquad q_2=\frac{q}{3} 
+    \end{equation*}
+    Tutte le file lavorano allo stesso modo.
+\end{enumerate}
+Concettualmente questa analisi si può estendere a un numero maggiore di file. \\
+In aeronautica si usa il primo caso, per  $\alpha \to0$, e si usano quasi sempre una o due file di chiodi. Troviamo più file nei pressi delle ordinate di forza, dove $\alpha \neq0$ a causa dello spessore dei pannelli, si possono anche usare più file per ottenere una struttura fail safe.
 

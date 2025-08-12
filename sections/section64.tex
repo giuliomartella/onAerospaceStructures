@@ -1,3 +1,107 @@
-\section{64. Piastra di Kirchoff. Legame spostamenti carichi distribuiti.}
+\section{Piastra di Kirchhoff. Legame spostamenti carichi distribuiti.}
 
 
+Per la trave si può integrare il taglio per ottenere il momento flettente ma, nella piastra, non ho una $\tau_y$ verticale da integrare.\\
+Devo comunque ipotizzare una risultante in direzione $ z$ per poter legare la pressione con il momento. Dunque non considero una forza per unità di area $\tau$ ma solo le sue risultanti $Q_x$, $Q_y$ che generano momento.
+
+$M_x$ agisce su una faccia con normale diretta come $y$,  $M_y$ agisce su una faccia con normale diretta come $x$, $M_{xy}$ è generato dalle $\sigma_{xy}$ variabili nello spessore.
+
+Consideriamo gli equilibri per una porzione $dx\times dy \times dz$:
+\begin{itemize}
+    \item $R_z=0$
+    \begin{align*}
+        (Q_x+Q_{x/x}dx)dy-Q_xdy + (Q_y+Q_{y/y}dy)dx-Q_ydx + pdxdy=0\\
+        Q_{x/x}+Q_{y/y}+p=0
+    \end{align*}        \\
+    
+      \item $M_x=0$
+    \begin{align*}
+       M_xdx- (M_x+M_{x/y}dy)dx + M_{xy}dy- (M_{xy}+M_{xy/x}dx)dy + Q_ydxdy=0\\
+       M_{x/y}+M_{xy/x}-Q_y=0
+    \end{align*}        \\
+
+     \item $M_y=0$
+    \begin{align*}
+       M_ydy- (M_y+M_{y/x}dx)dy + M_{xy}dx- (M_{xy}+M_{xy/y}dy)dx + Q_xdxdy=0\\
+       M_{y/x}+M_{xy/y}-Q_x=0
+    \end{align*}        \\
+\end{itemize}
+
+Dunque:
+\begin{equation*}
+    \begin{cases}
+         Q_{x/x}+Q_{y/y}+p=0\\ M_{x/y}+M_{xy/x}-Q_y=0\\ M_{y/x}+M_{xy/y}-Q_x=0
+    \end{cases}
+\end{equation*}
+Ricombinandole:
+\begin{align*}
+    Q_y&=M_{x/y}+M_{xy/x}\\
+    Q_x&=M_{y/x}+M_{xy/y}\\
+    M_{y/xx}&+M_{xy/yx}+M_{x/yy}+M_{xy/xy}+p=0\\
+    M_{x/yy}&+M_{y/xx}+2M_{xy/xy}=-p\\
+\end{align*}
+
+Vediamo come le forze $Q$ effettivamente non esistano, non esistono sforzi in tale direzione, servono comunque per collegare i momenti alla pressione. In forma matriciale:
+
+\begin{equation*}
+\begin{bmatrix} 
+\frac{\partial^2}{\partial y^2} & \frac{\partial^2}{\partial x^2} & 2\frac{\partial^2}{\partial x \partial y} 
+\end{bmatrix} 
+\begin{bmatrix} 
+M_x \\ 
+M_y \\ 
+M_{xy} 
+\end{bmatrix} = -p
+\end{equation*}
+
+\begin{align*}
+    &\begin{bmatrix} 
+\frac{\partial^2}{\partial y^2} & \frac{\partial^2}{\partial x^2} & 2\frac{\partial^2}{\partial x \partial y} 
+\end{bmatrix} 
+\left[
+\begin{array}{ccc}
+\displaystyle \bar{D} & \displaystyle \nu\bar{D} & \displaystyle 0\\
+\displaystyle \nu\bar{D} & \displaystyle \bar{D} & \displaystyle 0 \\
+\displaystyle 0& \displaystyle 0 & \displaystyle \bar{D}\frac{1-\nu}{2}
+\end{array}
+\right]\,
+\left\{
+\begin{array}{c}
+-w_{/xx} \\
+-w_{/yy}\\
+-2w_{/xy}
+\end{array}
+\right\}  = -p\\
+&\begin{bmatrix} 
+\frac{\partial^2}{\partial y^2} & \frac{\partial^2}{\partial x^2} & 2\frac{\partial^2}{\partial x \partial y} 
+\end{bmatrix} 
+\left[
+\begin{array}{ccc}
+\displaystyle 1 & \displaystyle \nu & \displaystyle 0\\
+\displaystyle \nu& \displaystyle1 & \displaystyle 0 \\
+\displaystyle 0& \displaystyle 0 & \displaystyle \frac{1-\nu}{2}
+\end{array}
+\right]\,
+\left\{
+\begin{array}{c}
+w_{/xx} \\
+w_{/yy}\\
+2w_{/xy}
+\end{array}
+\right\}  = \frac{p}{\bar{D} }\\
+&\begin{bmatrix} 
+\frac{\partial^2}{\partial y^2} & \frac{\partial^2}{\partial x^2} & 2\frac{\partial^2}{\partial x \partial y} 
+\end{bmatrix} 
+\left\{
+\begin{array}{c}
+w_{/xx}+\nu w_{/yy} \\
+\nu w_{/xx} +w_{/yy}\\
+(1-\nu)w_{/xy}
+\end{array}
+\right\}  = \frac{p}{\bar{D} }
+\end{align*}
+
+Infine esplicitando le derivate:
+\begin{equation*}
+w_{/xxxx} + 2w_{/xxyy} + w_{/yyyy} = \frac{p}{\bar{D}}
+\end{equation*}

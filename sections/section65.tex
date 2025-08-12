@@ -1,3 +1,105 @@
-\section{65. Piastra di Mindlin.}
+\section{Piastra di Mindlin.}
+
+Il modello di Kirchhoff faceva uso delle forze $Q_x$ e $Q_y$ pur considerandole nulle. Mindlin nel suo modello supera questa contraddizione riuscendo a calcolarle.
+
+Rispetto al modello precedente aggiungiamo le due rotazioni $\theta_x$ e $\theta_y$. Sono le rotazioni del piano medio attorno ai rispettivi assi. La sezione della piastra non rimane quindi ortogonale al piano medio.
+
+Scriviamo lo spostamento del piano medio:
+\begin{equation*}
+\left\{
+\begin{array}{c}s \end{array}
+\right\} =
+\left\{
+\begin{array}{c}
+u_0\\v_0\\w\\\theta_x\\\theta_y
+\end{array}
+\right\} 
+\end{equation*}
+
+Gli spostamenti in $x$ e $y$ diventano:
+    \begin{align*}
+        s_x&=u_0+z\theta_y\\
+        s_y&=v_0-z\theta_x\\
+    \end{align*}
+Dunque le deformazioni:
 
 
+\begin{equation*}
+  \left\{\varepsilon\right\}=  \left\{\varepsilon_0\right\}+ z\left\{ k\right\}
+\end{equation*}
+Dove
+\begin{equation*}
+  \left\{ k\right\}=  \left\{
+\begin{array}{c} \theta_{y/x}\\- \theta_{x/y}\\ \theta_{y/y}-\theta_{x/x}
+\end{array}\right\}
+\end{equation*}
+Esplicitamente:
+
+\begin{align*}
+    \varepsilon_{xx}&=s_{x/x}= u_{0/x}+z\,\theta_{y/x}\\
+     \varepsilon_{yy}&=s_{y/y}=  v_{0/y}-z\,\theta_{x/y}\\
+      \gamma_{xy}&=s_{x/y}+s_{y/x}=      u_{0/y}+z\,\theta_{y/y}   + v_{0/x}-z\,\theta_{x/x}\\
+       \gamma_{xz}&=s_{x/z}+s_{z/x}=     (u_0+z\theta_y)_z   + w_{/x}= \theta_y+ w_{/x}\\
+         \gamma_{yz}&=s_{y/z}+s_{z/y}=     (v_0-z\theta_x)_z   + w_{/y}= -\theta_x+ w_{/y}
+\end{align*}
+
+Le ultime due $\gamma_{xz}$ e $\gamma_{yz}$ sono costanti in $z$, non variano nello spessore.
+
+Ora valutiamo le forze:
+
+\begin{equation*}
+    Q_x=\int_{-\frac{t}{2}}^{\frac{t}{2}} \tau_{xz}dz \qquad\qquad  Q_y=\int_{-\frac{t}{2}}^{\frac{t}{2}} \tau_{yz}dz 
+\end{equation*}
+Usando $\tau=G\gamma$, in forma matriciale:
+
+\begin{equation*}
+    \begin{Bmatrix}
+        Q_x \\
+        Q_y
+    \end{Bmatrix}
+    =
+    \int_{-\frac{t}{2}}^{\frac{t}{2}}
+    \left[
+\begin{array}{ccc}
+\displaystyle G & \displaystyle 0 \\
+\displaystyle 0& \displaystyle G 
+\end{array}
+\right]
+    \begin{Bmatrix}
+        \tau_{xz} \\
+        \tau_{yz}
+    \end{Bmatrix}
+    dz=
+        \left[
+\begin{array}{ccc}
+\displaystyle Gt & \displaystyle 0 \\
+\displaystyle 0& \displaystyle G t
+\end{array}
+\right]
+    \begin{Bmatrix}
+        \theta_y+ w_{/x} \\
+        -\theta_x+ w_{/y}
+    \end{Bmatrix}    
+\end{equation*}
+
+Quindi $\gamma$ e quindi $\tau$ non variano nello spessore. Questa è un'approssimazione, infatti le $\tau$ dall'equazione dei flussi sorgenti sono nulle sulla superficie e crescono verso il centro.\\
+Introduciamo un fattore correttivo $k_s$ detto fattore di taglio.
+\begin{equation*}
+    \begin{Bmatrix}
+        Q_x \\
+        Q_y
+    \end{Bmatrix}
+   =k_s
+        \left[
+\begin{array}{ccc}
+\displaystyle Gt & \displaystyle 0 \\
+\displaystyle 0& \displaystyle G t
+\end{array}
+\right]
+    \begin{Bmatrix}
+        \theta_y+ w_{/x} \\
+        -\theta_x+ w_{/y}
+    \end{Bmatrix}
+\end{equation*}
+
+Imponiamo $k_s=\frac{5}{6}$, in questo modo otteniamo la stessa energia di deformazione a taglio e nel caso in cui le $\tau$ siano variabili nello spessore. In particolare $V_d$ è equivalente a quella calcolata con $\tau_{xz}$ e $\tau_{yz}$ paraboliche nello spessore.

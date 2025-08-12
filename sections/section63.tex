@@ -1,3 +1,42 @@
-\section{63. Piastra di Kirchoff. Deformazione flessionale della piastra omogenea isotropa.}
+\section{Piastra di Kirchhoff. Deformazione flessionale della piastra omogenea isotropa.}
+
+Partiamo dal legame momento-curvatura:
+\begin{equation*}
+\left\{
+\begin{array}{c}
+M_y \\
+M_x\\
+M_{xy}
+\end{array}
+\right\} =
+\left[
+\begin{array}{ccc}
+\displaystyle \bar{D} & \displaystyle \nu\bar{D} & \displaystyle 0\\
+\displaystyle \nu\bar{D} & \displaystyle \bar{D} & \displaystyle 0 \\
+\displaystyle 0& \displaystyle 0 & \displaystyle \bar{D}\frac{1-\nu}{2}
+\end{array}
+\right]\,
+\left\{
+\begin{array}{c}
+-w_{/xx} \\
+-w_{/yy}\\
+-2w_{/xy}
+\end{array}
+\right\} 
+\end{equation*}
+
+Applichiamo $M_x=\bar{M_x}$, gli altri momenti sono posti a zero $M_y,M_{xy}=0$
+
+\begin{align*}
+    M_y&=-\bar{D}w_{/xx}-\bar{D}w_{/yy}=0\qquad \rightarrow\qquad w_{/yy}=-w_{/xx}\frac{1}{\nu}\\
+    M_x&=-\bar{D}\nu \,w_{/xx}-\bar{D}w_{/yy}=  -\bar{D}\nu \,w_{/xx}+\bar{D}w_{/xx}\frac{1}{\nu}\\
+\end{align*}
+\begin{align*}
+   w_{/xx}&=\frac{\bar{M_x}}{\bar{D}\left(\frac{1}{\nu}-\nu\right)}\\
+   w_{/yy}&=-\frac{\bar{M_x}}{\nu\bar{D}\left(\frac{1}{\nu}-\nu\right)}
+\end{align*}
+
+Quindi un momento $M_x$ genera anche una flessione, di segno opposto, anche lungo $y$. La flessione è detta anticlastica, quindi con due curvature di segno opposto lungo le due direzioni principali.\\
+Per un materiale classico, con $0<\nu<1 $, la sella è più pronunciata in $x$ che in $y$. Questo comportamento è inedito rispetto al modello di trave.
 
 

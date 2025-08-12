@@ -1,3 +1,57 @@
-\section{66. Materiali ortotropi}
+\section{Materiali ortotropi}
 
+Un materiale ortotropo è un materiale le cui proprietà, e quindi la sua risposta alle sollecitazioni, ha tre piani di simmetria perpendicolari fra loro.\\
+In particolare, i materiali compositi sono generalmente materiali bifase, composti da fibre e matrice.\\
+Le fibre hanno forma di fili sottili e presentano alta rigidezza e resistenza, ma non hanno forma propria. La matrice ha bassa rigidezza e resistenza ma ha il compito di mantenere la forma e trasferire il carico alle fibre.
+
+Le proprietà meccaniche delle fibre sono molto superiori di quelle dei metalli e anche quando unite con la matrice rimangono superiori a quelle dei metalli.\\
+I materiali compositi presentano problematiche su giunzioni, fatica, impatti e difficoltà di progettazione.
+
+Studiamo il materiale partendo dalla singola lamina, dove le fibre hanno orientazione $\theta$. Il sistema di riferimento originale è $x, y$, quello rispetto all'ortotropia, quindi ruotato di   $\theta$, è $n, t$.
+
+Per studiare la risposta del materiale:
+\begin{enumerate}
+    \item Lo carico nella direzione dell'ortotropia. Sollecitando lungo queste direzioni la risposta è simmetrica, senza accoppiamento tra sforzi e deformazioni ($\frac{\nu_{12}}{E_{22}}=\frac{\nu_{21}}{E_{11}}$).
+    \begin{equation*}
+\left\{
+\begin{array}{c}
+\varepsilon_{1} \\
+\varepsilon_{2} \\
+\gamma_{12}
+\end{array}
+\right\}
+=
+\left[
+\begin{array}{ccc}
+\displaystyle \frac{1}{E_{11}} & \displaystyle-\frac{\nu_{12}}{E_{22}} & 0\\
+\displaystyle -\frac{\nu_{21}}{E_{11}} & \displaystyle\frac{1}{E_{22}} &0 \\
+0& 0 & \displaystyle\frac{1}{G}
+\end{array}
+\right]\,
+\left\{
+\begin{array}{c}
+\sigma_{1} \\
+\sigma_{2} \\
+\tau_{12}
+\end{array}
+\right\}
+\end{equation*}
+    \\
+    \item Se carico in una direzione diversa nasce una deformazione con l'accoppiamento di allungamento e taglio, nascono degli scorrimenti.
+\end{enumerate}
+
+Il materiale è caratterizzato da 4 parametri:  $E_{11}$,$E_{22}$,  $\nu_{12}=\nu_{21}$,  $G$.
+
+Le lamine possono essere fatte anche come tessuti, avendo le fibre disposte nelle due direzioni. Si osserva che nel caso dei tessuti si ottiene una $E$ inferiore alla metà di quella dell'unidirezionale in quanto le fibre devono passare le une sopra le altre, piegandosi anche in condizione indeformata. Caricando la fibra a trazione lei si può stendere, riducendo la $E$.
+
+\subsubsection*{Contesto industriale dei materiali compositi}
+L'uso dei materiali compositi nell'industria, specie in quella aeronautica, ha subito un ritardo importante rispetto alle previsioni di crescita, possiamo elencare i principali motivi.
+
+\begin{enumerate}
+    \item Giunzioni. Per ottimizzare la struttura vanno prodotte parti grandi e continue così da non interrompere le fibre. Le giunzioni con chiodatura per esempio danneggiano le fibre e causano delaminazione, le bullonature vengono usate solo dove è fondamentale lo smontaggio, anche in queste eccezioni si rinforza la struttura con parti in metallo. Generalmente viene usata la colla o la stessa resina del materiale, tuttavia gli incollaggi agiscono solo sulla matrice.\\
+    \item Fatica. Mentre i metalli soffrono di fatica a trazione i compositi ne soffrono a compressione, questo aspetto rende necessaria una progettazione diversa.\\
+    \item Impatti. Il carbonio è fragile. Piccoli impatti possono causare danni interni non visibili ma col tempo portare alla delaminazione. Si usano protezioni con vernici speciali o fibre di kevlar. Inoltre è difficile fare indagini non distruttive sulla struttura.\\
+    \item Progettazione. I materiali ortotropi rendono non validi i modelli della meccanica strutturale precedenti. Le deformazioni sono in direzioni non allineate al carico. Questo punto introduce una difficoltà di progettazione ma al tempo stesso una possibilità.\\
+    \item Sostenibilità. Mentre il metallo è facilmente recuperabile e riutilizzabile i materiali compositi sono molto difficili e costosi da smaltire alò termine della loro vita utile.
+\end{enumerate}
 

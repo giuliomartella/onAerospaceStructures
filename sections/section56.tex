@@ -1,3 +1,80 @@
-\section{56. Incollaggi. Andamento degli sforzi e dei flussi.}
+\section{Incollaggi. Andamento degli sforzi e dei flussi.}
 
 
+Attraverso un incollaggio il flusso di taglio è trasferito in modo continuo e graduale. Il flusso mentre sta attraversando l'incollaggio possiamo considerarlo come la somma di due funzioni $q_1(x)+q_2(x)$ per cui, su un incollaggio lungo $2b$:
+\begin{align*}
+    q_1(b) &= q\qquad &q_1(-b)&=0\\
+     q_2(b) &= 0\qquad &q_2(-b)&=q\\
+\end{align*}
+
+Verifichiamo con l'equazione dei flussi sorgenti che $q_1+q_2=q$.
+
+Seziono l'incollaggio per un $dx$ piccolo e analizzo gli sforzi per le partizioni di pannello superiore, colla e pannello inferiore.
+Scrivo l'equilibrio sul pannello inferiore in direzione $z$:
+\begin{align*}
+   & q_1\,y - (q_1+dq_1)\,y+\tau_c\,dx\,y\,=\,0\\
+    &dq_1\,=\,\tau_c\,dx\\
+    &\tau_c\,=\, \frac{dq_1}{dx}\,=\,\dot{q_1}
+\end{align*}
+
+Per il pannello inferiore:
+\begin{align*}
+   & q_2\,y - (q_2+dq_2)\,y-\tau_c\,dx\,y\,=\,0\\
+    &dq_2\,=\,-\tau_c\,dx\\
+    &\tau_c\,=-\, \frac{dq_2}{dx}\,=\,\dot{q_2}
+\end{align*}
+Queste condizioni, insieme a  $q_1+q_2=q$, rappresentano le uniche tre condizioni di equilibrio.
+Consideriamo l'energia di deformazione per la colla come:
+\begin{equation*}
+    \tau_c\,\gamma_c\,dV\,=\,\tau_c\,\frac{\tau_c}{G_c}\,dy\,dz\,dx\,=\,\frac{\tau_c^2}{G_c} (\tau_c-1)dx
+\end{equation*}
+Introduciamo il coefficiente:
+\begin{equation*}
+    \frac{2}{\alpha^2}\,=\,\frac{t_c}{G_c}Gt
+\end{equation*}
+Scriviamo adesso il teorema di Menabrea per avere delle condizioni di congruenza.
+
+
+\begin{align*}
+    V_{d}\,&=\,V_d(q) +\frac{1}{2} \int_{-b}^b\left( \frac{q_1^2}{Gt}  + \frac{q_2^2b}{Gt} + \frac{\tau_c^2}{G_c}(\tau_c\,y)    \right)dx\\
+   &=\,V_d(q) +\frac{1}{2} \int_{-b}^b\left( q_1^2+ (q-q_1)^2+ \frac{2}{\alpha^2} \dot{q_1}^2   \right)dx\, \frac{1}{Gt}\\
+     &=\,V_d(q) +\frac{1}{2} \int_{-b}^b  F(q_1, \dot{q_1})\, dx\, \frac{1}{Gt}\\
+\end{align*}
+
+Per trovare il minimo dell'energia uso la minimizzazione del funzionale, per cui:
+\begin{equation*}
+    \frac{\partial F}{\partial q_1} - \left(  \frac{\partial F}{\partial \dot{q_1}} \right)'\,=\,0
+\end{equation*}
+
+\begin{equation*}
+    \begin{cases}
+          \frac{\partial F}{\partial q_1} = 2q_1-2(q-q_1)=4q_1-2q\\
+           \frac{\partial F}{\partial \dot{q_1}}= \frac{4}{\alpha^2} \ddot{q_1} 
+    \end{cases}
+    \qquad \rightarrow\qquad
+    -\frac{1}{\alpha^2} \ddot{q_1} +q_1= \frac{q}{2}
+\end{equation*}
+
+Per risolvere l'equazione differenziale ordinaria sommiamo la soluzione particolare e la soluzione dell'omogenea associata, per cui:
+\begin{equation*}
+    q_1\,=\,Ae^{\alpha x} +Be^{-\alpha x}+\frac{q}{2}
+\end{equation*}
+Per determinare le costanti $A$ e $B$ combiniamo le condizioni al contorno di $q_1$:
+\begin{equation*}
+    \begin{cases}
+        Ae^{\alpha b} +Be^{-\alpha b}+\frac{q}{2}=q\\
+        Ae^{-\alpha b} +Be^{\alpha b}+\frac{q}{2}=0\\
+    \end{cases}
+\end{equation*}
+
+Sapendo che $2sh(x) = e^x-e^{-x}$ e che $sh(-x)=-sh(x)$.
+\begin{align*}
+    q_1\,&=\,\frac{q}{2} \left(  1+\frac{sh(\alpha x)}{sh(\alpha b)}  \right)\\
+     q_1\,&=\,\frac{q}{2} \left(  1-\frac{sh(\alpha x)}{sh(\alpha b)}  \right)\\
+     \tau_c\,&=\, \dot{q_1}\,=\,\frac{q}{2} \alpha\left( \frac{ch(\alpha x)}{sh(\alpha b)}  \right)\\
+\end{align*}
+
+Il diagramma dei flussi corrispondente è simmetrico fra $q_1$ e $q_2$. Il diagramma degli sforzi di taglio teorico è asintotico agli estremi dell'incollaggio. Il diagramma reale ha comunque i picchi nella parte esterna.
+
+Il creep è la deformazione progressiva del materiale in presenza di un carico costante e con valori di sforzo inferiori agli sforzi limiti di rottura.\\
+La $\tau$ al centro dell'incollaggio è molto importante pur trasmettendo pochissima forza, infatti gli estremi lavorano al di sopra della $\tau^{creep}$, dunque dovrebbero scorrere via, sono tenuti invece dagli sforzi centrali $\tau<\tau^{creep}$ che agiscono da vincolo.
