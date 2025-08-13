@@ -1,3 +1,96 @@
-\section{70. Metodo di ritz per trave su due appoggi}
+\section{Metodo di Ritz per trave su due appoggi}
+
+Metodo di calcolo avanzato basato sul metodo degli spostamenti, è un metodo approssimato.
+Si ipotizza noto il campo degli spostamenti della struttura, approssimato mediante una serie di funzioni, con i seguenti requisiti. Congruenza interna ed esterna rispetto ai vincoli (la serie di funzioni deve essere quindi continua, derivabile e con derivata continua $\subset C_1$). Convergenza, con infiniti termini arrivo alla soluzione esatta.
+
+Considero una trave (orizzontale) su due appoggi (carrelli a scorrimento orizzontale). $w$ è lo spostamento in direzione $y$ dell'asse della trave. Devo rappresentare  $w$ con una serie di funzioni.
+
+La congruenza sui vincoli è rispettata fintanto che $w(0)=0$ e $w(l)=0$. Posso usare una serie di Fourier:
+\begin{equation*}
+    w= \sum^\infty_{k=1}\,q_k\sin{\left(\frac{k\pi}{l}z\right)}
+\end{equation*}
+Usando una serie la forma (la funzione seno) è nota e le ampiezze sono le uniche incognite. In questo modo le incognite sono dei parametri discreti invece che delle funzioni. Le condizioni al contorno vengono rispettate da ogni elemento della serie. Modificando la struttura modifico anche la serie.
+
+\subsubsection*{Studio delle vibrazioni libere}
+La soluzione è già congruente per cui, nell'ambito del metodo degli spostamenti, usiamo il PLV per scrivere delle condizioni di equilibrio. Per le vibrazioni libere consideriamo anche il lavoro compiuto dalle forze d'inerzia.
+
+\begin{equation*}
+    \delta L_d=\int_0^l \,EJ \,w''dw''\,dz
+\end{equation*}
+Specificando che:
+\begin{align*}
+    w&= \sum^\infty_{k=1}\,q_k\sin{\left(\frac{k\pi}{l}z\right)}\\
+      w'&= \sum^\infty_{k=1}\,q_k   \left(\frac{k\pi}{l}z\right)  \cos{\left(\frac{k\pi}{l}z\right)}\\
+       w''&=- \sum^\infty_{k=1}\,q_k   \left(\frac{k\pi}{l}z\right)^2  \sin{\left(\frac{k\pi}{l}z\right)}\\
+        \delta w''&=- \sum^\infty_{k=1}\,\delta q_k   \left(\frac{k\pi}{l}z\right)^2  \sin{\left(\frac{k\pi}{l}z\right)}
+\end{align*}
+
+Per cui il lavoro virtuale di deformazione diventa:
+\begin{equation*}
+    \delta L_d=\int_0^l \,EJ \,\left[ - \sum^\infty_{k=1}\,q_k   \left(\frac{k\pi}{l}z\right)^2  \sin{\left(\frac{k\pi}{l}z\right)}    \right]\, 
+    \left[  - \sum^\infty_{j=1}\,\delta q_j   \left(\frac{j\pi}{l}z\right)^2  \sin{\left(\frac{j\pi}{l}z\right)}  \right]dz
+\end{equation*}
 
 
+La lunghezza della trave $l$, per via delle condizioni di congruenza,  è sempre un multiplo del periodo della sinusoide, di conseguenza:
+\begin{equation*}
+\int_0^l \,\sin{\left(\frac{k\pi}{l}z\right)} \sin{\left(\frac{j\pi}{l}z\right)}dz \qquad=\qquad
+\begin{cases}
+    0\qquad j\neq k\\
+    \frac{l}{2} \qquad j=k
+\end{cases}
+\end{equation*}
+Per cui:
+\begin{equation*}
+       \delta L_d= \,EJ\sum^\infty_{k=1} q_k \delta q_k  \left(\frac{k\pi}{l}\right)^4 \frac{l}{2}
+\end{equation*}
+
+Il lavoro esterno è compiuto dalle forze d'inerzia:
+\begin{equation*}
+    \delta L_e=-\int_0^l \rho \bar{A}\,\ddot{w} \delta w\,dz
+\end{equation*}
+Dove la derivata nel tempo è:
+
+\begin{equation*}
+    \ddot{w}= \sum^\infty_{k=1}\,\ddot{q}_k\sin{\left(\frac{k\pi}{l}z\right)}
+\end{equation*}
+Il lavoro esterno diventa:
+
+\begin{align*}
+    \delta L_e&=\int_0^l \,\rho\bar{A} \,\left[ \sum^\infty_{k=1}\,\ddot{q}_k\sin{\left(\frac{k\pi}{l}z\right)}   \right]\, 
+    \left[   \sum^\infty_{j=1}\,\delta q_j   \sin{\left(\frac{j\pi}{l}z\right)}  \right]dz\\
+    &=-\rho\bar{A} \,\sum^\infty_{k=1} \ddot{q}_k \delta q_k\,\frac{l}{2}
+\end{align*}
+
+Scrivendo il PLV:
+\begin{align*}
+  &  \delta L_d=\delta L_e\\
+   & \sum^\infty_{k=1}  \delta q_k  \left[q_k EJ        \left(\frac{k\pi}{l}\right)^4    +\rho \bar{A}\ddot{q}_k\right]=0
+\end{align*}
+
+Otteniamo quindi un'equazione scrivibile infinite volte al variare di $\delta q_j$ arbitrario. Consideriamo $k=1,2$:
+\begin{equation*}
+    \delta q_1  \left[q_1 EJ        \left(\frac{\pi}{l}\right)^4    +\rho \bar{A}\ddot{q}_1\right] + 
+    \delta q_2  \left[q_2 EJ        \left(\frac{2\pi}{l}\right)^4    +\rho \bar{A}\ddot{q}_2\right] =0
+\end{equation*}
+
+La scelta degli spostamenti virtuali è arbitraria quindi risolviamo per $\delta q_1=0$, $\delta q_2=1$  e $\delta q_1=1$, $\delta q_2=0$ .
+\begin{equation*}
+    \begin{cases}
+         q_2 EJ        \left(\frac{2\pi}{l}\right)^4    +\rho \bar{A}\ddot{q}_2=0\\
+         q_1 EJ        \left(\frac{\pi}{l}\right)^4    +\rho \bar{A}\ddot{q}_1=0
+    \end{cases}
+\end{equation*}
+
+Per arbitrarietà si può sempre avere un'equazione nel tipo:
+\begin{equation*}
+    q_k EJ        \left(\frac{k\pi}{l}\right)^4    +\rho \bar{A}\ddot{q}_k=0
+\end{equation*}
+Trovando un equazione differenziale il cui integrale generale è :
+\begin{equation*}
+    q_k = A_k \sin{\left(  w_kt+\phi      \right)}
+\end{equation*}
+Ottenendo le vibrazioni libere della trave:
+\begin{equation*}
+    w_k= \sqrt{\frac{EJ}{\rho \bar{A}}   \left(\frac{k\pi}{l}\right)^4  }
+\end{equation*}

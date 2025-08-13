@@ -1,3 +1,121 @@
-\section{74. Elementi finiti. Scrittura dell'equilibrio con il PLV}
+\section{Elementi finiti. Scrittura dell'equilibrio con il PLV}
+
+Innanzitutto scriviamo le deformazioni in funzione degli spostamenti:
+\begin{equation*}
+    \varepsilon_{ij}=\frac{1}{2}(u_{i/j}+u_{j/i})
+\end{equation*}
+\begin{align*}
+\begin{Bmatrix}
+    \varepsilon_{xx} \\
+    \varepsilon_{yy} \\
+    \varepsilon_{zz} \\
+    \gamma_{xy} \\
+    \gamma_{yz} \\
+    \gamma_{xz}
+\end{Bmatrix}
+=
+\begin{bmatrix}
+    \frac{\partial}{\partial x} & 0 & 0 \\
+    0 & \frac{\partial}{\partial y} & 0 \\
+    0 & 0 & \frac{\partial}{\partial z} \\
+    \frac{\partial}{\partial y} & \frac{\partial}{\partial x} & 0 \\
+    0 & \frac{\partial}{\partial z} & \frac{\partial}{\partial y} \\
+    \frac{\partial}{\partial z} & 0 & \frac{\partial}{\partial x}
+\end{bmatrix}
+\begin{Bmatrix}
+    u_x \\
+    u_y \\
+    u_z
+\end{Bmatrix}
+\end{align*}
+Scriviamo compattamente come $\left\{ \varepsilon\right\}= [\mathcal{D}]\left\{ u\right\}$. Il legame elastico è $\left\{ \sigma\right\}= [D]\left\{ \varepsilon\right\}$.
+Uso il PLV per scrivere le equazioni di equilibrio:
+\begin{align*}
+ \delta L_{d}  &= \sum^M_{j=1} \int_{\Omega_j}     \left\{\delta\varepsilon\right\}_j^T  \left\{\sigma\right\}_j  dV\\
+  &= \sum^M_{j=1} \int_{\Omega_j}     \left\{\delta u\right\}_j^T  [\mathcal{D}]^T  [D]  [\mathcal{D}]  \left\{ u\right\}_j dV\\
+\end{align*}
+
+Introduco le funzioni di forma:
+\begin{align*}
+ \left\{ u\right\}_j&= [H]\left\{u_i\right\}_j\\
+ \left\{ \varepsilon\right\}_j&= [\mathcal{D}] [H]\left\{u_i\right\}_j\\
+ &= [B]\left\{u_i\right\}_j
+\end{align*}
+Per cui il lavoro:
+\begin{align*}
+ \delta L_{d} &= \sum^M_{j=1} \int_{\Omega_j}     \left\{\delta u\right\}_j^T  [B]^T  [D]  [B]  \left\{ u\right\}_j dV\\
+ &= \sum^M_{j=1}\left( \left\{\delta u\right\}_j^T \int_{\Omega_j}      [B]^T  [D]  [B]  dV    \left\{ u\right\}_j  \right)\\
+ &= \sum^M_{j=1}\left( \left\{\delta u\right\}_j^T       [\bar{K}]_j      \left\{ u\right\}_j  \right)\\
+ \delta L_{d_j} &= \left\{\delta u\right\}_j^T       [\bar{K}]_j      \left\{ u\right\}_j 
+\end{align*}
+Questo perché consideriamo che il vettore degli spostamenti dei nodi non varia nel volume. $ [\bar{K}]_j  $ è inoltre scritta nel sistema di riferimento locale.
+
+Analogamente a quanto fatto per i sistemi di trave sposto $ [\bar{K}]_j  $ al sistema di riferimento globale. Lego gli spostamenti dei nodi $i$ dell'elemento $j$ agli spostamenti di tutta la struttura.
+\begin{equation*}
+  \left\{ \tilde{u}_i\right\}_j =   [\Omega]_j  \left\{ U\right\} 
+\end{equation*}
+Quindi nel sistema globale:
+\begin{equation*}
+ \delta L_{d_j} = \left\{\delta \tilde{u}_i\right\}_j^T       [K]_j      \left\{ \tilde{u}_i\right\}_j 
+\end{equation*}
+Per cui il lavoro di deformazione:
+
+\begin{align*}
+        \delta L_d  &=\sum_{j=1}^M \delta L_{di} \\
+        &= \sum_{j=1}^M    \left\{\delta \tilde{u}_i\right\}_j^T       [K]_j      \left\{ \tilde{u}_i\right\}_j    \\
+          &= \sum_{j=1}^M  \left\{ \delta  U\right\} ^T   [\Omega]_j^T   [K]_j     [\Omega]_j  \left\{ U\right\}\\
+          &=   \left\{ \delta  U\right\}^T   \left( \sum_{j=1}^M   [\Omega]_j^T   [K]_j     [\Omega]_j   \right)\left\{ U\right\}
+    \end{align*}
+    Dove $[K] $ è la matrice di rigidezza globale.
+
+Consideriamo il lavoro esterno come: 
 
 
+\begin{align*}
+ \delta L_{e} &=\sum_{j=1}^M \delta L_{ei} \\
+ &= \sum^M_{j=1} \int_{\Omega_j}     \left\{\delta u\right\}_j^T  \left\{F\right\}_j  dV\\
+  &= \sum^M_{j=1} \int_{\Omega_j}     \left\{\delta u\right\}_j^T  [H]^T \left\{F\right\}_j  dV\\
+   &= \sum^M_{j=1}  \left\{\delta u\right\}_j^T\int_{\Omega_j}      [H]^T \left\{F\right\}_j  dV\\
+     &= \sum^M_{j=1}  \left\{\delta u\right\}_j^T  \left\{P\right\}_j  
+\end{align*}
+
+Dove $\left\{P\right\}_j  $ sono le forze generalizzate, su l'elemento $j$, rispetto al sistema di riferimento locale.\\
+Grazie al concetto di forze generalizzate trasformo un carico distribuito in un numero discreto di forze applicate ai nodi. I due sistemi sono energicamente equivalenti.\\ Passo al sistema di riferimento globale $\left\{ \tilde{u}_i\right\}_j =   [\Omega]_j  \left\{ U\right\} $:
+
+\begin{align*}
+ \delta L_{e} &= \sum^M_{j=1}  \left\{\delta \tilde{u}\right\}_j^T  \left\{P\right\}_j  \\
+ &= \sum^M_{j=1}  \left\{\delta u\right\}  [\Omega]_j^T \left\{P\right\}_j  \\
+ &=  \left\{\delta u\right\}  \sum^M_{j=1} [\Omega]_j^T \left\{P\right\}_j  \\
+  &=  \left\{\delta u\right\}  \left\{P\right\}  \\
+\end{align*}
+
+L'applicazione del PLV scrive l'equazione:
+\begin{align*}
+ \delta L_{e} = \delta L_d\\
+ \left\{\delta u\right\}^T ([K]\left\{ u\right\}   -  \left\{P\right\})=0\\
+ [K]\left\{ u\right\}=\left\{P\right\}
+\end{align*}
+
+Per risolvere il problema statico bisogna inserire i vincoli, cancellando righe e colonne o riordinando il sistema in parte libera e parte vincolata, calcolando così anche le reazioni vincolari.
+
+Per considerare anche un fenomeno dinamico aggiungiamo il lavoro virtuale esterno compiuto dalle forze d'inerzia
+\begin{align*}
+ \delta L_{e_j}^{in} &=-\int_{\Omega_j}     \left\{\delta u\right\}_j^T  \rho\left\{\ddot{u}\right\}_j  dV\\
+ &= - \left\{\delta u\right\}_j^T  \int_{\Omega_j}     [\bar{H}]^T  \rho[H]   dV \,\left\{\ddot{u}\right\}_j\\
+ &= - \left\{\delta u\right\}_j^T  [\bar{M}]_j\,\left\{\ddot{u}\right\}_j
+\end{align*}
+Definiamo la matrice di massa locale  $ [\bar{M}]_j=  \int_{\Omega_j}     [\bar{H}]^T  \rho[H]   dV$. Passo al sistema globale:
+\begin{align*}
+ \delta L_{e_j}^{in} &= - \left\{\delta \tilde{u}\right\}_j^T  [M]_j\,\left\{\ddot{\tilde{u}}\right\}_j
+\end{align*}
+Dove la matrice di massa globale è :
+\begin{equation*}
+    [M] = \sum^M_{j=1} [\Omega]^T [\bar{M}]_j  [\Omega]
+\end{equation*}
+
+Dunque il sistema dinamico è modellato dal sistema:
+\begin{equation*}
+    [M]\left\{\ddot{u}\right\} + [K]\left\{u\right\} = \left\{P\right\}
+\end{equation*}
+
+Allo stesso modo  potrei considerare lo smorzamento.

@@ -1,3 +1,118 @@
-\section{68. Teoria della laminazione}
+\section{Teoria della laminazione}
 
+La teoria si basa su un adattamento del modello di piastra, si ha una serie di lamine di materiali diverso e/o con orientazioni diverse.
+Introduciamo l'ipotesi di materiale ortotropo e cominciamo studiando la singola lamina.
 
+Le fibre hanno orientazione $\theta$. Il sistema di riferimento originale è $x, y$, quello rispetto all'ortotropia, quindi ruotato di   $\theta$, è $n, t$.
+
+Per studiare la risposta del materiale:
+\begin{enumerate}
+    \item Lo carico nella direzione dell'ortotropia. Sollecitando lungo queste direzioni la risposta è simmetrica, senza accoppiamento tra sforzi e deformazioni ($\frac{\nu_{12}}{E_{22}}=\frac{\nu_{21}}{E_{11}}$).
+    \begin{equation*}
+\left\{
+\begin{array}{c}
+\varepsilon_{1} \\
+\varepsilon_{2} \\
+\gamma_{12}
+\end{array}
+\right\}
+=
+\left[
+\begin{array}{ccc}
+\displaystyle \frac{1}{E_{11}} & \displaystyle-\frac{\nu_{12}}{E_{22}} & 0\\
+\displaystyle -\frac{\nu_{21}}{E_{11}} & \displaystyle\frac{1}{E_{22}} &0 \\
+0& 0 & \displaystyle\frac{1}{G}
+\end{array}
+\right]\,
+\left\{
+\begin{array}{c}
+\sigma_{1} \\
+\sigma_{2} \\
+\tau_{12}
+\end{array}
+\right\}
+\end{equation*}
+    \\
+    \item Se carico in una direzione diversa nasce una deformazione con l'accoppiamento di allungamento e taglio, nascono degli scorrimenti.
+\end{enumerate}
+
+Il materiale è caratterizzato da 4 parametri:  $E_{11}$,$E_{22}$,  $\nu_{12}=\nu_{21}$,  $G$.
+
+Una volta considerata la rotazione del legame elastico $[D] =  \left[T\right][\bar{D}]\left[T\right]^T$, passiamo all'impaccamento delle lamine, seguendo il libro di laminazione .\\ Sviluppiamo un modello di piastra composta da $N$ lamine. \\ Ogni lamina è caratterizzata dalla sua distanza dal piano medio.
+
+Una piastra isotropa ha uno stato di deformazione continuo nello spessore, somma di traslazione e flessione. Le lamine però essendo ruotate hanno fra loro rigidezze completamente diverse, lo stato di sforzo risulta discontinuo nello spessore. Globalmente l'andamento è comunque la somma di una traslazione e di una flessione a farfalla.
+
+Consideriamo che le azioni interne recepiscono il contributo di tutte le lamine, per cui:
+
+\begin{align*}
+    \left\{N\right\} &= \int_{-\frac{t}{2}}^{\frac{t}{2}}\,  \left\{\sigma\right\} \,dz\\
+    &= \sum^N_{i=1}\int_{h_{i-1}}^{h_i}\,  \left\{\sigma\right\}_i \,dz\\
+     &= \sum^N_{i=1}\left(\int_{h_{i-1}}^{h_i}\, [D]_i \left\{\varepsilon\right\}_0 \,dz       
+     +\int_{h_{i-1}}^{h_i}\, [D]_i \,z\left\{k\right\} \,dz           \right)\\
+\end{align*}
+Notiamo che $ \left\{\varepsilon\right\}_0$ e $\left\{k\right\}  $ dipendono solo dallo spostamento del piano medio, possono quindi uscire da integrali e sommatorie:
+\begin{align*}
+    [A] &:= \sum^N_{i=1}\int_{h_{i-1}}^{h_i}\,  [D]_i \,dz\\
+      [B] &:= \sum^N_{i=1}\int_{h_{i-1}}^{h_i}\,  [D]_i\,z \,dz
+\end{align*}
+
+\begin{align*}
+    \left\{M\right\} &= \begin{Bmatrix}
+        M_y\\M_x\\M_{xy}
+    \end{Bmatrix} =\int_{-\frac{t}{2}}^{\frac{t}{2}}\,  \left\{\sigma\right\} z\,dz\\
+    &= \sum^N_{i=1}\int_{h_{i-1}}^{h_i}\,  \left\{\sigma\right\}_i z\,dz\\
+     &= \sum^N_{i=1}\left(\int_{h_{i-1}}^{h_i}\, [D]_i \,z\left\{\varepsilon\right\}_0 \,dz       
+     +\int_{h_{i-1}}^{h_i}\, [D]_i \,z^2\left\{k\right\} \,dz           \right)\\
+\end{align*}
+
+Da cui:
+\begin{align*}
+      [C] := \sum^N_{i=1}\int_{h_{i-1}}^{h_i}\,  [D]_i\,z^2 \,dz
+\end{align*}
+Rielaborando le matrici definite:
+\begin{align*}
+    [A] &:= \sum^N_{i=1}\,  [D]_i \,(h_i-h_{i-1})\\
+      [B] &:= \frac{1}{2}\sum^N_{i=1}\,  [D]_i \,(h_i^2-h_{i-1}^2)\\
+       [C] &:=\frac{1}{3} \sum^N_{i=1}\,  [D]_i \,(h_i^3-h_{i-1}^3)\\
+\end{align*}
+
+Il sistema completo diviene:
+
+\begin{equation*}
+\left\{
+\begin{array}{c}
+N\\M
+\end{array}
+\right\}
+=
+\begin{bmatrix}
+[A] & [B] \\
+[B] & [C]
+\end{bmatrix}
+\left\{
+\begin{array}{c}
+\boldsymbol{\varepsilon_0}\\
+\boldsymbol{k}
+\end{array}
+\right\}
+\end{equation*}
+
+La matrice risultante è completamente piena, tirando il laminato questo si torce, si flette e si deforma a taglio.\\Il legame si può invertire:
+\begin{equation*}
+\left\{
+\begin{array}{c}
+\boldsymbol{\varepsilon_0}\\
+\boldsymbol{k}
+\end{array}
+\right\}= \begin{bmatrix}
+[A] & [B] \\
+[B] & [C]
+\end{bmatrix}^{-1}
+\left\{
+\begin{array}{c}
+N\\M
+\end{array}
+\right\}
+\end{equation*}
+
+Per verificare i valori di sforzo ammissibili: calcolo le deformazioni (diverse) e poi gli sforzi, nelle facce inferiore e superiore di ogni lamina, e le giudico con il criterio scelto.

@@ -1,3 +1,48 @@
-\section{75. Element finiti isoparametrici.}
+\section{Elementi finiti isoparametrici.}
+
+\begin{definizioneBox}
+    Negli elementi finiti isoparametrici, in meccanica strutturale, le stesse funzioni di forma vengono utilizzate per descrivere sia la geometria dell'elemento sia il campo di spostamenti.
+La matrice di rigidezza non richiede una rotazione del sistema di riferimento, poiché l'orientamento dell'elemento è già considerato nel processo di formazione della matrice stessa.
+\end{definizioneBox}
+
+La matrice $[K]_i$ è composta da una parte indipendente dalle deformazioni e da una parte dipendente dalle deformazioni dell'elemento (è una parte molto piccola). 
+
+\begin{equation*}
+    \left\{u \right\}_j = \begin{Bmatrix}
+        u_x\\u_y\\u_z 
+    \end{Bmatrix}= [H(x,y,z)] \,\left\{u_i \right\}_j
+\end{equation*}
+
+\subsubsection*{Elemento monodimensionale con due nodi}
+ Consideriamo le coordinate globali $x,y,z$ e le coordinate isoparametriche $r,s,t$.\\
+ Il sistema di riferimento isoparametrico è indipendente dalla dimensione dell'elemento (allineato con $r$), si ha sempre il primo nodo in $r=-1$ e il secondo in $r=1$ (questo concetto è estendibile a più dimensioni).
+ 
+La posizione di un qualsiasi punto si può esprimere, nel caso monodimensionale, come:
+\begin{equation*}
+    x=\frac{1}{2}(1-r)x_1+\frac{1}{2}(1+r)x_2
+\end{equation*}
+Ovvero,
+\begin{equation*}
+    x=\sum^2_{i=1} h_ix_i \qquad \text{con} \quad h_1=\frac{1}{2}(1-r), \quad  h_2=\frac{1}{2}(1+r)
+\end{equation*}
+In forma matriciale:
+\begin{equation*}
+    \left\{x \right\} = \left[\frac{1}{2}(1-r) \quad  \frac{1}{2}(1+r)\right]\begin{Bmatrix}
+        x_1\\x_2
+    \end{Bmatrix}= [H] \,\left\{x_i \right\}
+\end{equation*}
+
+Vale lo stesso per gli spostamenti:
+\begin{equation*}
+    u=\sum^2_{i=1} h_iu_i \qquad \text{con} \quad h_1=\frac{1}{2}(1-r), \quad  h_2=\frac{1}{2}(1+r)
+\end{equation*}
+\begin{equation*}
+    \left\{u \right\} = \left[\frac{1}{2}(1-r) \quad  \frac{1}{2}(1+r)\right]\begin{Bmatrix}
+        u_1\\u_2
+    \end{Bmatrix}= [H] \,\left\{u_i \right\}
+\end{equation*}
+
+
+
 
 

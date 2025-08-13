@@ -1,3 +1,187 @@
-\section{67. Rotazione matrice di rigidezza per materiali ortotropi}
+\section{Rotazione matrice di rigidezza per materiali ortotropi}
+
+Serve ruotare la matrice, e quindi l'applicazione lineare, che rappresenta il legame costitutivo elastico. Per ragioni di brevità ed efficacia abbiamo sempre rappresentato le equazioni del legame elastico con la notazione di Voigt tuttavia, per ruotare la matrice di rigidezza dobbiamo tornare a scriverla esplicitamente come tensore di ordine 2.
+
+Per ruotare un tensore di primo ordine, che mappa le $x_i$ in $\bar{x}_i$, dove $\alpha_{\bar{x}_ix_i}$ è l'angolo fra questi, usiamo la matrice dei coseni direttori:
+
+    \begin{equation*}
+\left\{ \bar{v}\right\}
+=\left[\alpha\right]\,\left\{ v\right\} \qquad\qquad \alpha_{ij}=\, \cos{\alpha_{\bar{x}_ix_j}}
+\end{equation*}
+Notiamo anche che la matrice dei coseni direttori è ortogonale per cui $[\alpha]^{-1}=[\alpha]^T $ .\\
+
+Torno alla relazione di Cauchy e la uso per ruotare un tensore di secondo ordine. Le grandezze segnate esprimono le stesse quantità in un sistema di riferimento diverso.
+\begin{align*}
+\left\{ t\right\}_n&=\left[\sigma\right]\,\left\{n\right\}\\
+\left\{ \bar{t}\right\}_n&=\left[\bar{\sigma}\right]\,\left\{\bar{n}\right\}\\
+\end{align*}
+
+Partiamo dalla rotazione di $\left\{ t\right\}_n$ per ruotare l'intero tensore degli sforzi:
+\begin{align*}
+\left\{ \bar{t}\right\}_n&=\left[\alpha\right]\,\left\{t\right\}_n\\
+\left\{ \bar{n}\right\}&=\left[\alpha\right]\,\left\{n\right\}\\
+\left[\alpha\right]\left\{ t\right\}_n&=\left[\bar{\sigma}\right]\,\left[\alpha\right]\left\{n\right\}\\
+\left\{ t\right\}_n&=\left[\alpha\right]^{-1}\left[\bar{\sigma}\right]\,\left[\alpha\right]\left\{n\right\}\\
+\left\{ t\right\}_n&=\left[\alpha\right]^T\left[\bar{\sigma}\right]\,\left[\alpha\right]\left\{n\right\}\\
+\end{align*}
+
+Dato che $\left\{ t\right\}_n=\left[\sigma\right]\,\left\{n\right\}$:
+\begin{equation*}
+    \left\{ \sigma\right\}=\left[\alpha\right]^T\left[\sigma\right]\,\left[\alpha\right]
+\end{equation*}
+Scrivendo tutte le componenti
+    
+\begin{equation*}
+    \begin{bmatrix}
+        \sigma_{11} & \sigma_{12} & \sigma_{13} \\
+        \sigma_{21} & \sigma_{22} & \sigma_{23} \\
+        \sigma_{31} & \sigma_{32} & \sigma_{33}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \alpha_{11} & \alpha_{21} & \alpha_{31} \\
+        \alpha_{12} & \alpha_{22} & \alpha_{32} \\
+        \alpha_{13} & \alpha_{23} & \alpha_{33}
+    \end{bmatrix}
+     \begin{bmatrix}
+        \bar{\sigma}_{11} & \bar{\sigma}_{12} & \bar{\sigma}_{13} \\
+        \bar{\sigma}_{21} & \bar{\sigma}_{22} & \bar{\sigma}_{23} \\
+        \bar{\sigma}_{31} & \bar{\sigma}_{32} & \bar{\sigma}_{33}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \alpha_{11} & \alpha_{12} & \alpha_{13} \\
+        \alpha_{21} & \alpha_{22} & \alpha_{23} \\
+        \alpha_{31} & \alpha_{32} & \alpha_{33}
+    \end{bmatrix}
+\end{equation*}
+
+Adesso consideriamo lo stato di sforzo piano, dove sono diversi da zero solo $\sigma_{11}$, $\sigma_{12}=\sigma_{21}$ e $\sigma_{22}$. Effettuiamo una rotazione attorno all'asse $z$ di modulo $\theta$, per brevità: $m=\cos{\theta}$, $n=\sin{\theta}$.
+\begin{align*}
+    \alpha_{\bar{1}1}&=\cos{\theta}=m\\
+    \alpha_{\bar{1}2}&=\cos{\theta+\pi/2}=-n\\
+    \alpha_{\bar{2}1}&=\cos{\theta-\pi/2}=n\\
+    \alpha_{\bar{2}2}&=\cos{\theta}=m\\
+    \alpha_{\bar{3}3}&=\cos{0}=1\\
+\end{align*}
+Allora:
+\begin{equation*}
+   [\sigma]
+    =
+    \begin{bmatrix}
+        \alpha_{\bar{1}1} & \alpha_{\bar{2}1} & 0 \\
+        \alpha_{\bar{1}2} & \alpha_{\bar{2}2} & 0\\
+        0 & 0 & \alpha_{\bar{3}3}
+    \end{bmatrix}
+     \begin{bmatrix}
+        \bar{\sigma}_{11} & \bar{\tau}_{12} & 0 \\
+        \bar{\tau}_{12} & \bar{\sigma}_{22} & 0 \\
+       0 & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        \alpha_{\bar{1}1} & \alpha_{\bar{1}2} & 0 \\
+        \alpha_{\bar{2}1} & \alpha_{\bar{2}2} & 0\\
+        0 & 0 & \alpha_{\bar{3}3}
+    \end{bmatrix}
+\end{equation*}
+
+Consideriamo solo le sottomatrici rilevanti:
+\begin{equation*}
+   [\sigma]
+    =
+    \begin{bmatrix}
+        m & n \\
+        -n & m
+    \end{bmatrix}
+     \begin{bmatrix}
+        \bar{\sigma}_{11} & \bar{\tau}_{12} \\
+        \bar{\tau}_{12} & \bar{\sigma}_{22}
+    \end{bmatrix}
+    \begin{bmatrix}
+        m & -n \\
+        n & m
+    \end{bmatrix}
+\end{equation*}
+
+\begin{align*}
+\sigma_{11} &= m(\bar{\sigma}_{11}m + \bar{\tau}_{12}n) + n(\bar{\tau}_{12}m + \bar{\sigma}_{22}n) \\
+            &= \bar{\sigma}_{11}m^2 + 2\bar{\tau}_{12}mn + \bar{\sigma}_{22}n^2 \\
+\\
+\sigma_{22} &= m(-\bar{\tau}_{12}n + \bar{\sigma}_{22}m) + (-n)(-\bar{\sigma}_{11}n + \bar{\tau}_{12}m) \\
+            &= \bar{\sigma}_{11}n^2 - 2\bar{\tau}_{12}mn + \bar{\sigma}_{22}m^2 \\
+\\
+\tau_{12} &= m(-\bar{\sigma}_{11}n + \bar{\tau}_{12}m) + n(-\bar{\tau}_{12}n + \bar{\sigma}_{22}m) \\
+          &= (\bar{\sigma}_{22} - \bar{\sigma}_{11})mn + \bar{\tau}_{12}(m^2 - n^2)
+\end{align*}
+
+Ritornando alla notazione di Voigt:
+\begin{equation*}
+    \begin{Bmatrix}
+    \sigma_{11} \\
+    \sigma_{22} \\
+    \tau_{12}
+\end{Bmatrix}
+=
+\begin{bmatrix}
+    m^2 & n^2 & 2mn \\
+    n^2 & m^2 & -2mn \\
+    -mn & mn & m^2-n^2
+\end{bmatrix}
+\begin{Bmatrix}
+    \bar{\sigma}_{11} \\
+    \bar{\sigma}_{22} \\
+    \bar{\tau}_{12}
+\end{Bmatrix}
+\end{equation*}
+In forma compatta $\left\{\sigma \right\}=\left[T\right]\,\left\{ \bar{\sigma}\right\} $. 
+
+Lo stesso risultato vale con le deformazioni 
+\begin{equation*}
+    \begin{Bmatrix}
+    \varepsilon_{11} \\
+    \varepsilon_{22} \\
+    \varepsilon_{12}
+\end{Bmatrix}
+=
+[T]
+\begin{Bmatrix}
+    \bar{\varepsilon}_{11} \\
+    \bar{\varepsilon}_{22} \\
+    \bar{\varepsilon}_{12}
+\end{Bmatrix}
+\end{equation*}
+La matrice in notazione di Voigt si modifica leggermente per consentire di usare gli scorrimenti:
+\begin{equation*}
+    \begin{Bmatrix}
+    \varepsilon_{11} \\
+    \varepsilon_{22} \\
+    \gamma_{12}
+\end{Bmatrix}
+=
+\begin{bmatrix}
+    m^2 & n^2 & mn \\
+    n^2 & m^2 & -mn \\
+    -2mn & 2mn & m^2-n^2
+\end{bmatrix}
+\begin{Bmatrix}
+    \bar{\varepsilon}_{11} \\
+    \bar{\varepsilon}_{22} \\
+    \bar{\gamma}_{12}
+\end{Bmatrix}
+\end{equation*}
+
+In forma compatta $\left\{\varepsilon \right\}=\left[T\right]^T\,\left\{ \bar{\varepsilon}\right\} $.
+
+Ruotiamo l'energia di deformazione (che è invariante rispetto al sistema di riferimento):
+\begin{align*}
+    V_d  &=\frac{1}{2}\left\{ \bar{\varepsilon}\right\}^T\left\{ \bar{\sigma}\right\}\\
+     &=\frac{1}{2}\left\{ \bar{\varepsilon}\right\}^T[\bar{D}]\left\{ \bar{\varepsilon}\right\}\\
+      &=\frac{1}{2}\left\{ {\varepsilon}\right\}^T  \left[T\right][\bar{D}]\left[T\right]^T\left\{ {\varepsilon}\right\}\\
+           &=\frac{1}{2}\left\{ {\varepsilon}\right\}^T  [D]\left\{ {\varepsilon}\right\}
+\end{align*}
+
+
+Dove abbiamo usato $[D] =  \left[T\right][\bar{D}]\left[T\right]^T$, ruotando il legame elastico.
+
+
 
 

@@ -1,3 +1,82 @@
-\section{69. Laminazioni particolari per i materiali compositi}
+\section{Laminazioni particolari per i materiali compositi}
+
+\begin{itemize}
+    \item Laminazione simmetrica:
+    Se ho un angolo $+\theta$ a quota $+z$ ho anche $+\theta$ a quota $-z$ (e le due lamine a queste quote sono fatte dello stesso materiale).
+    In questo modo ottengo $[B]=0$, elimino i legami fra le forze nel piano e flessioni/torsioni (rimangono i legami assiale-taglio e flessione-torsione).\\
+    \item Laminazione equilibrata:
+    A ogni lamina con un angolo  $+\theta$ ne corrisponde un'altra con angolo  $-\theta$ (dello stesso materiale).
+    Ottengo $A_{13}=A_{23}=A_{31}=A_{32}=0$, eliminando il legame fra forze assiali e forze di taglio.\\
+    \item Laminazione bilanciata:
+    Se ho un angolo $+\theta$ a quota $+z$ ho anche $-\theta$ a quota $-z$ (e le due lamine a queste quote sono fatte dello stesso materiale).
+    Viene sottintesa la laminazione equilibrata, inoltre  $C_{13}=C_{23}=C_{31}=C_{32}=0$, elimino l'accoppiamento flessione-torsione
+\end{itemize}
+
+Con una laminazione simmetrica e bilanciata ho $[B]=0$ e disaccoppiamenti (assiale-taglio, flessione-torsione) ottenendo un materiale quasi isotropo. Questo è ottenibile con i tessuti.\\
+In un materiale isotropo $E$,$\nu$,$G$ sono legati e solo due di loro sono indipendenti. In un materiale quasi isotropo ho un comportamento simile senza gli stesi legami fra le grandezze.
+
+Il libro di laminazione consiste nell'affiancare più pagine, ognuna con angoli diversi. \\
+Per ogni lamina conosco $[\bar{D}]_i$ nel sistema di riferimento dell'ortotropia e conosco $[T]_i$.\\
+Ruoto tutte le $[\bar{D}]_i$ per portarle nel sistema di riferimento del laminato:
+\begin{equation*}
+    [D]_i =  [T]_i [\bar{D}]_i[T]_i^T
+\end{equation*}
+A partire dalle $[D]_i$ posso ricavare $[A]_i$, $[B]_i$, $[C]_i$.
+
+Posso scrivere:
+\begin{equation*}
+\left\{
+\begin{array}{c}
+N\\M
+\end{array}
+\right\}
+=
+\begin{bmatrix}
+[A] & [B] \\
+[B] & [C]
+\end{bmatrix}
+\left\{
+\begin{array}{c}
+\boldsymbol{\varepsilon_0}\\
+\boldsymbol{k}
+\end{array}
+\right\}
+\end{equation*}
+E ricavare:
+\begin{equation*}
+\left\{
+\begin{array}{c}
+\boldsymbol{\varepsilon_0}\\
+\boldsymbol{k}
+\end{array}
+\right\}= \begin{bmatrix}
+[A] & [B] \\
+[B] & [C]
+\end{bmatrix}^{-1}
+\left\{
+\begin{array}{c}
+N\\M
+\end{array}
+\right\}
+\end{equation*}
 
 
+Per ogni lamina calcolo:
+\begin{align*}
+     \left\{\varepsilon\right\}_{\text{lower}_i} &=    \left\{\varepsilon_0\right\}+     h_{i-1}  \left\{k\right\}\\
+       \left\{\varepsilon\right\}_{\text{upper}_i} &=    \left\{\varepsilon_0\right\}+     h_{i}  \left\{k\right\}
+\end{align*}
+Ovvero le deformazioni sui bordi inferiore e superiore della lamina, differenti a causa della flessione. Nel sistema di riferimento del laminato scrivo:
+
+\begin{align*}
+     \left\{\sigma\right\}_{l_i} &= [D]_i \left\{\varepsilon\right\}_{l_i}\\
+     \left\{\sigma\right\}_{u_i} &= [D]_i \left\{\varepsilon\right\}_{u_i}\\
+\end{align*}
+
+Per analizzarle le porto nel sistema di riferimento della lamina, ovvero dell'ortotropia:
+\begin{align*}
+     \left\{\bar{\sigma}\right\}_{l_i} &= [T]^{-1}  \left\{\sigma\right\}_{l_i}\\
+     \left\{\bar{\sigma}\right\}_{u_i} &= [T]^{-1}   \left\{\sigma\right\}_{u_i}
+\end{align*}
+
+Posso quindi verificare che $\bar{\sigma}_i$ siano ammissibili attraverso il criterio più adatto.

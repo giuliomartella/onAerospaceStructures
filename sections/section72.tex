@@ -1,3 +1,125 @@
-\section{72. Metodo di ritz per pannelli}
+\section{Metodo di Ritz per pannelli}
+
+Consideriamo una piastra isotropa caricata da una pressione uniforme e costante $p$, vincolata da un appoggio sui 4 bordi, il piano medio ha dimensioni $b\times a$. La soluzione dovrà dipendere da $x$ e da $y$, le condizioni al contorno sono:
+\begin{align*}
+    w(x=0)&=0\qquad &w(y=0)&=0\\
+    w(x=b)&=0\qquad &w(y=a)&=0
+\end{align*}
+La soluzione è rappresentata dalla funzione
+\begin{equation*}
+    w= \sum^\infty_{m=1}  \sum^\infty_{m=1}\,q_{mn}\sin{\left(\frac{m\pi}{l}x\right)}  \sin{\left(\frac{n\pi}{l}y\right)}
+\end{equation*}
+Di modo che ogni elemento della serie rispetti le condizioni di congruenza esterna ed interna.
+Essendo una piastra vincolata ai 4 bordi lavora solo a flessione, ignoriamo il termine $\left\{\varepsilon_0 \right\}$ e consideriamo solo il termine di curvatura:
+\begin{equation*}
+    \left\{\varepsilon \right\}=z\left\{k \right\}\qquad\qquad    \left\{\delta\varepsilon \right\}=z\left\{\delta k \right\}
+\end{equation*}
+Il lavoro virtuale di deformazione per unità di area:
+\begin{align*}
+ \delta L_{dt}  &= \int_{-\frac{t}{2}}^{\frac{t}{2}}      \left\{\sigma\right\}^T   \left\{\delta\varepsilon\right\}dz\\
+   &= \int_{-\frac{t}{2}}^{\frac{t}{2}}    z^2  \left\{k\right\}^T   [D]\left\{\delta k\right\}dz\\
+   &= \frac{t^3}{12} \left\{k\right\}^T   [D]\left\{\delta k\right\}
+\end{align*}
+
+Per tutta la piastra:
+\begin{equation*}
+    \delta L_d=\int_0^a\int_0^b \frac{t^3}{12} \left\{k\right\}^T   [D]\left\{\delta k\right\}\,dx dy
+\end{equation*}
+
+Essendo:
+\begin{equation*}
+    \bar{D}=\frac{E}{1-\nu^2}\frac{t^3}{12} \qquad\qquad
+[D]=\left[
+\begin{array}{ccc}
+\displaystyle \bar{D} & \displaystyle \nu\bar{D} & \displaystyle 0\\
+\displaystyle \nu\bar{D} & \displaystyle \bar{D} & \displaystyle 0 \\
+\displaystyle 0& \displaystyle 0 & \displaystyle \bar{D}\frac{1-\nu}{2}
+\end{array}
+\right]    
+\end{equation*}
+Il lavoro di deformazione diventa
 
 
+\begin{align*}
+    \delta L_d&=\int_0^a\int_0^b \bar{D} \begin{Bmatrix}
+        w_{/xx} \quad  w_{/yy}\quad 2w_{/xy}
+    \end{Bmatrix}\delta \begin{Bmatrix}
+        w_{/xx}+\nu w_{/yy} \\  w_{/yy}+\nu w_{/xx}\\ (1-\nu)w_{/xy}
+    \end{Bmatrix}
+    \,dx dy\\
+    &=\int_0^a\int_0^b \bar{D} \left( w_{/xx} \delta w_{/xx} + \nu w_{/xx} \delta w_{/yy} + w_{/yy} \delta w_{/yy} + \nu w_{/yy} \delta w_{/xx} + 2(1-\nu)w_{/xy} \delta w_{/xy} \right) \,dx dy
+\end{align*}
+
+Calcoliamo le derivate della soluzione dello spostamento:
+\begin{align*}
+    w_{/x} &= \sum^\infty_{m=1} \sum^\infty_{n=1} q_{mn}\frac{m\pi}{b}\cos\left(\frac{m\pi}{b}x\right) \sin\left(\frac{n\pi}{a}y\right) \\
+    w_{/y} &= \sum^\infty_{m=1} \sum^\infty_{n=1} q_{mn}\frac{n\pi}{a}\sin\left(\frac{m\pi}{b}x\right) \cos\left(\frac{n\pi}{a}y\right) \\
+    w_{/xx} &= -\sum^\infty_{m=1} \sum^\infty_{n=1} q_{mn}\left(\frac{m\pi}{b}\right)^2\sin\left(\frac{m\pi}{b}x\right) \sin\left(\frac{n\pi}{a}y\right) \\
+    w_{/yy} &= -\sum^\infty_{m=1} \sum^\infty_{n=1} q_{mn}\left(\frac{n\pi}{a}\right)^2\sin\left(\frac{m\pi}{b}x\right) \sin\left(\frac{n\pi}{a}y\right) \\
+    w_{/xy} &= \sum^\infty_{m=1} \sum^\infty_{n=1} q_{mn}\frac{m\pi}{b}\frac{n\pi}{a}\cos\left(\frac{m\pi}{b}x\right) \cos\left(\frac{n\pi}{a}y\right)
+\end{align*}
+
+Per l'ortogonalità degli elementi della serie di Fourier:
+\begin{equation*}
+\int_0^l \,\sin{\left(\frac{m\pi}{b}x\right)} \sin{\left(\frac{j\pi}{b}x\right)}dx \qquad=\qquad
+\begin{cases}
+    0\qquad m\neq j\\
+    \frac{b}{2} \qquad m=j
+\end{cases}
+\end{equation*}
+
+\begin{equation*}
+\int_0^l \,\cos{\left(\frac{n\pi}{a}y\right)} \cos{\left(\frac{j\pi}{a}y\right)}dy \qquad=\qquad
+\begin{cases}
+    0\qquad n\neq j\\
+    \frac{a}{2} \qquad n=j
+\end{cases}
+\end{equation*}
+
+Allora:
+
+\begin{align*}
+\delta L_d
+&= \bar{D}\!\!\sum_{m,n}\sum_{i,j}\! \delta q_{ij} q_{mn}\!
+\Bigg[
+\left(\frac{m\pi}{b}\right)^2\!\left(\frac{i\pi}{b}\right)^2
++ \nu \left(\frac{m\pi}{b}\right)^2\!\left(\frac{j\pi}{a}\right)^2
++ \left(\frac{n\pi}{a}\right)^2\!\left(\frac{j\pi}{a}\right)^2 \\
+&\qquad\qquad\qquad
++ \nu \left(\frac{n\pi}{a}\right)^2\!\left(\frac{i\pi}{b}\right)^2
++ 2(1-\nu)\left(\frac{mn\pi^2}{ba}\right)^2
+\Bigg]
+\\[-2mm]
+&\quad\times \int_0^b\!\!\int_0^a
+\sin\!\left(\frac{m\pi x}{b}\right)\sin\!\left(\frac{i\pi x}{b}\right)
+\sin\!\left(\frac{n\pi y}{a}\right)\sin\!\left(\frac{j\pi y}{a}\right)\,dx\,dy
+\\[1mm]
+&= \bar{D}\!\!\sum_{m,n}\! \delta q_{mn} q_{mn}\!
+\Bigg[
+\left(\frac{m\pi}{b}\right)^4
++ 2\nu \left(\frac{m\pi}{b}\right)^2\!\left(\frac{n\pi}{a}\right)^2
++ \left(\frac{n\pi}{a}\right)^4
++ 2(1-\nu)\left(\frac{mn\pi^2}{ba}\right)^2
+\Bigg]\frac{ba}{4}
+\\
+&= \frac{\bar{D}\,ba}{4}\sum_{m,n}\delta q_{mn} q_{mn}
+\left[
+\left(\frac{m\pi}{b}\right)^2 + \left(\frac{n\pi}{a}\right)^2
+\right]^2.
+\end{align*}
+
+\begin{align*}
+    \delta L_e=\int_0^a\int_0^b   p   \sum^\infty_{m=1} \sum^\infty_{n=1}  \left[ \delta q_{mn}\sin{\left(\frac{m\pi}{b}x\right)} \sin{\left(\frac{n\pi}{a}y\right)}  \right]          \,dxdy
+\end{align*}
+
+Consideriamo le proprietà:
+\begin{align*}
+    \int_0^a \sin{\left(\frac{n\pi}{a}y\right)}dy&=-\frac{a}{n\pi} \left[ \cos{(n\pi)-1}\right]  \\
+     \int_0^b \cos{\left(\frac{m\pi}{b}x\right)}dx&=-\frac{b}{m\pi} \left[ \cos{(m\pi)-1}\right]  \\
+\end{align*}
+Per cui il lavoro esterno diventa:
+\begin{align*}
+    \delta L_e= \sum^\infty_{m=1} \sum^\infty_{n=1} p \delta q_{mn}  \left[ \cos{(n\pi)-1}\right]\left[ \cos{(m\pi)-1}\right]\frac{ab}{mn\pi^2}
+\end{align*}
+
+Stabilisco $m$ ed $n$, sommo i termini, scrivo l'equazione come un sistema di identità dei polinomi, scelgo gli spostamenti virtuali arbitrariamente. Il problema si riduce ad un sistema di $mn$ oscillatori disaccoppiati.

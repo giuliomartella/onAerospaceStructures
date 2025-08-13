@@ -1,3 +1,19 @@
-\section{73. Elementi finiti. Funzioni di forma.}
+\section{Elementi finiti. Funzioni di forma.}
 
+L'ipotesi alla base del metodo agli elementi finiti è che sia possibile trovare lo spostamento di qualunque punto dell'elemento della maglia conoscendo lo spostamento dei nodi. Per questo serve scrivere la matrice di rigidezza di un elemento completamente generico.
 
+Per un elemento della mesh $j$, i suoi nodi vengono espressi dall'indice $i$. Lo spostamento di uno qualsiasi dei suoi punti si può esprimere in funzione dello spostamento dei nodi attraverso una funzione di forma.
+\begin{equation*}
+    \left\{u \right\}_j = \begin{Bmatrix}
+        u_x\\u_y\\u_z 
+    \end{Bmatrix}= [H(x,y,z)] \,\left\{u_i \right\}_j
+\end{equation*}
+
+L'unica approssimazione che non ha una natura numerica risiede nell'ipotesi di base, che si traduce nell'uso di funzioni di forma. Serve quindi, attraverso adeguate funzioni di forma $H$, riuscire a rappresentare correttamente il campo di spostamenti e di deformazioni. \\Per questo devono avere le seguenti caratteristiche:
+\begin{enumerate}
+    \item Congruenza interna. Le funzioni devono essere continue, derivabili e con derivata continua (evitando compenetrazioni e lacerazioni).\\
+    \item Congruenza esterna. Non da requisiti su $H$ ma prescrive di eliminare righe e colonne corrispondenti agli spostamenti vincolati.\\
+    \item Convergenza. Aumentando il numero di elementi la soluzione numerica deve avvicinarsi a quella esatta. Diminuendo la dimensione degli elementi questi diventano infinitesimi, condizione in cui le deformazioni sono costanti. Dunque per garantire la convergenza le $H $ devono essere in grado di rappresentare uno stato di deformazione costante.\\
+    \item Per elementi vicini le funzioni di forma devono dare lo stesso spostamento dei nodi comuni, sia partendo da un elemento che dall'altro. Trovandoci esattamente su un nodo, lo spostamento è pari a quello del nodo stesso, dunque le funzioni di forma devono avere valore unitario ai nodi, così da restituire esattamente lo spostamento nodale.\\
+    \item Il grado delle funzioni di forma dipende dal numero di nodi dell'elemento.
+\end{enumerate}
