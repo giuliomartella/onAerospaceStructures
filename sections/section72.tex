@@ -7,7 +7,7 @@ Consideriamo una piastra isotropa caricata da una pressione uniforme e costante 
 \end{align*}
 La soluzione è rappresentata dalla funzione
 \begin{equation*}
-    w= \sum^\infty_{m=1}  \sum^\infty_{m=1}\,q_{mn}\sin{\left(\frac{m\pi}{l}x\right)}  \sin{\left(\frac{n\pi}{l}y\right)}
+    w= \sum^\infty_{m=1}  \sum^\infty_{m=1}\,q_{mn}\sin{\left(\frac{m\pi}{b}x\right)}  \sin{\left(\frac{n\pi}{a}y\right)}
 \end{equation*}
 Di modo che ogni elemento della serie rispetti le condizioni di congruenza esterna ed interna.
 Essendo una piastra vincolata ai 4 bordi lavora solo a flessione, ignoriamo il termine $\left\{\varepsilon_0 \right\}$ e consideriamo solo il termine di curvatura:
@@ -61,7 +61,7 @@ Calcoliamo le derivate della soluzione dello spostamento:
 
 Per l'ortogonalità degli elementi della serie di Fourier:
 \begin{equation*}
-\int_0^l \,\sin{\left(\frac{m\pi}{b}x\right)} \sin{\left(\frac{j\pi}{b}x\right)}dx \qquad=\qquad
+\int_0^b \,\sin{\left(\frac{m\pi}{b}x\right)} \sin{\left(\frac{j\pi}{b}x\right)}dx \qquad=\qquad
 \begin{cases}
     0\qquad m\neq j\\
     \frac{b}{2} \qquad m=j
@@ -69,7 +69,7 @@ Per l'ortogonalità degli elementi della serie di Fourier:
 \end{equation*}
 
 \begin{equation*}
-\int_0^l \,\cos{\left(\frac{n\pi}{a}y\right)} \cos{\left(\frac{j\pi}{a}y\right)}dy \qquad=\qquad
+\int_0^a \,\cos{\left(\frac{n\pi}{a}y\right)} \cos{\left(\frac{j\pi}{a}y\right)}dy \qquad=\qquad
 \begin{cases}
     0\qquad n\neq j\\
     \frac{a}{2} \qquad n=j

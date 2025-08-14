@@ -1,35 +1,29 @@
 \section{Metodo delle forze e metodo degli spostamenti}
 
-
-
 \begin{definizioneBox}
-Risoluzione di un problema strutturale. Dati carichi e  vincoli su una struttura, calcolare sforzi, deformazioni e spostamenti in ogni punto.
+Risoluzione di un problema strutturale. Dati carichi e  vincoli su una struttura, calcolare sforzi interni, deformazioni e spostamenti in ogni punto.
 \end{definizioneBox}
 
-Garantisce: equilibrio rispetto ai carichi, congruenza rispetto ai vincoli.
+La soluzione garantisce: equilibrio rispetto ai carichi, congruenza rispetto ai vincoli.
 
-Dunque la risoluzione implica la scrittura di condizioni di equilibrio e di congruenza. Si possono quindi usare due metodi principali.
+
+Pertanto la risoluzione implica la scrittura di condizioni di equilibrio e di congruenza. Si possono quindi usare due metodi principali.
 
 \subsection*{Metodo delle forze}
 Le incognite sono sforzi e forze, dunque esprimo tutte le variabili in funzione di sforzi o forze.
 Scrivo prima le equazioni di equilibrio per poi aggiungere le equazioni di congruenza. Il metodo è adatto al calcolo manuale.
 
-
-
 \subsection*{Metodo degli spostamenti}
 Tutte le variabili sono espresse in funzione di spostamenti o deformazioni, dunque le incognite sono spostamenti e deformazioni.
 Si scrivono prima le equazioni di congruenza, alle quali si aggiungono le equazioni di equilibrio. Il metodo è adatto al calcolo automatico.
 
-%\vspace{0.5em}
-
 \begin{esempioBox}
-Calcolo delle matrici $[C]$ e $[K]$ nella trave. $[C]$ è la matrice di flessibilità: $S = [C] * F$, $[K]$ è la matrice di rigidezza $F = [K]*S$, inoltre $[K] = [C]^{-1}$.
+Calcolo delle matrici $[C]$ e $[K]$ nella trave. $[C]$ è la matrice di flessibilità: $S = [C] \cdot F$, $[K]$ è la matrice di rigidezza $F = [K]*S$ inoltre,se $[C]$ è quadrata e non singolare, $[K] = [C]^{-1}$.
 $[C]$ è facilmente calcolabile con il metodo delle forze, $[K]$ con il metodo degli spostamenti.
 
 Per risolvere una struttura, più questa è vincolata più è difficile da risolvere con il metodo delle forze e più è facile da risolvere con il metodo degli spostamenti, e quindi risolvendo un sistema lineare.
 
-Con il metodo delle forze si risolvono spostamenti e iperstatiche di strutture semplici e l'analisi delle sezioni, dove si scrivono prima gli equilibri e poi, se necessario, si uniscono le equazioni di congruenza per le rotazioni.ù
+Con il metodo delle forze si risolvono spostamenti e iperstatiche di strutture semplici e l'analisi delle sezioni, dove si scrivono prima gli equilibri e poi, se necessario, si uniscono le equazioni di congruenza per le rotazioni.
 
-Con il metodo degli spostamenti si risolvono le piastre ed i problemi agli elementi finiti.
-
+Con il metodo degli spostamenti si risolvono le piastre ed i problemi agli elementi finiti, dove le incognite sono gli spostamenti nodali.
 \end{esempioBox}

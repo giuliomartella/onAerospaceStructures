@@ -8,9 +8,9 @@ dell'elemento considerato.
 \end{definizioneBox}
 Esprimo  il lavoro di deformazione:
 \begin{align*}
-    \delta L_d \, &=\,  \int_{\Omega} \delta u_{j/i}  \sigma_{ij}  \, dV  \\
-    &= \,  \int_{\Omega}  \left( \frac{1}{2} \delta u_{i/j}  \sigma_{ij} \, + \,        \frac{1}{2} \delta u_{j/i}  \sigma_{ij} \right) \, dV  
-    \quad\quad\quad \left( \boldsymbol{\sigma} = \boldsymbol{\sigma}^T \right)\\
+    \delta L_d \, &=\,  \int_{\Omega} \delta u_{j/i}  \sigma_{ij}  \, dV  
+      \quad\quad\quad \left( \boldsymbol{\sigma} = \boldsymbol{\sigma}^T \right)\\
+    &= \,  \int_{\Omega}  \left( \frac{1}{2} \delta u_{i/j}  \sigma_{ij} \, + \,        \frac{1}{2} \delta u_{j/i}  \sigma_{ij} \right) \, dV  \\
     &=  \,  \int_{\Omega}  \frac{1}{2} \left( \delta u_{i/j}  \, + \,       \delta u_{j/i}  \right)\,\sigma_{ij}  \, dV  \\
      \delta L_d \, &= \,  \int_{\Omega}  \delta \varepsilon_{ij}  \,\sigma_{ij}  \, dV 
 \end{align*}
@@ -22,7 +22,7 @@ Quando si analizzano deformazioni finite si lavora di solito nella configurazion
 \begin{definizioneBox}
     Il II Tensore di Piola-Kirchhoff, ovvero il tensore coniugato al tensore di Green-Lagrange per deformazioni finite.
     \begin{equation*}
-        \boldsymbol{\Sigma}_{\mathrm{II}} \,= \, \det (\boldsymbol{F} )\, \boldsymbol{F}^{-1} \boldsymbol{\sigma} \boldsymbol{F}
+        \boldsymbol{\Sigma}_{\mathrm{II}} \,= \, \det (\boldsymbol{F} )\, \boldsymbol{F}^{-1} \boldsymbol{\sigma} \boldsymbol{F}^T
     \end{equation*}
 \end{definizioneBox}
 

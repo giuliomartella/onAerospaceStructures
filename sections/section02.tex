@@ -1,12 +1,14 @@
 \section{Definizione di sforzo di Cauchy}
 
-Consideriamo un corpo in equilibrio nella configurazione deformata, sotto l'azione di carichi esterni. Dividendo il corpo in due parti, con $\Delta F$ la forza risultante dei carichi trasmessi e $\Delta A $ la superficie attraverso la quale viene trasmessa. 
+Consideriamo un corpo in equilibrio nella configurazione deformata, sotto l'azione di carichi esterni. Dividendo il corpo in due parti, indichiamo con $\Delta F$ la forza risultante dei carichi trasmessi e con $\Delta A $ la superficie attraverso la quale viene trasmessa. 
+
 
 Sviluppando il limite delle forze trasmesse risulta:
 
 \begin{equation*}
  \lim_{\Delta A \to 0} \frac{\Delta \mathbf{F}}{\Delta A}   =\mathbf{t}             \quad\quad \left[ \frac{N}{mm^2} \right]
 \end{equation*}
+ $\mathbf{t}$ è il vettore delle tensioni (traction vector) secondo Cauchy, agente su un punto della superficie con normale specificata.
 
 \begin{equation*}
 \mathbf{t} = 
@@ -24,8 +26,10 @@ t_z
 \end{bmatrix}
 \end{equation*}
 
-Questo però non rappresenta lo stato di sforzo trasmesso, tagliando la superficie di contatto in modi diversi risultano infatti vettori di sforzo fra di loro linearmente indipendenti.\\
-Lo sforzo quindi non è caratteristico di un singolo vettore $\mathbf{t}$ (un tensore di ordine 1),  ma da tre vettori $\mathbf{t}_i$ calcolati su tra piani ortogonali fra loro. Lo stato di sforzo è quindi un tensore doppio con componenti (4 in caso bidimensionale).
+Questo però non rappresenta lo stato di sforzo trasmesso, tagliando la superficie di contatto in modi diversi risultano infatti vettori di sforzo fra di loro linearmente indipendenti, ognuno funzione della normale al piano tagliato.\\
+Lo sforzo quindi non è caratteristico di un singolo vettore $\mathbf{t}$ (un tensore di ordine 1),  ma da tre vettori $\mathbf{t}_i$ calcolati su tre piani ortogonali fra loro.
+Lo stato di sforzo è quindi un tensore doppio con componenti (4 in un caso bidimensionale).
+
 
 \begin{equation*}
 \boldsymbol{\sigma} 
@@ -47,7 +51,4 @@ t_{zx} & t_{zy} & t_{zz}
 
 dove $t_{ij}$ è la componente j del vettore sforzo normale al piano i.
 $\sigma_{ij}$ è la componente di $\boldsymbol{\sigma}$ in direzione j sul piano che ha la normale diretta come i.
-
-
-
 

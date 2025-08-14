@@ -22,7 +22,7 @@ s_{2}
 \right\}
 \end{equation*}
 
-Per una trave libera nello spazio lo stesso sistema diventa $12\times12$, voglio trovare un metodo per risolvere un sistema arbitrario di travi nello spazoo conoscendo le matrici di rigidezza locali $\boldsymbol{\bar{K}}$.
+Per una trave libera nello spazio lo stesso sistema diventa $12\times12$, voglio trovare un metodo per risolvere un sistema arbitrario di travi nello spazio conoscendo le matrici di rigidezza locali $\boldsymbol{\bar{K}}$.
 
 
     Approccio agli spostamenti: le incognite sono gli spostamenti reali degli estremi di ogni trave di cui è composta la struttura, per cui si procede con:
@@ -40,7 +40,7 @@ Analizziamo una struttura composta da 13 travi ($n=13$) e 8 nodi ($N=8$). Il num
     \item Per ciascuna trave conosco: $\left\{\bar{A}, E, l ,G, J_x, J_y\right\}$, per cui scrivo il legame 
     $\left\{\bar{F}\right\}_i = [\bar{K}]_i\left\{\bar{s}\right\}_i$ per ogni i-esima trave.\\
     \item Conosco il posizionamento di ciascuna trave nella struttura, e quindi i collegamenti fra travi e nodi.\\
-    \item Conosco la orientazione delle travi rispetto al sistema di riferimento globale.\\
+    \item Conosco l'orientazione delle travi rispetto al sistema di riferimento globale.\\
 \end{enumerate}
 
 Scrivere $[\bar{K}]_i$ garantisce la congruenza per ogni singola trave (perché è composta a partire da equazioni di congruenza). Trovandoci in un metodo agli spostamenti uso il PLV per scrivere le condizioni di equilibrio.

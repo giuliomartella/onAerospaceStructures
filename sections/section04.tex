@@ -1,15 +1,16 @@
 \section{Equazioni indefinite di equilibrio}
 
-Per scrivere le equazioni indefinite di equilibrio  consideriamo un parallelogramma nello spazio, con un vertice nell'origine degli assi e i lati che si propagano delle quantità $dx$, $dy$ e $dz$. 
+Per scrivere le equazioni indefinite di equilibrio consideriamo un parallelepipedo infinitesimo nello spazio, con un vertice nell'origine degli assi e i lati che si propagano delle quantità $dx$, $dy$ e $dz$. Le sue facce sono ortogonali agli assi cartesiani.
 
-\subsection*{Equlibrio nelle tre direzioni}
+\subsection*{Equilibrio nelle tre direzioni}
 Consideriamo lo sviluppo in serie di Taylor per l'andamento degli sforzi lungo le tre direzioni, per cui risulta: 
 
 \begin{equation*}
 \sigma_{ij}(x_i + \mathrm{d}x_i) = \sigma_{ij}(x_i) + \frac{\partial \sigma_{ij}}{\partial x_i} \, \mathrm{d}x_i
 \end{equation*}
 
-Scriviamo ora, ad esempio per la direzione $x$ il bilancio delle forze considerando lo sviluppo di Taylor degli sforzi sulle facce opposte:
+Scriviamo ora, ad esempio per la direzione $x$, il bilancio delle forze considerando lo sviluppo di Taylor degli sforzi sulle facce opposte. $b_x$ è la componente di forza di volume. Si assume una convenzione di segno positiva delle trazioni uscente dalla faccia con normale positiva.
+
 \begin{align*}
 &(\sigma_{xx} + \frac{\partial \sigma_{xx}}{\partial x} dx) dy\, dz - \sigma_{xx} dy\, dz \\
 + &(\sigma_{yx} + \frac{\partial \sigma_{yx}}{\partial y} dy) dx\, dz - \sigma_{yx} dx\, dz \\
@@ -31,16 +32,14 @@ Analogamente il bilancio delle forze sulle direzioni $y$ e $z$:
 \sigma_{xz/x}  + \sigma_{yz/y}  + \sigma_{zz/z}  + b_z = 0
 \end{equation*}
 
-Per le tre direzioni quindi vale(in diverse notazioni):
+Per le tre direzioni quindi vale (in diverse notazioni):
 \begin{equation*}
 \sigma_{ij/i}    + b_i = 0   \quad \quad  \mathrm{div}\, \boldsymbol{\sigma} + \mathbf{b} = \mathbf{0}
 \end{equation*}
 
-
-
 \subsection*{Equilibrio alle rotazioni}
 
-Consideriamo l'equilibrio dei momenti attorno all'origine del sistema rispetto a un asse parallelo ad $x$.
+Consideriamo l'equilibrio dei momenti dovuti alle forze di taglio sulle facce laterali attorno all'origine del sistema, rispetto a un asse parallelo ad $x$.
 
 \begin{align*}
 &(\sigma_{yz} + \sigma_{yz/y} dy) \ dx dz\, \frac{dy}{2} + \sigma_{yz}\ dx dz\, \frac{dy}{2}  \\
@@ -53,4 +52,4 @@ Trascurando gli infinitesimi di ordine superiore risulta $\sigma_{yz} = \sigma_{
 \sigma_{xy} = \sigma_{yx}   \quad\quad \sigma_{xz} = \sigma_{zx}
 \end{equation*}
 
-Quindi, se non sono applicati momenti esterni centrati sul volume infinitesimo $\boldsymbol{\sigma}$ è simmetrico, in tre dimensioni è quindi definito da 6 gradi di libertà.
+Quindi, se non sono applicati momenti esterni centrati sul volume infinitesimo, $\boldsymbol{\sigma}$ è simmetrico, in tre dimensioni è quindi definito da 6 gradi di libertà (da tre componenti normali e tre componenti tangenziali indipendenti).

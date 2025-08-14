@@ -23,7 +23,7 @@ I tensori gradiente di deformazione, Green-Lagrange e piccole deformazioni diven
    0 & 0 & 1 \\
 \end{bmatrix}
 \end{equation*}
-Il tensore gradiente di deformazione risente della traslazione rigida.
+Il tensore gradiente di deformazione risente della traslazione rigida (nel senso che è diverso da zero).
 
  \begin{equation*}
 \boldsymbol{E} = \frac{1}{2} \left(\boldsymbol{F}^T \boldsymbol{F} - \boldsymbol{I}\right)
@@ -74,7 +74,7 @@ u_{z/x} + u_{x/z} & u_{z/y} + u_{y/z} & 2 u_{z/z}
 
 
 
-I tensori di Green-Lagrange e piccole deformazioni non risentono della rotazione rigida.
+I tensori di Green-Lagrange e piccole deformazioni non risentono della traslazione rigida.
 
 \subsubsection*{Rotazione rigida}
 
@@ -95,12 +95,12 @@ I tensori gradiente di deformazione, Green-Lagrange e piccole deformazioni diven
 \frac{\partial z}{\partial X} & \frac{\partial z}{\partial Y} & \frac{\partial z}{\partial Z}
 \end{bmatrix} = 
 \begin{bmatrix}
-   0 & 0 & -1 \\
-   0 & -1 & 0 \\
+   0 & 0 & 1 \\
+   0 & 1 & 0 \\
    -1 & 0 & 0 \\
 \end{bmatrix}
 \end{equation*}
-Il tensore gradiente di deformazione risente della traslazione rigida.
+Il tensore gradiente di deformazione risente della rotazione rigida.
 
 
 
@@ -108,15 +108,15 @@ Il tensore gradiente di deformazione risente della traslazione rigida.
  \begin{equation*}
 \boldsymbol{E} = \frac{1}{2} \left(\boldsymbol{F}^T \boldsymbol{F} - \boldsymbol{I}\right)
 = \left(\begin{bmatrix}
-   0 & 0 & -1 \\
-   0 & -1 & 0 \\
+   0 & 0 & 1 \\
+   0 & 1 & 0 \\
    -1 & 0 & 0 \\
-\end{bmatrix} 
+\end{bmatrix}
 \begin{bmatrix}
-   0 & 0 & -1 \\
-   0 & -1 & 0 \\
+   0 & 0 & 1 \\
+   0 & 1 & 0 \\
    -1 & 0 & 0 \\
-\end{bmatrix} -
+\end{bmatrix}-
 \begin{bmatrix}
    1 & 0 & 0 \\
    0 & 1 & 0 \\
