@@ -13,7 +13,7 @@ La matrice $[K]_i$ è composta da una parte indipendente dalle deformazioni e da
     \end{Bmatrix}= [H(x,y,z)] \,\left\{u_i \right\}_j
 \end{equation*}
 
-\subsubsection*{Elemento monodimensionale con due nodi}
+\subsubsection*{Elemento monodimensionale a due nodi}
  Consideriamo le coordinate globali $x,y,z$ e le coordinate isoparametriche $r,s,t$.\\
  Il sistema di riferimento isoparametrico è indipendente dalla dimensione dell'elemento (allineato con $r$), si ha sempre il primo nodo in $r=-1$ e il secondo in $r=1$ (questo concetto è estendibile a più dimensioni).
  
@@ -42,7 +42,221 @@ Vale lo stesso per gli spostamenti:
     \end{Bmatrix}= [H] \,\left\{u_i \right\}
 \end{equation*}
 
+Valutiamo le deformazioni considerando che gli spostamenti ammessi sono solo in $x$:
+\begin{equation*}
+    \varepsilon_{xx}=u_{x/x}=u_{/x}=\frac{du}{dr}\frac{dr}{dx}
+\end{equation*}
+
+Il vantaggio degli isoparametrici è che posso usare la stessa funzione di forma sia per $x$ che per $u$.
+\begin{align*}
+    \frac{dx}{dr}&=\frac{x_2}{2}-\frac{x_1}{2}=\frac{L}{2}  \qquad\rightarrow\qquad dx=\frac{L}{2}dr\\
+      \frac{du}{dr}&=\frac{u_2-u_1}{2}
+\end{align*}
+La quantità $\frac{L}{2}$ corrisponde al determinante dello jacobiano. Cambiando lo jacobiano possiamo calcolare la matrice di rigidezza di geometrie diverse.
+
+\begin{equation*}
+    \left\{\varepsilon \right\}_j = [\mathcal{D}][H] \,\left\{u \right\}= [B] \,\left\{u \right\}
+\end{equation*}
+\begin{align*}
+  [K]  &=  \int_\Omega [B]^T[D][B]dV\\
+   &=  \int_L \bar{A}[B]^T[D][B]dx\\
+    &=  \int_{-1}^1\bar{A}E\frac{1}{L}   \begin{Bmatrix}
+        -1\\1\end{Bmatrix} [-1\quad 1] \frac{1}{L}\frac{L}{2}
+    dx\\
+    &= \frac{ \bar{A}E }{L} \begin{bmatrix}
+        1&-1\\-1&1
+    \end{bmatrix}
+\end{align*}
+
+
+\subsubsection*{Elemento monodimensionale a tre nodi}
+
+Le funzioni di forma lineari con due nodi con tre ora diventano paraboliche. Se il secondo nodo è centrale le funzioni di forma sono:
+\begin{align*}
+    h_1&=\frac{1}{2}(1-r)-\frac{1}{2}(1-r^2)\\
+    h_2&=\frac{1}{2}(1+r)-\frac{1}{2}(1-r^2)\\
+    h_3&= (1-r^2)
+\end{align*}
+
+Il numero di nodi è $q$, le coordinate di ogni punto sono:
+\begin{align*}
+    x&=\sum^q_{i=1}h_ix_i\\
+      y&=\sum^q_{i=1}h_iy_i\\
+        z&=\sum^q_{i=1}h_iz_i\\
+\end{align*}
+
+\subsubsection*{Elemento piano a quattro nodi}
+
+
+Le funzioni di forma sono:
+
+\begin{align*}
+    h_1&=\frac{1}{4}(1+r)(1+s)\\
+    h_2&=\frac{1}{4}(1-r)(1+s)\\
+    h_3&=\frac{1}{4}(1-r)(1-s)\\
+    h_4&=\frac{1}{4}(1+r)(1-s)\\
+\end{align*}
+
+Dove :
+\begin{align*}
+ \left\{x \right\} &= [H] \,\left\{x_i \right\}\\
+    \left\{u \right\} &= [H] \,\left\{u_i \right\}\\
+    \begin{Bmatrix}
+        x\\y\\z
+    \end{Bmatrix}&=
+    \left[\begin{array}{cccccccccccc}
+        h_1 & h_2 & h_3 & h_4 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 & h_1 & h_2 & h_3 & h_4 & 0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & h_1 & h_2 & h_3 & h_4
+    \end{array}\right]
+    \begin{Bmatrix}
+        x_1\\x_2\\x_3\\x_4\\y_1\\y_2\\y_3\\y_4\\z_1\\z_2\\z_3\\z_4
+    \end{Bmatrix}\\
+    \begin{Bmatrix}
+        u_x\\u_y\\u_z
+    \end{Bmatrix}&=
+    \left[\begin{array}{cccccccccccc}
+        h_1 & h_2 & h_3 & h_4 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 & h_1 & h_2 & h_3 & h_4 & 0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & h_1 & h_2 & h_3 & h_4
+    \end{array}\right]
+    \begin{Bmatrix}
+        u_{1x}\\u_{2x}\\u_{3x}\\u_{4x}\\u_{1y}\\u_{2y}\\u_{3y}\\u_{4y}\\u_{1z}\\u_{2z}\\u_{3z}\\u_{4z}
+    \end{Bmatrix}
+\end{align*}
+Abbiamo quindi un legame che definisce la geometria e gli spostamenti, anche in due dimensioni.
+ 
+\begin{align*}
+    x&=\sum^q_{i=1}h_ix_i\qquad &y&=\sum^q_{i=1}h_iy_i\qquad  & z&=\sum^q_{i=1}h_iz_i\\
+     u_x&=\sum^q_{i=1}h_iu_{xi}\qquad &u_y&=\sum^q_{i=1}h_iu_{yi}\qquad  & u_z&=\sum^q_{i=1}h_i u_{zi}
+\end{align*}
+
+Le deformazioni sono:
+
+\begin{equation*}
+    \varepsilon_{ij}=(u_{i/j} +u_{j/i})
+\end{equation*}
+Dove per le derivate valutiamo:
+\begin{equation*}
+    \frac{\partial }{\partial r}=   \frac{\partial }{\partial x}  \frac{\partial x}{\partial r}+  \frac{\partial }{\partial y}  \frac{\partial y}{\partial r}+
+      \frac{\partial }{\partial z}  \frac{\partial z}{\partial r}
+\end{equation*}
+In forma matriciale:
+\begin{align*}
+    \begin{Bmatrix}
+          \frac{\partial }{\partial r}\\  \frac{\partial }{\partial s}\\  \frac{\partial }{\partial t}
+    \end{Bmatrix}&=
+\begin{bmatrix}
+    \frac{\partial x}{\partial r} & \frac{\partial y}{\partial r} & \frac{\partial z}{\partial r}\\
+    \frac{\partial x}{\partial s} & \frac{\partial y}{\partial s} & \frac{\partial z}{\partial s}\\
+    \frac{\partial x}{\partial t} & \frac{\partial y}{\partial t} & \frac{\partial z}{\partial t}
+\end{bmatrix}
+     \begin{Bmatrix}
+          \frac{\partial }{\partial x}\\  \frac{\partial }{\partial y}\\  \frac{\partial }{\partial z}
+    \end{Bmatrix}\\
+    \begin{bmatrix}
+          \frac{\partial }{\partial r}
+    \end{bmatrix}&=\begin{bmatrix}
+          J
+    \end{bmatrix} \begin{bmatrix}
+          \frac{\partial }{\partial x}
+    \end{bmatrix}
+\end{align*}
+
+Allora modifico l'integrazione: $[K]  =  \int_\Omega [B]^T[D][B]dV$
+\begin{equation*}
+    dV=dx\,dy\,dz=\det[J]\,dr\,ds\,dt
+\end{equation*}
+
+\subsubsection*{Esempi di calcolo dello jacobiano}
+\begin{esempioBox}
+    Elemento lineare a tre nodi.
+    Le funzioni di forma, con un nodo al centro, sono:
+    \begin{align*}
+    h_1&=\frac{1}{2}(1-r)-\frac{1}{2}(1-r^2)=-\frac{r}{2}(1-r)\\
+    h_2&=\frac{1}{2}(1+r)-\frac{1}{2}(1-r^2)=\frac{r}{2}(1+r)\\
+    h_3&= (1-r^2)
+\end{align*}
+Gli spostamenti, in funzione delle precedenti:
+\begin{equation*}
+    \left\{u \right\} = \left[-\frac{r}{2}(1-r) \quad  \frac{r}{2}(1+r)\right]\begin{Bmatrix}
+        u_1\\u_2\\u_3
+    \end{Bmatrix}= [H] \,\left\{u_i \right\}
+\end{equation*}
+\begin{equation*}
+    \frac{dH}{dr}=\left[-\frac{1}{2}+r\qquad\frac{1}{2}+r\qquad 2r \right]
+\end{equation*}
+Per cui le deformazioni sono:
+\begin{equation*}
+    \varepsilon=\frac{\partial u_x}{\partial x}=\frac{\partial u_x}{\partial r} \frac{\partial r}{\partial x}
+\end{equation*}
+
+In un generico punto dell'elemento, sapendo poi che le posizioni dei nodi sono $x_2=x_1+L$, $x_3=x_1+\frac{L}{2}$:
+\begin{align*}
+    x &= -\frac{r}{2}(1-r)x_1 + \frac{r}{2}(1+r)x_2 + (1-r^2)x_3\\
+       &= -\frac{r}{2}(1-r)x_1 + \frac{r}{2}(1+r)(x_1+L) + (1-r^2)(x_1+\frac{L}{2})\\
+       &= x_1+\frac{L}{2}+\frac{L}{2}r
+\end{align*}
+
+Per quanto riguarda lo jacobiano:
+\begin{equation*}
+    [J]= \left[\frac{\partial x}{\partial r} \right]=\frac{L}{2} \qquad \rightarrow\qquad \det J=\frac{L}{2}
+\end{equation*}
+
+La matrice di rigidezza diventa:
+\begin{align*}
+  [K]   &=  \int_L \bar{A}E[B]^T[B]  \det J dr\\
+         &=  \int_L \bar{A}E[B]^T[B]  \frac{L}{2} dr\\  
+    &=  \int \bar{A}E\   \begin{Bmatrix}
+        -\frac{1}{2}+r\\ \frac{1}{2}+r \\ 2r \end{Bmatrix} \left[  -\frac{1}{2}+r\qquad \frac{1}{2}+r \qquad 2r \right]\frac{L}{2}
+    dr\\
+\end{align*}
+    
+\end{esempioBox}
+
+\begin{esempioBox}
+    Consideriamo un elemento piano a 4 nodi che nel piano $x,y$ è simmetrico rispetto l'origine e ha come primo vertice $(3,2)$. Le funzioni di forma sono:
+    \begin{align*}
+    h_1&=\frac{1}{4}(1+r)(1+s)=\frac{1}{4}(1+s+r+rs)\\
+    h_2&=\frac{1}{4}(1-r)(1+s)=\frac{1}{4}(1+s-r-rs)\\
+    h_3&=\frac{1}{4}(1-r)(1-s)=\frac{1}{4}(1-s-r+rs)\\
+    h_4&=\frac{1}{4}(1+r)(1-s)=\frac{1}{4}(1-s+r-rs)\\
+\end{align*}
+
+\begin{align*}
+    x &= \frac{1}{4}\left[x_1(1+s+r+rs) + x_2(1+s-r-rs) + x_3(1-s-r+rs) + x_4(1-s+r-rs)\right]\\
+    y &= \frac{1}{4}\left[y_1(1+s+r+rs) + y_2(1+s-r-rs) + y_3(1-s-r+rs) + y_4(1-s+r-rs)\right]
+\end{align*}
+
+Sostituisco i valori dei vertici:
+\begin{align*}
+    x_1&= 3 \qquad &x_2&=-3 \qquad &x_3&=-3 \qquad &x_4&=3\\
+     y_1&= 2 \qquad &y_2&=2 \qquad &y_3&=-2 \qquad &y_4&=-2\\
+\end{align*}
+Per cui:
+\begin{align*}
+    x&=3r\\
+    y&=2s
+\end{align*}
+Nella jacobiana:
+\begin{align*}
+    J = \begin{bmatrix}
+        \frac{\partial x}{\partial r} & \frac{\partial y}{\partial r}\\
+        \frac{\partial x}{\partial s} & \frac{\partial y}{\partial s}
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        3 & 0\\
+        0 & 2
+    \end{bmatrix}
+\end{align*}
+
+Infine il suo determinante:
+\begin{align*}
+    \det(J) = 3 \cdot 2 - 0 \cdot 0 = 6
+\end{align*}
 
 
 
 
+
+\end{esempioBox}
