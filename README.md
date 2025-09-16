@@ -6,6 +6,8 @@ Supplementary notes from the **Aerospace Structures** courses at
 - Academic Year 2022  
 - Academic Year 2024  
 
+The PDF version of these notes is available in the **first release**.
+
 ---
 
 ## About
