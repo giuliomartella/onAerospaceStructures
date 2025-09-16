@@ -22,5 +22,5 @@ Figures and diagrams are **not included**; their drafting is left to the reader.
 ---
 
 ## License
-This work is licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE) license.  
+This work is licensed under the [MIT License](LICENSE) license.  
 You are free to use, distribute, and modify the material, provided that proper credit is given to the authors.
