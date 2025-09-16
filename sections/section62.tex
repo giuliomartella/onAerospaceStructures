@@ -8,9 +8,9 @@ N_x \\
 N_y\\
 N_{xy}
 \end{array}
-\right\} = \int_{-\frac{b}{2}}^{\frac{b}{2}}\,  \left\{\sigma\right\} \,dz
-=  \int_{-\frac{b}{2}}^{\frac{b}{2}}\, [D] \left\{\varepsilon_0\right\} \,dz
- \int_{-\frac{b}{2}}^{\frac{b}{2}}\,z [D] \left\{k\right\} \,dz
+\right\} = \int_{-\frac{t}{2}}^{\frac{t}{2}}\,  \left\{\sigma\right\} \,dz
+=  \int_{-\frac{t}{2}}^{\frac{t}{2}}\, [D] \left\{\varepsilon_0\right\} \,dz
+ +\int_{-\frac{t}{2}}^{\frac{t}{2}}\,z [D] \left\{k\right\} \,dz
  =[A]   \left\{\varepsilon_0\right\}  +[B] \left\{k\right\}
 \end{equation*}
 
@@ -21,9 +21,9 @@ M_y \\
 M_x\\
 M_{xy}
 \end{array}
-\right\} = \int_{-\frac{b}{2}}^{\frac{b}{2}}\,  z\left\{\sigma\right\} \,dz
-=  \int_{-\frac{b}{2}}^{\frac{b}{2}}\, z[D] \left\{\varepsilon_0\right\} \,dz
- \int_{-\frac{b}{2}}^{\frac{b}{2}}\,z^2 [D] \left\{k\right\} \,dz
+\right\} = \int_{-\frac{t}{2}}^{\frac{t}{2}}\,  z\left\{\sigma\right\} \,dz
+=  \int_{-\frac{t}{2}}^{\frac{t}{2}}\, z[D] \left\{\varepsilon_0\right\} \,dz
+ +\int_{-\frac{t}{2}}^{\frac{t}{2}}\,z^2 [D] \left\{k\right\} \,dz
  =[B]   \left\{\varepsilon_0\right\}  +[C] \left\{k\right\}
 \end{equation*}
 
@@ -85,8 +85,8 @@ M_y \\
 M_x\\
 M_{xy}
 \end{array}
-\right\} = \int_{-\frac{b}{2}}^{\frac{b}{2}}\,  z\left\{\sigma\right\} \,dz
- \int_{-\frac{b}{2}}^{\frac{b}{2}}\,z^2 [D] \left\{k\right\} \,dz
+\right\} = \int_{-\frac{t}{2}}^{\frac{t}{2}}\,  z\left\{\sigma\right\} \,dz
+ =\int_{-\frac{t}{2}}^{\frac{t}{2}}\,z^2 [D] \left\{k\right\} \,dz
 \qquad \qquad [D]=
 \left[
 \begin{array}{ccc}
@@ -99,7 +99,7 @@ M_{xy}
 \end{equation*}
 
 \begin{equation*}
-   M_y =  \int_{-\frac{b}{2}}^{\frac{b}{2}}\,z^2 
+   M_y =  \int_{-\frac{t}{2}}^{\frac{t}{2}}\,z^2 
    \left[\begin{array}{c}
 1\quad\nu\quad0
 \end{array} \right] 
@@ -114,7 +114,7 @@ Definiamo $\bar{D}=\frac{E}{1-\nu^2}\frac{t^3}{12}$:
 \begin{align*}
      M_y &= -\bar{D}\,w_{/xx} -\nu \bar{D}\,w_{/yy}\\
      M_x &= -\nu \bar{D}\,w_{/xx} - \bar{D}\,w_{/yy}\\
-     M_xy &= -(1-\nu)\bar{D}\,w_{/xy} 
+     M_{xy} &= -(1-\nu)\bar{D}\,w_{/xy} 
 \end{align*}
 
 Ritroviamo quindi la matrice $[D]$, ovvero il legame fra i momenti e la curvatura:

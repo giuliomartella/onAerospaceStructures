@@ -36,9 +36,9 @@ Per studiare la risposta del materiale:
     \item Se carico in una direzione diversa nasce una deformazione con l'accoppiamento di allungamento e taglio, nascono degli scorrimenti.
 \end{enumerate}
 
-Il materiale è caratterizzato da 4 parametri:  $E_{11}$,$E_{22}$,  $\nu_{12}=\nu_{21}$,  $G$.
+Il materiale è caratterizzato da 4 parametri:  $E_{11}$,$E_{22}$,  $\nu_{12}$,  $G$.
 
-Una volta considerata la rotazione del legame elastico $[D] =  \left[T\right][\bar{D}]\left[T\right]^T$, passiamo all'impaccamento delle lamine, seguendo il libro di laminazione .\\ Sviluppiamo un modello di piastra composta da $N$ lamine. \\ Ogni lamina è caratterizzata dalla sua distanza dal piano medio.
+Una volta considerata la rotazione del legame elastico $[D] =  \left[T\right][\bar{D}]\left[T\right]^T$, passiamo all'impaccamento delle lamine, seguendo il libro di laminazione.\\ Sviluppiamo un modello di piastra composta da $N$ lamine. \\ Ogni lamina è caratterizzata dalla sua distanza dal piano medio.
 
 Una piastra isotropa ha uno stato di deformazione continuo nello spessore, somma di traslazione e flessione. Le lamine però essendo ruotate hanno fra loro rigidezze completamente diverse, lo stato di sforzo risulta discontinuo nello spessore. Globalmente l'andamento è comunque la somma di una traslazione e di una flessione a farfalla.
 
@@ -47,7 +47,7 @@ Consideriamo che le azioni interne recepiscono il contributo di tutte le lamine,
 \begin{align*}
     \left\{N\right\} &= \int_{-\frac{t}{2}}^{\frac{t}{2}}\,  \left\{\sigma\right\} \,dz\\
     &= \sum^N_{i=1}\int_{h_{i-1}}^{h_i}\,  \left\{\sigma\right\}_i \,dz\\
-     &= \sum^N_{i=1}\left(\int_{h_{i-1}}^{h_i}\, [D]_i \left\{\varepsilon\right\}_0 \,dz       
+     &= \sum^N_{i=1}\left(\int_{h_{i-1}}^{h_i}\, [D]_i \left\{\varepsilon_0\right\} \,dz       
      +\int_{h_{i-1}}^{h_i}\, [D]_i \,z\left\{k\right\} \,dz           \right)\\
 \end{align*}
 Notiamo che $ \left\{\varepsilon\right\}_0$ e $\left\{k\right\}  $ dipendono solo dallo spostamento del piano medio, possono quindi uscire da integrali e sommatorie:

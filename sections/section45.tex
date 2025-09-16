@@ -2,7 +2,7 @@
 
 Supponiamo di lavorare con una trave allungata a sezione sottile rettangolare, la modelliamo come una sezione a semiguscio ad una cella, con 4 correnti e 4 pannelli. La sezione originale, con uno spessore $t$, ha dimensioni $b\times a$, la sezione modellata ha dimensioni $\bar{b}\times\bar{a}$. Nel passaggio alla rappresentazione della linea media infatti: $a = \bar{a}+t$ e $b = \bar{b}+t$ .
 
-Il \textbf{teorema di Bredt} per sezioni chiuse a parete sottile stabilisce che la rigidezza torsionale è inversamente proporzionale alla flessibilità al taglio della sezione. La formula generale è:
+Il teorema di Bredt per sezioni chiuse a parete sottile stabilisce che la rigidezza torsionale è inversamente proporzionale alla flessibilità al taglio della sezione. La formula generale è:
 \begin{equation*}
     \frac{1}{GJ_t} = \frac{1}{4\Omega^2 G} \oint \frac{ds}{t(s)}
 \end{equation*}
@@ -15,7 +15,7 @@ Per una sezione rettangolare chiusa con dimensioni $\bar{a} \times \bar{b}$ e sp
 
 Sostituendo nella formula di Bredt e invertendo, si ottiene il momento di inerzia torsionale:
 \begin{equation*}
-    J_t = \frac{4\Omega^2}{\oint \frac{ds}{t(s)}}  = \frac{2t(\bar{a}-t)^2(\bar{b}-t)^2}{\bar{a} + \bar{b}}
+    J_t = \frac{4\Omega^2}{\oint \frac{ds}{t(s)}}  = \frac{2\bar{a}^2 \bar{b}^2t}{\bar{a} +\bar{b}}
 \end{equation*}
 
 Questa espressione mostra che la rigidezza torsionale è proporzionale allo spessore e al quadrato dell'area racchiusa, mentre è inversamente proporzionale al perimetro esterno della sezione.\\

@@ -3,7 +3,7 @@
 \subsubsection*{Matrice di flessibilità}
 
 \begin{definizioneBox}
-    La matrice di flessibilità $\boldsymbol{C} $lega le componenti di spostamento alle componenti di forze applicate. L'elemento $C_{ij} $ rappresenta lo spostamento(o la rotazione) in direzione $i$ di una forza (o momento) unitaria diretta come $j$. La matrice è simmetrica e presenta quindi sei componenti  indipendenti.
+    La matrice di flessibilità $\boldsymbol{C}$ lega le componenti di spostamento alle componenti di forze applicate. L'elemento $C_{ij} $ rappresenta lo spostamento(o la rotazione) in direzione $i$ causato da una forza (o momento) unitaria diretta come $j$. La matrice è simmetrica e presenta quindi sei componenti  indipendenti.
     \begin{equation*}
     \begin{bmatrix}
 s_z \\
@@ -51,7 +51,7 @@ Usiamo il PLVC ($\delta L_e =  \delta L_d $) per risolvere una serie di travi or
     \end{align*}\\
 
     \item $C_{22}$
-    Sistema reale : $T_y = -F_y $, $M_x =-F_yz$. Sistema fittizio: $\delta T_z = -1$, $\delta M_x = -z$. 
+    Sistema reale : $T_y = -F_y $, $M_x =-F_yz$. Sistema fittizio: $\delta T_y = -1$, $\delta M_x = -z$. 
     \begin{align*}
         \delta L_e &= s_y \cdot 1 \\
         \delta L_d &= \int_0^l \left(  \frac{\delta T_y T_y}{GA^*_y} +  \frac{\delta M_xM_x}{EJ_x}\right)\,dz 
@@ -61,7 +61,7 @@ Usiamo il PLVC ($\delta L_e =  \delta L_d $) per risolvere una serie di travi or
     \end{align*}\\
 
     \item $C_{23}$
-    Sistema reale :  $M_x =-M$. Sistema fittizio: $\delta T_z = -1$, $\delta M_x = -z$. 
+    Sistema reale :  $M_x =-M$. Sistema fittizio: $\delta T_y = -1$, $\delta M_x = -z$. 
     \begin{align*}
         \delta L_e &= s_y \cdot 1 \\
         \delta L_d &= \int_0^l \left(   \frac{\delta M_xM_x}{EJ_x}\right)\,dz 
@@ -127,7 +127,7 @@ s_y \\
 \end{equation*}
 \end{definizioneBox}
 
-Mentre calcolare la matrice di flessibilità era agevole con il metodo delle forze, calcolare la matrice di rigidezza richiede di imporre degli spostamenti, ho quindi due opzioni per calcolarla. Inserire un nuovo vincolo per imporre lo spostamento e risolvere con il metodo delle forze una struttura iperstatica, oppure più semplicemente invertendo la matrice di flessibilità $\boldsymbol{C}$. Nell'inversione della matrice di flessibilità la prima ed ultima componente sono immediate essendo: $K_{11} = C_{11}^{-1}$ e $K_{33} = C_{33}^{-1}$.
+Mentre calcolare la matrice di flessibilità era agevole con il metodo delle forze, calcolare la matrice di rigidezza richiede di imporre degli spostamenti, ho quindi due opzioni per calcolarla. Inserire un nuovo vincolo per imporre lo spostamento e risolvere con il metodo delle forze una struttura iperstatica, oppure più semplicemente invertendo la matrice di flessibilità $\boldsymbol{C}$. Nell'inversione della matrice di flessibilità la prima componente è immediata essendo: $K_{11} = C_{11}^{-1}$ .
 
 \begin{esempioBox}
     Calcolo di $K_{22}$ e $K_{23}$ attraverso il metodo delle forze. A partire dalla solita trave la rendo iperstatica vincolando l'estremo destro con un pattino-manicotto  e applico una forza verticale $F_y$, l'incognita iperstatica è il momento come reazione vincolare.\\

@@ -1,8 +1,8 @@
 \section{Rotazione matrice di rigidezza per materiali ortotropi}
 
-Serve ruotare la matrice, e quindi l'applicazione lineare, che rappresenta il legame costitutivo elastico. Per ragioni di brevità ed efficacia abbiamo sempre rappresentato le equazioni del legame elastico con la notazione di Voigt tuttavia, per ruotare la matrice di rigidezza dobbiamo tornare a scriverla esplicitamente come tensore di ordine 2.
+Serve ruotare la matrice, e quindi l'applicazione lineare, che rappresenta il legame costitutivo elastico. Per ragioni di brevità ed efficacia abbiamo sempre rappresentato le equazioni del legame elastico con la notazione di Voigt tuttavia, per ruotare la matrice di rigidezza, dobbiamo tornare a scriverla esplicitamente come tensore di ordine 2.
 
-Per ruotare un tensore di primo ordine, che mappa le $x_i$ in $\bar{x}_i$, dove $\alpha_{\bar{x}_ix_i}$ è l'angolo fra questi, usiamo la matrice dei coseni direttori:
+Per ruotare un tensore di primo ordine, che mappa le $\boldsymbol{x_i}$ in $\boldsymbol{\bar{x}_i}$, dove $\alpha_{\boldsymbol{\bar{x}_i} \boldsymbol{x_i}}$ è l'angolo fra questi, usiamo la matrice dei coseni direttori:
 
     \begin{equation*}
 \left\{ \bar{v}\right\}
@@ -25,9 +25,9 @@ Partiamo dalla rotazione di $\left\{ t\right\}_n$ per ruotare l'intero tensore d
 \left\{ t\right\}_n&=\left[\alpha\right]^T\left[\bar{\sigma}\right]\,\left[\alpha\right]\left\{n\right\}\\
 \end{align*}
 
-Dato che $\left\{ t\right\}_n=\left[\sigma\right]\,\left\{n\right\}$:
+Dato che $\left\{ t\right\}_n=\left[\bar{\sigma}\right]\,\left\{n\right\}$:
 \begin{equation*}
-    \left\{ \sigma\right\}=\left[\alpha\right]^T\left[\sigma\right]\,\left[\alpha\right]
+    \left\{ \bar{\sigma}\right\}=\left[\alpha\right]^T\left[\sigma\right]\,\left[\alpha\right]
 \end{equation*}
 Scrivendo tutte le componenti
     

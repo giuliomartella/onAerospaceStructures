@@ -15,24 +15,24 @@ Usando una serie la forma (la funzione seno) è nota e le ampiezze sono le unich
 La soluzione è già congruente per cui, nell'ambito del metodo degli spostamenti, usiamo il PLV per scrivere delle condizioni di equilibrio. Per le vibrazioni libere consideriamo anche il lavoro compiuto dalle forze d'inerzia.
 
 \begin{equation*}
-    \delta L_d=\int_0^l \,EJ \,w''dw''\,dz
+    \delta L_d=\int_0^l \,EJ \,w''\delta w''\,dz
 \end{equation*}
 Specificando che:
 \begin{align*}
     w&= \sum^\infty_{k=1}\,q_k\sin{\left(\frac{k\pi}{l}z\right)}\\
-      w'&= \sum^\infty_{k=1}\,q_k   \left(\frac{k\pi}{l}z\right)  \cos{\left(\frac{k\pi}{l}z\right)}\\
-       w''&=- \sum^\infty_{k=1}\,q_k   \left(\frac{k\pi}{l}z\right)^2  \sin{\left(\frac{k\pi}{l}z\right)}\\
-        \delta w''&=- \sum^\infty_{k=1}\,\delta q_k   \left(\frac{k\pi}{l}z\right)^2  \sin{\left(\frac{k\pi}{l}z\right)}
+      w'&= \sum^\infty_{k=1}\,q_k   \left(\frac{k\pi}{l}\right)  \cos{\left(\frac{k\pi}{l}z\right)}\\
+       w''&=- \sum^\infty_{k=1}\,q_k   \left(\frac{k\pi}{l}\right)^2  \sin{\left(\frac{k\pi}{l}z\right)}\\
+        \delta w''&=- \sum^\infty_{k=1}\,\delta q_k   \left(\frac{k\pi}{l}\right)^2  \sin{\left(\frac{k\pi}{l}z\right)}
 \end{align*}
 
 Per cui il lavoro virtuale di deformazione diventa:
 \begin{equation*}
-    \delta L_d=\int_0^l \,EJ \,\left[ - \sum^\infty_{k=1}\,q_k   \left(\frac{k\pi}{l}z\right)^2  \sin{\left(\frac{k\pi}{l}z\right)}    \right]\, 
-    \left[  - \sum^\infty_{j=1}\,\delta q_j   \left(\frac{j\pi}{l}z\right)^2  \sin{\left(\frac{j\pi}{l}z\right)}  \right]dz
+    \delta L_d=\int_0^l \,EJ \,\left[ - \sum^\infty_{k=1}\,q_k   \left(\frac{k\pi}{l}\right)^2  \sin{\left(\frac{k\pi}{l}z\right)}    \right]\, 
+    \left[  - \sum^\infty_{j=1}\,\delta q_j   \left(\frac{j\pi}{l}\right)^2  \sin{\left(\frac{j\pi}{l}z\right)}  \right]dz
 \end{equation*}
 
 
-La lunghezza della trave $l$, per via delle condizioni di congruenza,  è sempre un multiplo del periodo della sinusoide, di conseguenza:
+La lunghezza della trave $l$, per via delle condizioni di congruenza,  è sempre un multiplo della  della lunghezza d'onda della sinusoide, di conseguenza:
 \begin{equation*}
 \int_0^l \,\sin{\left(\frac{k\pi}{l}z\right)} \sin{\left(\frac{j\pi}{l}z\right)}dz \qquad=\qquad
 \begin{cases}

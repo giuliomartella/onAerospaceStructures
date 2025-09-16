@@ -49,8 +49,8 @@ Scrivere $[\bar{K}]_i$ garantisce la congruenza per ogni singola trave (perché 
  \setcounter{enumi}{6}
     \item Il lavoro virtuale di deformazione, nel sistema di riferimento locale:
     \begin{equation*}
-        \delta L_d = \sum_{i=1}^n \delta L_{di} = \left\{\delta \bar{s}\right\}_i^T\left\{\bar{F}\right\}_i
-        =\left\{\delta \bar{s}\right\}_i^T  [\bar{K}]_i  \left\{ \bar{s}\right\}_i
+        \delta L_d = \sum_{i=1}^n \delta L_{di} =  \sum_{i=1}^n\left\{\delta \bar{s}\right\}_i^T\left\{\bar{F}\right\}_i
+        = \sum_{i=1}^n\left\{\delta \bar{s}\right\}_i^T  [\bar{K}]_i  \left\{ \bar{s}\right\}_i
     \end{equation*}\\
     \item Siano $\left\{u\right\}_i$ gli spostamenti dei punti nel sistema di riferimento globale, tali che:
     \begin{equation*}
@@ -58,7 +58,7 @@ Scrivere $[\bar{K}]_i$ garantisce la congruenza per ogni singola trave (perché 
     \end{equation*}\\
     \item Il lavoro di deformazione nel sistema globale diventa:
     \begin{align*}
-        \delta L_d  &=\left\{\delta \bar{s}\right\}_i^T  [\bar{K}]_i  \left\{ \bar{s}\right\}_i\\
+        \delta L_{di}  &=\left\{\delta \bar{s}\right\}_i^T  [\bar{K}]_i  \left\{ \bar{s}\right\}_i\\
         &=\left\{\delta u\right\}_i^T   [T]_i [\bar{K}]_i  [T]_i  \left\{ u\right\}_i\\
         &=\left\{\delta u\right\}_i^T  [K]_i  \left\{u\right\}_i
     \end{align*}\\

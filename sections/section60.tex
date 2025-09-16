@@ -75,9 +75,9 @@ Per lo stato di sforzo piano cancello le righe e le colonne corrispondenti agli 
 =
 \left[
 \begin{array}{ccc}
-\displaystyle \frac{1}{E} & \displaystyle -\frac{\nu}{E} & \\
+\displaystyle \frac{1}{E} & \displaystyle -\frac{\nu}{E} & \large{0}\\
 \displaystyle -\frac{\nu}{E} & \displaystyle \frac{1}{E} & \large{0} \\
-& \large{0} & \displaystyle \frac{1}{G}
+\large{0}& \large{0} & \displaystyle \frac{1}{G}
 \end{array}
 \right]
 \left\{
@@ -105,9 +105,9 @@ dove $[D] = [C]^{-1}$
 =
 \left[
 \begin{array}{ccc}
-\displaystyle \frac{E}{1-\nu^2} & \displaystyle \frac{\nu E}{1-\nu^2} & \\
+\displaystyle \frac{E}{1-\nu^2} & \displaystyle \frac{\nu E}{1-\nu^2} & \large{0}\\
 \displaystyle \frac{\nu E}{1-\nu^2} & \displaystyle \frac{E}{1-\nu^2} & \large{0} \\
-& \large{0} & G
+\large{0}& \large{0} & G
 \end{array}
 \right]
 \left\{
@@ -120,7 +120,7 @@ dove $[D] = [C]^{-1}$
 \end{equation*}
 
 \subsubsection*{Stato di deformazione piana}
-Considero diverse da zero solo le componenti del tensore delle piccole deformazioni che giacciono sul piano $x,y$. Deformazioni nulle corrisponde ad impedire degli per questo devo imporre nulle le altre deformazioni, imponendo dei vincoli.
+Considero diverse da zero solo le componenti del tensore delle piccole deformazioni che giacciono sul piano $x,y$. Deformazioni nulle corrispondono ad impedire degli sforzi, per questo devo imporle nulle attraverso dei vincoli.
 
 Tutte le componenti di $\boldsymbol{\sigma} $ sono diverse da zero, considero però solo le componenti che compiono lavoro, per cui:
 
@@ -213,8 +213,8 @@ E il suo inverso:
 =
 \left[
 \begin{array}{ccc}
-\displaystyle 1-\nu & \displaystyle \nu & 0\\
-\displaystyle \nu & 1-\nu & \large{0} \\
+\displaystyle 1-\nu & \displaystyle -\nu & 0\\
+\displaystyle -\nu & 1-\nu & \large{0} \\
 0& 0 & 2
 \end{array}
 \right]\,

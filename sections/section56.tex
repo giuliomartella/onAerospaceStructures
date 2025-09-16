@@ -1,7 +1,7 @@
 \section{Incollaggi. Andamento degli sforzi e dei flussi.}
 
 
-Attraverso un incollaggio il flusso di taglio è trasferito in modo continuo e graduale. Il flusso mentre sta attraversando l'incollaggio possiamo considerarlo come la somma di due funzioni $q_1(x)+q_2(x)$ per cui, su un incollaggio lungo $2b$:
+Attraverso un incollaggio il flusso di taglio è trasferito in modo continuo e graduale. Il flusso, mentre sta attraversando l'incollaggio, può essere considerato come la somma di due funzioni $q_1(x)+q_2(x)$ per cui, su un incollaggio lungo $2b$:
 \begin{align*}
     q_1(b) &= q\qquad &q_1(-b)&=0\\
      q_2(b) &= 0\qquad &q_2(-b)&=q\\
@@ -12,21 +12,21 @@ Verifichiamo con l'equazione dei flussi sorgenti che $q_1+q_2=q$.
 Seziono l'incollaggio per un $dx$ piccolo e analizzo gli sforzi per le partizioni di pannello superiore, colla e pannello inferiore.
 Scrivo l'equilibrio sul pannello inferiore in direzione $z$:
 \begin{align*}
-   & q_1\,y - (q_1+dq_1)\,y+\tau_c\,dx\,y\,=\,0\\
+   & q_1\,dz - (q_1+dq_1)\,dz+\tau_c\,dx\,dz\,=\,0\\
     &dq_1\,=\,\tau_c\,dx\\
     &\tau_c\,=\, \frac{dq_1}{dx}\,=\,\dot{q_1}
 \end{align*}
 
-Per il pannello inferiore:
+Per il pannello superiore:
 \begin{align*}
-   & q_2\,y - (q_2+dq_2)\,y-\tau_c\,dx\,y\,=\,0\\
+   & q_2\,dz - (q_2+dq_2)\,dz-\tau_c\,dx\,dz\,=\,0\\
     &dq_2\,=\,-\tau_c\,dx\\
-    &\tau_c\,=-\, \frac{dq_2}{dx}\,=\,\dot{q_2}
+    &\tau_c\,=-\, \frac{dq_2}{dx}\,=\,-\dot{q_2}
 \end{align*}
 Queste condizioni, insieme a  $q_1+q_2=q$, rappresentano le uniche tre condizioni di equilibrio.
 Consideriamo l'energia di deformazione per la colla come:
 \begin{equation*}
-    \tau_c\,\gamma_c\,dV\,=\,\tau_c\,\frac{\tau_c}{G_c}\,dy\,dz\,dx\,=\,\frac{\tau_c^2}{G_c} (\tau_c-1)dx
+    \tau_c\,\gamma_c\,dV\,=\,\tau_c\,\frac{\tau_c}{G_c}\,dy\,dx\,=\,\frac{\tau_c^2}{G_c} t \,dx
 \end{equation*}
 Introduciamo il coefficiente:
 \begin{equation*}
@@ -36,7 +36,7 @@ Scriviamo adesso il teorema di Menabrea per avere delle condizioni di congruenza
 
 
 \begin{align*}
-    V_{d}\,&=\,V_d(q) +\frac{1}{2} \int_{-b}^b\left( \frac{q_1^2}{Gt}  + \frac{q_2^2b}{Gt} + \frac{\tau_c^2}{G_c}(\tau_c\,y)    \right)dx\\
+    V_{d}\,&=\,V_d(q) +\frac{1}{2} \int_{-b}^b\left( \frac{q_1^2}{Gt}  + \frac{q_2^2}{Gt} + \frac{\tau_c^2}{G_c}\,t  \right)dx\\
    &=\,V_d(q) +\frac{1}{2} \int_{-b}^b\left( q_1^2+ (q-q_1)^2+ \frac{2}{\alpha^2} \dot{q_1}^2   \right)dx\, \frac{1}{Gt}\\
      &=\,V_d(q) +\frac{1}{2} \int_{-b}^b  F(q_1, \dot{q_1})\, dx\, \frac{1}{Gt}\\
 \end{align*}
@@ -67,7 +67,10 @@ Per determinare le costanti $A$ e $B$ combiniamo le condizioni al contorno di $q
     \end{cases}
 \end{equation*}
 
-Sapendo che $2sh(x) = e^x-e^{-x}$ e che $sh(-x)=-sh(x)$.
+Sapendo che $2sh(x) = e^x-e^{-x}$ e che $sh(-x)=-sh(x)$, risulta:
+\begin{equation*}
+    A=-B \qquad A=-\frac{q}{2}\,\frac{1}{2\,sh(\alpha b)}
+\end{equation*}
 \begin{align*}
     q_1\,&=\,\frac{q}{2} \left(  1+\frac{sh(\alpha x)}{sh(\alpha b)}  \right)\\
      q_1\,&=\,\frac{q}{2} \left(  1-\frac{sh(\alpha x)}{sh(\alpha b)}  \right)\\

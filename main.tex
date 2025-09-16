@@ -7,6 +7,7 @@
 \usepackage{pgffor}
 \usepackage{paralist}
 \usepackage[breakable]{tcolorbox}
+\usepackage{tocloft}
 
 
 \usepackage[italian]{babel}
@@ -64,16 +65,34 @@
 \maketitle
 \vfill
 \begin{center}
-    \small\textit{PRIVATE DRAFT}\\
-    \small\textit{Some sources are not yet fully credited. Until the work is finalized, any form of reproduction or public redistribution is prohibited.}\\
-    %\small\textit{Source available at:} \url{https://github.com/giuliomartella}\\
-    %\small\textit{This work is free to use, distribute, and modify, provided that proper credit is given to the authors.}    
+    %\small\textit{PRIVATE DRAFT}\\
+    %\small\textit{Some sources are not yet fully credited. Until the work is finalized, any form of reproduction or public redistribution is prohibited.}\\
+    \small\textit{Source available at:} \url{https://github.com/giuliomartella}\\
+    \small\textit{This work is free to use, distribute, and modify, provided that proper credit is given to the authors.}\\[1em]
+    
+    \small\textbf{Notes}\\
+    \small\textit{Material derived from the Aerospace Structures courses:}\\
+    \small\textit{-- Politecnico di Milano, Academic Year 2022}\\
+    \small\textit{-- Politecnico di Milano, Academic Year 2024}\\[0.5em]
+    \small\textit{Figures are not provided; their drafting is left to the reader.}\\
+    \small\textit{This text is only supplementary and does not replace the official course.}\\
+    \small\textit{To report errors or to collaborate (e.g. on an English version), please use GitHub.}
 \end{center}
+
+
 
 
 \thispagestyle{empty}
 \newpage
+
+
+{\footnotesize
+\setlength{\cftbeforesecskip}{3pt}
 \tableofcontents
+}
+
+
+
 \newpage
 
 

@@ -4,7 +4,13 @@ Ipotesi fondamentali nel caso di approccio alle forze.
     \item La trave è il volume generato dalla traslazione di una figura piana (sezione) lungo un asse ad essa perpendicolare.\\
     \item Siano $L$ la dimensione caratteristica longitudinale e $l$ quella trasversale, allora $L>>l$. La trave si definisce un corpo allungato.\\
     \item I carichi vengono applicati solamente alle estremità. I carichi distribuiti introducono un errore violando questa ipotesi.\\
-    \item Si definiscono le azioni interne: un sistema di tre forze e tre momenti che, sezione per sezione, mantengono in equilibrio la trave rispetto ai carichi esterni. Concordi con gli assi della sezione $\{ T_x \quad T_y \quad T_z \quad M_x \quad M_y \quad M_z \}^T$. I versi positivi delle azioni interne su una sezione corrispondono a versi negativi nella faccia corrispondente per rispettare l'equilibrio.\\
+    \item Si definiscono \emph{azioni interne} un sistema di tre forze e tre momenti che, sezione per sezione, garantisce l’equilibrio della trave rispetto ai carichi esterni. Esse sono assunte concordi con gli assi della sezione e raccolte nel vettore 
+\[
+\{T_x \; T_y \; T_z \; M_x \; M_y \; M_z\}^T.
+\] 
+Per convenzione, i versi positivi delle azioni interne su una sezione corrispondono a versi negativi sulla faccia opposta, così da rispettare le condizioni di equilibrio.\\
+
+    
     \item Le sole componenti diverse da zero di $\left\{\sigma\right\}$ sono le componenti che giacciono sul piano della sezione $(x,y)$: $\left\{ \sigma_{zz} \quad \sigma_{zx} \quad \sigma_{zy} \right\}^T$, per cui:
     \begin{align*}
         \sigma_{zz} \,=\, \sigma \quad\quad\quad \sigma_{zx}\,&=\,\tau_x \quad\quad\quad \sigma_{zy} \,=\,\tau_y\\
